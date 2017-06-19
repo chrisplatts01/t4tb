@@ -1,0 +1,53 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Sign up to the study",
+    id: "sign-up",
+    class: "panel--progress",
+    steps: {
+      done: 4,
+      total: 9
+    },
+    duration: 15,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "sign-up-3.html",
+      next: "sign-up-5.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>Do you suffer from breathlessness at rest?</h1>
+      <form id="sign-up" method="get" action="{{ section.page.next }}">
+        <div class="form-field-group">
+          <div class="form-field form-field--radio">
+            <input id="breathlessness-yes" name="breathlessness" type="radio" value="yes" >
+            <label for="breathlessness-yes">Yes</label>
+          </div>
+          <div class="form-field form-field--radio">
+            <input id="breathlessness-no" name="breathlessness" type="radio" value="no">
+            <label for="breathlessness-no">No</label>
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+      <p><a href="/">Why is this important?</a></p>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}
+

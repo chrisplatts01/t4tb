@@ -1,0 +1,73 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Physical fitness measures",
+    id: "physical-fitness",
+    class: "panel--progress",
+    steps: {
+      done: 1,
+      total: 5
+    },
+    duration: 15,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "/",
+      next: "physical-fitness-2.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>Chair stand test</h1>
+      <div class="video">
+        <div class="video-wrapper">
+          <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <p>After watching this video, enter how many times you are able to stand up and sit down from a chair within 30 seconds. Please use a standard armchair (typically 17” or 43cm high).</p>
+      <form id="register" method="get" action="{{ section.page.next }}">
+        <div class="form-field form-field--text">
+          <label for="chair-stands">Number of chair stands completed in 30 seconds</label>
+          <input id="chair-stands" type="number">
+        </div>
+        <div class="form-field-group">
+          <label>Did you require support from your hands when standing?</label>
+          <div class="form-field form-field--radio">
+            <input id="help-yes" name="help" type="radio" value="yes" >
+            <label for="help-yes">Yes</label>
+          </div>
+          <div class="form-field form-field--radio">
+            <input id="help-no" name="help" type="radio" value="no">
+            <label for="help-no">No</label>
+          </div>
+        </div>
+        <div class="form-field form-field-slider">
+          <label for="how-easy">Please rate how difficult you found this test &ndash; 0 being effortless and 10 being maximum difficulty.</label>
+          <div class="slider">
+            <div class="slider_fill"></div>
+            <div class="slider_labels" style="margin-top: 16px">
+              <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+            </div>
+            <input id="how-easy" name="how-easy" type="text" min="0" max="10">
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+      <p><a href="/">Why is this important?</a></p>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}

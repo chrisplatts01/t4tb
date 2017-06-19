@@ -1,0 +1,40 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "SECTION_TITLE",
+    name: "SECTION_NAME",
+    steps: {
+      done: STEPS_DONE,
+      total: STEPS_TOTAL
+    },
+    duration: DURATION,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "NEXT_PAGE.html",
+      next: "PREVIOUS_PAGE.html"
+    }
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="SECTION_NAME-panel">
+    {% include "includes/SECTION_NAME-header.njk" %}
+    <article>
+      <h1>HEADING</h1>
+      <p>INFORMATION</p>
+      <form id="FORM_ID" method="get" action="{{ nextPage }}">
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ prevPage }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+    </article>
+    {% include "includes/SECTION_NAME-footer.njk" %}
+  </section>
+{% endblock %}

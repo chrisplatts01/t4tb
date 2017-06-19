@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Sign up to the study",
+    id: "sign-up",
+    class: "panel--progress",
+    steps: {
+      done: 9,
+      total: 9
+    },
+    duration: 15,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "sign-up-9.html",
+      next: "sign-up-thanks.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>Consent</h1>
+      <form id="sign-up" method="get" action="{{ section.page.next }}">
+        <div class="consent-items">
+          <div class="form-field-row consent-item">
+            <p>I agree to take part in the Train for the Brain study</p>
+            <div class="form-field form-field--checkbox">
+              <input id="consent-last" name="consent-last" type="checkbox" value="consent-last">
+              <label for="consent-last"></label>
+            </div>
+          </div>
+          <p class="credentials">John Smith, 28th May 2017</p>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}
+

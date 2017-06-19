@@ -1,0 +1,61 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Sign up to the study",
+    id: "sign-up",
+    class: "panel--progress",
+    steps: {
+      done: 6,
+      total: 9
+    },
+    duration: 15,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "sign-up-5.html",
+      next: "sign-up-7.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>How many falls have you had within the last 12 months?</h1>
+      <form id="sign-up" method="get" action="{{ section.page.next }}">
+        <div class="form-field-group">
+          <div class="form-field form-field--radio">
+            <input id="fall-0" name="fall" type="radio" value="0" >
+            <label for="fall-0">0</label>
+          </div>
+          <div class="form-field form-field--radio">
+            <input id="fall-1" name="fall" type="radio" value="1" >
+            <label for="fall-1">1</label>
+          </div>
+          <div class="form-field form-field--radio">
+            <input id="fall-2" name="fall" type="radio" value="2" >
+            <label for="fall-2">2</label>
+          </div>
+          <div class="form-field form-field--radio">
+            <input id="fall-more" name="fall" type="radio" value="More than 2" >
+            <label for="fall-more">More than 2</label>
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+      <p><a href="/">Why is this important?</a></p>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}
+

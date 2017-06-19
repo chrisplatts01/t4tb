@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+#page-content {
+  @include clearfix;
+  background-color: $white;
+  color: $black;
+  // padding-top: $base-spacing;
+}

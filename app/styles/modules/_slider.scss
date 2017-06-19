@@ -1,0 +1,52 @@
+.slider {
+  @include clearfix;
+  position: relative;
+  width: 100%;
+  margin: $base-spacing auto $base-spacing * 4;
+
+  .slider_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0.8em;
+    background-color: $brand-primary;
+  }
+}
+
+.slider_labels {
+  margin-left: -1%;
+  margin-right: -9%;
+
+  span {
+    display: inline-block;
+    width: 9.0909%;
+    text-align: left;
+    font-size: $small-font-size;
+    color: $brand-secondary;
+
+    &:last-child {
+      position: relative;
+      width: 0;
+      overflow: visible;
+      left: -1%;
+    }
+  }
+}
+
+// This should be rolled imto a custom JQuery UI theme
+.slider span.ui-slider-handle {
+  border-radius: 50% !important;
+  height: $base-spacing;
+  width: $base-spacing;
+  outline: 0;
+}
+
+.slider span.ui-slider-handle:hover,
+.slider span.ui-slider-handle:focus,
+.slider span.ui-slider-handle:active {
+  border: 1px solid $brand-primary !important;
+  background-color: $white !important;
+}
+
+

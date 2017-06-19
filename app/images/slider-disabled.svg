@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="441px" height="32px" viewBox="0 0 441 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <path d="M436,8 L4,8 C1.791,8 0,9.791 0,12 L0,16 C0,13.791 1.791,12 4,12 L436,12 C438.209,12 440,13.791 440,16 L440,12 C440,9.791 438.209,8 436,8" id="Fill-1" fill="#E6E1DD"></path>
+            <path d="M4.0013,8.5 C3.8583,8.501 0.5003,8.559 0.5003,12 L0.5003,20 C0.5003,20.142 0.5583,23.5 4.0003,23.5 L436.0003,23.5 C436.1413,23.499 439.5003,23.441 439.5003,20 L439.5003,12 C439.4993,11.858 439.4413,8.5 436.0003,8.5 L4.0003,8.5 L4.0013,8.5 Z" id="Stroke-3" stroke="#CCC2BA"></path>
+            <path d="M220,31.5 C228.547,31.5 235.5,24.547 235.5,16 C235.5,7.453 228.547,0.5 220,0.5 C211.453,0.5 204.5,7.453 204.5,16 C204.5,24.547 211.453,31.5 220,31.5" id="Fill-5" fill="#FEFEFE"></path>
+            <path d="M220,31.5 C228.547,31.5 235.5,24.547 235.5,16 C235.5,7.453 228.547,0.5 220,0.5 C211.453,0.5 204.5,7.453 204.5,16 C204.5,24.547 211.453,31.5 220,31.5 Z" id="Stroke-7" stroke="#CCC2BA"></path>
+        </g>
+    </g>
+</svg>

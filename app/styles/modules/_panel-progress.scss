@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.panel--progress {
+  header {
+    position: relative;
+
+    h1 {
+      color: $dark-gray;
+      background-color: $light-gray;
+      padding: $base-spacing;
+      margin: 0;
+
+      span {
+        display: inline-block;
+        padding-right: $base-spacing;
+
+        small {
+          color: $mid-gray;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  article {
+    width: 100%;
+    padding: $base-spacing $base-spacing $base-spacing;
+    margin: 0 auto;
+
+    @include breakpoint(medium) {
+      width: 480px;
+      padding: $base-spacing  0 $base-spacing;
+    }
+  }
+
+  footer {
+    background-color: $mid-gray;
+    padding: $small-spacing $base-spacing;
+  }
+}
+
+.progress-wrapper {
+  @include clearfix;
+  position: relative;
+  background-color: $light-gray;
+  padding: $base-spacing;
+  border-top: 1px solid $mid-gray;
+
+  .progress-time {
+    width: 50%;
+    float: left;
+    text-align: left;
+
+    img {
+      vertical-align: middle;
+      margin-right: $small-spacing;
+    }
+  }
+
+  .progress-info {
+    width: 50%;
+    float: right;
+    text-align: right;
+  }
+}
+
+.progress-bar {
+  position: relative;
+  // width: 100%;
+  height: 16px;
+  background-color: $light-gray;
+  border-radius: $base-border-radius;
+  margin: $base-spacing;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 16px;
+    background-color: $brand-primary;
+    border-top-left-radius: $base-border-radius;
+    border-bottom-left-radius: $base-border-radius;
+  }
+}
+
+.progress-steps {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  padding-left: $base-spacing;
+  font-size: 2em;
+  font-weight: 100;
+  color: $mid-gray;
+
+  em {
+    color: $brand-primary;
+    font-style: normal;
+  }
+
+  @include breakpoint(medium) {
+    bottom: -100px;
+  }
+}
+
+.progress-cancel {
+  text-align: right;
+
+  a {
+    &:link,
+    &:active,
+    &:visited {
+      color: $dark-gray;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:after {
+      position: relative;
+      top: 4px;
+      font-size: 2rem;
+      content: '\00a0\2297';
+    }
+  }
+}

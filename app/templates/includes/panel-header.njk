@@ -1,0 +1,22 @@
+<header>
+  <h1>{{ section.title }}</h1>
+
+  {% if section.progress %}
+    {% if section.progress.time or section.progress.info %}
+    <div class="progress-wrapper">
+      {% if section.progress.time %}<div class="progress-time"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>{% endif %}
+      {% if section.progress.info %}<div class="progress-info"><a href="#">What happens to my data?</a></div>{% endif %}
+    </div>
+    {% endif %}
+
+    {% if section.progress.bar %}
+    <div class="progress-bar">
+      <span style="width: {{ section.steps.done / section.steps.total * 100 }}%"></span>
+    </div>
+    {% endif %}
+
+    {% if section.progress.steps %}
+    <div class="progress-steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</div>
+    {% endif %}
+  {% endif %}
+</header>

@@ -1,0 +1,55 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Register for the study",
+    id: "register",
+    class: "panel--progress",
+    steps: {
+      done: 4,
+      total: 6
+    },
+    duration: 5,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "register-3.html",
+      next: "register-5.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>Please enter your date of birth</h1>
+      <form id="register" method="get" action="{{ section.page.next }}">
+        <div class="form-field-inline-group">
+          <div class="form-field form-field--text">
+            <label for="dob-day">Day</label>
+            <input id="dob-day" type="number" min="1" max="31" value="1">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="dob-month">Month</label>
+            <input id="dob-month" type="number" min="1" max="12" value="1">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="dob-year">Year</label>
+            <input id="dob-year" type="number" min="1900" max="2017" value="1900">
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}

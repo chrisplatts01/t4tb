@@ -1,0 +1,29 @@
+@mixin breakpoint($point) {
+
+  $bp-large:  "screen and (min-width: 768px)"; // For instance, large tablets and up
+  $bp-medium: "screen and (min-width: 640px)"; // For instance, small tablets and up
+  $bp-small:  "screen and (min-width: 480px)"; // For instance, phones and up
+  $bp-vsmall: "screen and (min-width: 400px)"; // For instance, small phones and up
+
+  @if $point == large {
+    @media #{$bp-large} {
+      @content;
+    }
+  }
+  @else if $point == medium {
+    @media #{$bp-medium} {
+      @content;
+    }
+  }
+  @else if $point == small {
+    @media #{$bp-small} {
+      @content;
+    }
+  }
+  @else if $point == vsmall {
+    @media #{$bp-small} {
+      @content;
+    }
+  }
+
+}

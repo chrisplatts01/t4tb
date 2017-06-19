@@ -1,0 +1,65 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Register for the study",
+    id: "register",
+    class: "panel--progress",
+    steps: {
+      done: 3,
+      total: 6
+    },
+    duration: 5,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "register-2.html",
+      next: "register-4.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>Please enter your address</h1>
+      <form id="register" method="get" action="{{ section.page.next }}">
+         <div class="form-field-group">
+          <div class="form-field form-field-select">
+            <label for="address-list">Please select your address from this list</label>
+            <select id="address-list">
+            <option disabled>Please choose&hellip;</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field-group">
+          <div class="form-field form-field--text">
+            <label for="Address">Address</label>
+            <input id="address-1" type="text">
+            <input id="address-2" type="text">
+            <input id="address-3" type="text">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="town">Town</label>
+            <input id="town" type="text">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="postcode">Postcode</label>
+            <input id="postcode" type="text">
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}

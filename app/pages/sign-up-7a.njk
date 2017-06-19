@@ -1,0 +1,41 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Sign up to the study",
+    id: "sign-up",
+    class: "panel--progress",
+    steps: {
+      done: 7,
+      total: 9
+    },
+    duration: 15,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "sign-up-7.html",
+      next: "sign-up-8.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    <article>
+      <h1>Due to some of the information you have provided, we recommend that you visit your GP prior to starting the exercise programme and discuss this with them.</h1>
+      <form id="sign-up" method="get" action="{{ section.page.next }}">
+        <div class="form-actions">
+          <a class="button secondary" href="/">I will return later</a>
+          <button class="button button--next" type="submit">I will continue</button>
+        </div>
+      </form>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}
+

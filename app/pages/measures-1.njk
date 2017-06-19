@@ -1,0 +1,135 @@
+{% extends "layouts/layout.njk" %}
+
+
+{% block content %}
+  {% set section = {
+      title: "Measures and goals",
+      id: "measures-and-goals",
+      class: "panel--progress"
+    }
+  %}
+  <section id="{{ section.id }}}" class="{{ section.class }}">
+    <header>
+      <h1>{{ section.title }}</h1>
+    </header>
+    <article>
+      <p>Before we start the training programme we need to complete certain measures and set some goals.</p>
+      <p>Your progress on this page will be saved should you log out or wish to complete it over more than one session.</p>
+    </article>
+  </section>
+
+  {% set section = {
+      title: "Physical fitness measures",
+      id: "physical-fitness",
+      class: "panel--progress",
+      steps: {
+        done: 1,
+        total: 4
+      },
+      duration: 15
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <h1>
+        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
+        {{ section.title }}
+      </h1>
+      <div class="progress-wrapper">
+        <div class="progress-time"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+      </div>
+    </header>
+    <article>
+      <div class="video">
+        <div class="video-wrapper">
+          <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <p>This consists of 3 physical fitness tests, ranging in length from 30 seconds to 2 minutes. We will then ask you for some information relating to your walking speed. We also require you to complete a short questionnaire regarding your confidence with several balance tasks.</p>
+      <div class="form-actions">
+        <a class="button" href="">Begin task</a>
+      </div>
+
+    </article>
+  </section>
+
+  {% set section = {
+      title: "Your exercise diary",
+      id: "exercise-diary",
+      class: "panel--progress",
+      steps: {
+        done: 2,
+        total: 4
+      },
+      duration: 10
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <h1>
+        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
+        {{ section.title }}
+      </h1>
+      <div class="progress-wrapper">
+        <div class="progress-time"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+      </div>
+    </header>
+    <article>
+      <p>It is recommended that individuals achieve 150 minutes of moderate physical activity each week to see the health benefits and we encourage you to aim to achieve this.</p>
+      <p>We would like you to answer some short questions regarding any physical activity you have completed within the previous 7 days, including time spent as part of this programme.</p>
+    </article>
+  </section>
+
+  {% set section = {
+      title: "Set your goals",
+      id: "set-goals",
+      class: "panel--progress",
+      steps: {
+        done: 3,
+        total: 4
+      },
+      duration: 5
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <h1>
+        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
+        {{ section.title }}
+      </h1>
+      <div class="progress-wrapper">
+        <div class="progress-time"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+      </div>
+    </header>
+    <article>
+      <p>We will guide you through the process of setting two goals which will focus on improving your physical fitness and achieving an activity that is important to you.</p>
+    </article>
+  </section>
+
+  {% set section = {
+      title: "Cognitive measures, activity and mood scores",
+      id: "cognitive-measures",
+      class: "panel--progress",
+      steps: {
+        done: 4,
+        total: 4
+      },
+      duration: 15
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <h1>
+        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
+        {{ section.title }}
+      </h1>
+      <div class="progress-wrapper">
+        <div class="progress-time"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+      </div>
+   </header>
+    <article>
+      <p>These measures are important and focus on your memory, ability to complete day to day activities and mood.</p>
+      <p>(Please note, you will be directed to a separate page with these measures, and will return here once complete)</p>
+    </article>
+  </section>
+{% endblock %}

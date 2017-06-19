@@ -1,0 +1,57 @@
+{% extends "layouts/layout.njk" %}
+
+{% set section = {
+    title: "Register for the study",
+    id: "register",
+    class: "panel--progress",
+    steps: {
+      done: 1,
+      total: 6
+    },
+    duration: 5,
+    progress: {
+      time: true,
+      info: true,
+      bar: true,
+      steps: true,
+      cancel: true
+    },
+    page: {
+      previous: "/",
+      next: "register-2.html"
+    }
+  }
+%}
+
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    {% include "includes/panel-header.njk" %}
+    <article>
+      <h1>Please enter your name and email address</h1>
+      <form id="register" method="get" action="{{ section.page.next }}">
+        <div class="form-field-inline-group">
+          <div class="form-field form-field--text">
+            <label for="first-name">First name</label>
+            <input id="first-name" type="text">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="last-name">Last name</label>
+            <input id="last-name" type="text">
+          </div>
+        </div>
+        <div class="form-field-group">
+          <div class="form-field form-field--email">
+            <label for="email">Email address</label>
+            <input id="email" type="email">
+          </div>
+        </div>
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
+    </article>
+    {% include "includes/panel-footer.njk" %}
+  </section>
+{% endblock %}
