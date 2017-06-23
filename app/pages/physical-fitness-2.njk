@@ -4,8 +4,8 @@
 {% import "macros/form.njk" as form %}
 
 {% set page = {
-    previous: "/",
-    next: "physical-fitness-1a.html"
+    previous: "physical-fitness-1a.html",
+    next: "physical-fitness-2a.html"
   }
 %}
 
@@ -15,32 +15,30 @@
     {{ section.header(
         title = "Physical fitness measures",
         info = "<a href=\"#\">What happens to my data?</a>" | safe,
-        step = 1,
+        step = 2,
         steps = 5
       )
     }}
 
     <article>
-      <h1>Chair stand test</h1>
+      <h1>Timed chair stand test</h1>
       <div class="video">
         <div class="video-wrapper">
           <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
-      <p>After watching this video, enter how many times you are able to stand up and sit down from a chair within 30 seconds. Please use a standard armchair (typically 17” or 43cm high).</p>
+      <p>After watching the video, enter how many seconds it takes for you to stand up and sit down from a chair 10 times in a row.</p>
       <form id="register" method="get" action="{{ page.next }}">
 
-        {{ form.text("chair-stand-number", "chair-stand-number", "Number of chair stands completed in 30 seconds", "number") }}
-
-        {{ form.yesno("help", "help", "Did you require support from your hands when standing?") }}
-
-        {{ form.slider("how-easy", "how-easy", "Please rate how difficult you found this test - 0 being effortless and 10 being maximum difficulty.") }}
+        {{ form.text("chair-stands-time", "chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number") }}
 
         <div class="form-actions">
           <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
           <button class="button button--next" type="submit">Continue</button>
         </div>
+
       </form>
+      <p><a href="/">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}

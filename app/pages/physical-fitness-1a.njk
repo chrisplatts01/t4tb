@@ -4,8 +4,8 @@
 {% import "macros/form.njk" as form %}
 
 {% set page = {
-    previous: "/",
-    next: "register-2.html"
+    previous: "physical-fitness-1.html",
+    next: "physical-fitness-2.html"
   }
 %}
 
@@ -13,7 +13,7 @@
   <section id="sign-up" class="panel panel--progress">
 
     {{ section.header(
-        title = "Register for the study",
+        title = "Physical fitness measures",
         info = "<a href=\"#\">What happens to my data?</a>" | safe,
         step = 1,
         steps = 5
@@ -21,24 +21,10 @@
     }}
 
     <article>
-      <h1>Please enter your name and email address</h1>
+      <h1>Chair stand test complete</h1>
+      <p>Well done!</p>
+      <p>We have two more physical tests to do.</p>
       <form id="register" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-          <div class="form-field form-field--text">
-            <label for="first-name">First name</label>
-            <input id="first-name" type="text">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="last-name">Last name</label>
-            <input id="last-name" type="text">
-          </div>
-        </div>
-        <div class="form-field-group">
-          <div class="form-field form-field--email">
-            <label for="email">Email address</label>
-            <input id="email" type="email">
-          </div>
-        </div>
         <div class="form-actions">
           <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
           <button class="button button--next" type="submit">Continue</button>

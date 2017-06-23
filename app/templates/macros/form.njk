@@ -1,0 +1,76 @@
+{% macro text(
+    name = "FIELD_NAME",
+    label = "FIELD_LABEL",
+    type = "text",
+    value = ""
+  )
+%}
+<div class="form-field form-field--text">
+  <label for="{{ name }}">{{ label }}</label>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}">
+</div>
+{% endmacro %}
+
+{# % macro textarea( id="ID", name="NAME", label="LABEL", value="" )  %}
+{% endmacro %}
+
+{% macro checkbox( id="ID", name="NAME", label="LABEL", value="" )  %}
+{% endmacro % #}
+
+{% macro radios(
+    name ="NAME",
+    label ="LABEL",
+    options =["OPTION-1"]
+  )
+%}
+<div class="form-field-group">
+  <label>{{ label }}</label>
+
+  {% for option in options %}
+  <div class="form-field form-field--radio">
+    <input id="{{ name }}-{{ option | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ option }}" >
+    <label for="{{ name }}-{{ option | lower | replace(" ", "-") }}">{{ option }}</label>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro yesno(
+    name = "NAME",
+    label = "LABEL"
+  )
+%}
+<div class="form-field-group">
+  <label>{{ label }}</label>
+  <div class="form-field form-field--radio">
+    <input id="{{ name }}-yes" name="{{ name }}" type="radio" value="yes" >
+    <label for="{{ name }}-yes">Yes</label>
+  </div>
+  <div class="form-field form-field--radio">
+    <input id="{{ name }}-no" name="{{ name }}" type="radio" value="no">
+    <label for="{{ name }}-no">No</label>
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro slider(
+    name = "NAME",
+    label = "LABEL",
+    min = 0,
+    max = 10
+  )
+%}
+<div class="form-field form-field-slider">
+  <label for="{{ name }}">{{ label }}</label>
+  <div class="slider">
+    <div class="slider_fill"></div>
+    <div class="slider_labels">
+      {% for i in range( min, max+1 ) -%}
+        <span>{{ i }}</span>
+      {%- endfor %}
+    </div>
+    <input id="{{ name }}" name="{{ name }}" type="hidden" min="{{ min }}" max="{{ max }}">
+  </div>
+</div>
+{% endmacro %}

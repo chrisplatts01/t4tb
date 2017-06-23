@@ -1,41 +1,38 @@
 {% extends "layouts/layout.njk" %}
 
-{% set section = {
-    title: "Sign up to the study",
-    id: "sign-up",
-    class: "panel--progress",
-    steps: {
-      done: 1,
-      total: 9
-    },
-    duration: 15,
-    progress: {
-      time: true,
-      info: true,
-      bar: true,
-      steps: true,
-      cancel: true
-    },
-    page: {
-      previous: "/",
-      next: "sign-up-2.html"
-    }
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "/",
+    next: "sign-up-2.html"
   }
 %}
 
-
 {% block content %}
   <section id="sign-up" class="panel panel--progress">
-    {% include "includes/panel-header.njk" %}
+
+    {{ section.header(
+        title = "Sign up to the study",
+        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        step = 1,
+        steps = 9
+      )
+    }}
+
     <article>
       <h1>Important information about you</h1>
       <p>Before we start your programme it is important that we are aware of certain medical conditions.</p>
-      <div class="form-actions">
-        <a class="button button--back secondary" href="{{ section.page.previous }}">Go back</a>
-        <a class="button button--next" href="{{ section.page.next }}">Continue</a>
-      </div>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        <div class="form-actions">
+          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
+          <button class="button button--next" type="submit">Continue</button>
+        </div>
+      </form>
       <p><a href="/">Why is this important?</a></p>
     </article>
-    {% include "includes/panel-footer.njk" %}
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
   </section>
 {% endblock %}

@@ -1,0 +1,57 @@
+{% macro header(
+    title = "SECTION_TITLE",
+    show_progress_header = true,
+    show_progress_bar = true,
+    show_progress_steps = true,
+    duration = 15,
+    info = "SECTION_INFO",
+    step = 1,
+    steps = 5
+  )
+%}
+<header>
+  <div class="section-title">
+    <div class="wrapper">
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+
+  {% if show_progress_header %}
+  <div class="progress-header">
+    <div class="wrapper">
+      {% if duration %}<div class="progress-duration"><img src="images/time-icon-{{ duration }}.svg" >Takes about {{ duration }} minutes</div>{% endif %}
+      {% if info %}<div class="progress-info">{{ info }}</div>{% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if show_progress_bar %}
+  <div class="progress-bar">
+    <div class="wrapper">
+      <div class="progress-total"></div>
+      <div class="progress-done" style="width: {{ step / steps * 100 }}%"></div>
+    </div>
+  </div>
+  {% endif %}
+
+    {% if show_progress_steps %}
+    <div class="progress-steps">
+      <div class="wrapper">
+        <em>{{ step }}</em>/{{ steps }}
+      </div>
+    </div>
+    {% endif %}
+</header>
+{% endmacro %}
+
+{% macro footer(
+    info = ""
+  )
+%}
+<footer>
+  <div class="footer-info wrapper">{{ info }}</div>
+</footer>
+{% endmacro %}
+
+{# macro XXXX() %}
+{% endmacro #}

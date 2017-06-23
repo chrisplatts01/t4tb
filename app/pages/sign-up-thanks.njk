@@ -1,19 +1,11 @@
 {% extends "layouts/layout.njk" %}
 
-{% set section = {
-    title: "Sign up to the study",
-    id: "sign-up",
-    class: "panel--progress",
-    steps: {
-      done: 9,
-      total: 9
-    },
-    duration: 15,
-    progress: false,
-    page: {
-      previous: "sign-up-9a.html",
-      next: "/"
-    }
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "sign-up-9a.html",
+    next: "/"
   }
 %}
 
@@ -24,7 +16,7 @@
       <p>You are now signed up to the Train for the Brain study. We will be posting out a mail pack which you should receive in the next 2 weeks, containing a Meglio exercise band amongst other things!</p>
       <p>In the meantime we need to complete certain measures and set some goals before we start the programme.</p>
       <div class="form-actions">
-        <a class="button button--next" href="{{ section.page.next }}">Continue</a>
+        <a class="button button--next" href="{{ page.next }}">Continue</a>
       </div>
     </article>
   </section>
