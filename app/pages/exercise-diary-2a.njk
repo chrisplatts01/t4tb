@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "exercise-diary-2.html",
+    next: "exercise-diary-3.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Your exercise diary",
+        info = "" | safe,
+        duration = 10,
+        step = 2,
+        steps = 6
+      )
+    }}
+
+    <article>
+      <h1>Do you have a device that records your step count?</h1>
+      <form id="diary" method="get" action="{{ page.next }}">
+        {{ form.yesno("has-device", "") }}
+        {{ form.text("daily-steps", "Over the last 7 days, what is you average daily stepcount?", "number") }}
+        {{ form.checkboxes( "device-type", "What device records your stepcount?", ["Smartphone e.g. Apple/Android phone", "Worn device e.g. Fitbit", "Pedometer"] ) }}
+        {{ form.textarea("device-other", "Other - please specifiy") }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

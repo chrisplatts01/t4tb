@@ -1,0 +1,24 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "sign-up-9a.html",
+    next: "/"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+    <article>
+      <h1>Thanks for signing up!</h1>
+      <p>You are now signed up to the Train for the Brain study. We will be posting out a mail pack which you should receive in the next 2 weeks, containing a Meglio exercise band amongst other things!</p>
+      <p>In the meantime we need to complete certain measures and set some goals before we start the programme.</p>
+      <div class="form-actions">
+        <a class="button button--next" href="{{ page.next }}">Continue</a>
+      </div>
+    </article>
+  </section>
+{% endblock %}
+

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.button,
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
+  appearance: none;
+  background-color: $action-color;
+  border: 0;
+  border-radius: $base-border-radius;
+  color: #fff !important;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  line-height: 1;
+  padding: $small-spacing $base-spacing;
+  margin: $small-spacing 0;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-bottom: 2px solid shade($action-color, 30%);
+  border-right: 2px solid shade($action-color, 30%);
+  width: 272px;
+
+  @include breakpoint(small) {
+    width: auto;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: shade($action-color, 20%);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    background-color: $light-gray;
+    color: $mid-gray !important;
+    border-bottom: 2px solid shade($light-gray, 20%);
+    border-right: 2px solid  shade($light-gray, 20%);
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+
+  &.secondary {
+    background-color: $mid-gray;
+    color: $dark-gray !important;
+    border-bottom: 2px solid  shade($mid-gray, 20%);
+    border-right: 2px solid  shade($mid-gray, 20%);
+
+    &:hover,
+    &:focus {
+      background-color: shade($mid-gray, 10%);
+    }
+  }
+
+  &.button--back {
+    position: relative;
+    padding: $small-spacing $base-spacing * 2;
+
+    &:before {
+      position: absolute;
+      left: $base-spacing;
+      content: "\2039";
+    }
+  }
+
+  &.button--next {
+    position: relative;
+    padding: $small-spacing $base-spacing * 2;
+
+    &:before {
+      position: absolute;
+      right: $base-spacing;
+      content: "\203a";
+    }
+  }
+}
+
+
+.button-wrapper {
+  @include flexbox($justify-content: space-between);
+  margin: $small-spacing 0;
+
+  &.centred {
+    @include flexbox($justify-content: space-around);
+  }
+}
+

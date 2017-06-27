@@ -1,0 +1,60 @@
+<!-- layout.nunjucks -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Train for the Brain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+{% include "includes/page-header.njk" %}
+
+<main id="page-content" role="main">
+  {% block content %}{% endblock %}
+</main>
+
+{% include "includes/page-footer.njk" %}
+
+{% include "dev-menu.njk" %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+  jQuery.noConflict();
+  (function($) {
+    $('.slider').slider({
+      create: function(event, ui) {
+        var $this = $(this);
+        var $input = $this.find('input');
+        var dataMin = $input.data('min');
+        var dataMax = $input.data('max');
+        var dataStep = $input.data('step');
+
+        $this.slider('option', 'min', dataMin);
+        $this.slider('option', 'max', dataMax);
+        $this.slider('option', 'step', dataStep);
+        $this.slider('option', 'range', false);
+        $this.slider('option', 'animate', 500);
+      },
+      slide: function(event, ui) {
+        var $this = $(this);
+        var min = $this.slider('option', 'min');
+        var max = $this.slider('option', 'max');
+        var value = ui.value;
+        var fill = (value / (max - min) * 100) + '%';
+
+        $(this).find('input').val(value);
+        $(this).find('.slider_fill').width(fill);
+      }
+    });
+  })(jQuery);
+</script>
+
+</body>
+</html>

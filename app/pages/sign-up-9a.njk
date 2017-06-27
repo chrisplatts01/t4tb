@@ -1,0 +1,44 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "sign-up-9.html",
+    next: "sign-up-thanks.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Sign up to the study",
+        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        step = 9,
+        steps = 9
+      )
+    }}
+
+    <article>
+      <h1>Consent</h1>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        <div class="consent-items">
+          <div class="form-field-row consent-item">
+            <p>I agree to take part in the Train for the Brain study</p>
+            <div class="form-field form-field--checkbox">
+              <input id="consent-last" name="consent-last" type="checkbox" value="consent-last">
+              <label for="consent-last"></label>
+            </div>
+          </div>
+          <p class="credentials">John Smith, 28th May 2017</p>
+        </div>
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}
+

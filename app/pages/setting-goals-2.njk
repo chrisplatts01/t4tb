@@ -1,0 +1,36 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "setting-goals-1.html",
+    next: "setting-goals-3.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Setting your goals",
+        info = "" | safe,
+        duration = 5,
+        step = 2,
+        steps = 3
+      )
+    }}
+
+    <article>
+      <h1>Physical exercise goal</h1>
+      <p>We would like to relate your first goal to your individual physical fitness results.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        <label>We would recommend that you aim to be able to do XXX chair stands in 30 seconds over the coming weeks.</label>
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

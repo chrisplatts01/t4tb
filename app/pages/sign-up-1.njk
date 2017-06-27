@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "/",
+    next: "sign-up-2.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Sign up to the study",
+        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        step = 1,
+        steps = 9
+      )
+    }}
+
+    <article>
+      <h1>Important information about you</h1>
+      <p>Before we start your programme it is important that we are aware of certain medical conditions.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+      <p><a href="/">Why is this important?</a></p>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "sign-up-2.html",
+    next: "sign-up-4.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Sign up to the study",
+        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        step = 3,
+        steps = 9
+      )
+    }}
+
+    <article>
+      <h1>In the last 3 months have you had:</h1>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        <div class="form-field-group">
+          <div class="form-field form-field--checkbox">
+            <input id="cardio-1" name="cardio" type="checkbox" value="myocardial-infarction">
+            <label for="cardio-1">A myocardial infarction or ‘heart attack’?</label>
+          </div>
+          <div class="form-field form-field--checkbox">
+            <input id="cardio-2" name="cardio" type="checkbox" value="stroke">
+            <label for="cardio-2">A stroke?</label>
+          </div>
+          <div class="form-field form-field--checkbox">
+            <input id="cardio-3" name="cardio" type="checkbox" value="blackout">
+            <label for="cardio-3">Any blackouts?</label>
+          </div>
+        </div>
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+      <p><a href="/">Why is this important?</a></p>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}
+

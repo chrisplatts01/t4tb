@@ -1,0 +1,144 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "sign-up-7.html",
+    next: "sign-up-9.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Sign up to the study",
+        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        step = 9,
+        steps = 9
+      )
+    }}
+
+    <article>
+      <h1>Please check that the information we have about you is correct</h1>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="name">Name</label>
+            <input id="name" type="text" value="John Smith">
+            <div class="form-field-value">John Smith</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="email-address">Email address</label>
+            <input id="email" type="email" value="john.smith@gmail.com">
+            <div class="form-field-value">john.smith@gmail.com</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="address">Address</label>
+            <input id="address" type="text" value="11 Main Street, Anytown, ZZ1 1ZZ">
+            <div class="form-field-value">11 Main Street, Anytown, ZZ1 1ZZ</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="xxxxx">Date of birth</label>
+            <input id="xxxxx" type="text" value="xxxxx">
+            <div class="form-field-value">xxxxx</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="sex">Sex</label>
+            <input id="sex" type="text" value="Male">
+            <div class="form-field-value">Male</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="angina">Ongoing angina on a weekly basis</label>
+            <input id="angina" type="text" value="No">
+            <div class="form-field-value">No</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="cardio">Suffered in the last 3 months</label>
+            <input id="cardio" type="text" value="Stroke">
+            <div class="form-field-value">Stroke</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="breathlessness">Breathlessness at rest</label>
+            <input id="breathlessness" type="text" value="No">
+            <div class="form-field-value">No</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="emphysema">Emphysema or COPD</label>
+            <input id="emphysema" type="text" value="No">
+            <div class="form-field-value">No</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="falls">Falls in the last 12 months</label>
+            <input id="falls" type="text" value="No">
+            <div class="form-field-value">No</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <div class="form-field-summary">
+            <label for="walking-aid">Use of walking aid</label>
+            <input id="walking-aid" type="text" value="No">
+            <div class="form-field-value">No</div>
+          </div>
+          <div class="form-field-edit">
+            <a href="#">Edit</a>
+          </div>
+        </div>
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}
+

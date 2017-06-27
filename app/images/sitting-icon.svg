@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,16 C0,24.837 7.163,32 16,32 L16,32 C24.836,32 32,24.837 32,16 L32,16 C32,7.164 24.836,0 16,0 L16,0 C7.163,0 0,7.164 0,16 L0,16 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g id="Group-12">
+                <polygon id="Stroke-1" stroke="#CCC2BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15 12 20 24 20 19 15 19"></polygon>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-4"></g>
+                <polygon id="Fill-3" fill="#CCC2BA" mask="url(#mask-2)" points="12 22 18 22 18 21 12 21"></polygon>
+                <polygon id="Fill-5" fill="#CCC2BA" mask="url(#mask-2)" points="12 22 13 22 13 13 12 13"></polygon>
+                <path d="M16.5,8.5 C16.5,7.672 15.828,7 15,7 C14.172,7 13.5,7.672 13.5,8.5 C13.5,9.328 14.172,10 15,10 C15.828,10 16.5,9.328 16.5,8.5" id="Fill-6" fill="#CCC2BA" mask="url(#mask-2)"></path>
+                <path d="M28,16 C28,22.627 22.627,28 16,28 C9.373,28 4,22.627 4,16 C4,9.373 9.373,4 16,4 C22.627,4 28,9.373 28,16" id="Fill-7" fill="#CCC2BA" mask="url(#mask-2)"></path>
+                <polyline id="Stroke-8" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="15 12 15 19 20 19 20 24"></polyline>
+                <polygon id="Fill-9" fill="#FFFFFF" mask="url(#mask-2)" points="12 22 18 22 18 21 12 21"></polygon>
+                <polygon id="Fill-10" fill="#FFFFFF" mask="url(#mask-2)" points="12 22 13 22 13 13 12 13"></polygon>
+                <path d="M16.5,8.5 C16.5,7.672 15.828,7 15,7 C14.172,7 13.5,7.672 13.5,8.5 C13.5,9.328 14.172,10 15,10 C15.828,10 16.5,9.328 16.5,8.5" id="Fill-11" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+            <path d="M16,31 C24.271,31 31,24.271 31,16 C31,7.729 24.271,1 16,1 C7.729,1 1,7.729 1,16 C1,24.271 7.729,31 16,31 Z" id="Stroke-13" stroke="#CCC2BA" stroke-width="2"></path>
+        </g>
+    </g>
+</svg>

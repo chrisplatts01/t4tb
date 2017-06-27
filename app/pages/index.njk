@@ -1,0 +1,78 @@
+{% extends "layouts/layout.njk" %}
+
+{% set user = {
+    loggedIn: true,
+    name: "John Smith"
+  }
+%}
+
+{% block content %}
+<section id="welcome" class="hero-panel">
+  <div class="overlay">
+    <div class="wrapper">
+      <h2>Welcome to</h2>
+      <h1>Train&nbsp;for the&nbsp;Brain</h1>
+      <p>A research study to encourage physical activity for over-50s, whilst learning if this improves mood, brain function and physical ability</p>
+      <div class="form-actions centred"><a class="button" href="sign-up-1.html">Sign up</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits-of-t4tb" class="display-panel">
+  <div class="wrapper wrapper--wide">
+    <h1 class="display-panel_header centred">What are the benefits of Train for the Brain?</h1>
+    <div class="display-panel_boxes">
+
+      <div class="display-panel_box">
+        <div class="display-panel_image">
+          <img src="images/research-icon.svg">
+        </div>
+        <p class="display-panel_text">Be part of an exciting research study</p>
+      </div>
+
+      <div class="display-panel_box">
+        <div class="display-panel_image">
+          <img src="images/fitness-icon.svg">
+        </div>
+        <p class="display-panel_text">Improve your physical fitness levels</p>
+      </div>
+
+      <div class="display-panel_box">
+        <div class="display-panel_image">
+          <img src="images/goals-icon.svg">
+        </div>
+        <p class="display-panel_text">Set and reach your personal goals</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who-is-t4tb" class="display-panel display-panel--dark">
+  <div class="wrapper">
+    <h1 class="centred">Who is running Train for the Brain?</h1>
+    <p class="display-panel_text">Train for the Brain is part of the PROTECT study and is hosted jointly by King’s College London and the University of Exeter.</p>
+    <div class="display-panel_boxes">
+
+      <div class="display-panel_box display-panel_box--small">
+        <div class="display-panel_image">
+          <img src="images/kings-logo-red.svg">
+        </div>
+      </div>
+
+      <div class="display-panel_box display-panel_box--small">
+        <div class="display-panel_image">
+          <img src="images/exeter-logo.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="am-i-eligible" class="display-panel">
+  <div class="wrapper">
+    <h1 class="centred">Am I eligible to participate?</h1>
+    <p class="display-panel_text">Anyone over the age of 50 who lives in the United Kingdom and does not have a diagnosis of dementia is able to take part in this study.</p>
+    <div class="form-actions centred"><a class="button" href="register-1.html">Sign up</a></div>
+  </div>
+</section>
+{% endblock %}

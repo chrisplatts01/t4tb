@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  & + fieldset {
+    margin-top: $base-spacing;
+  }
+}
+
+legend {
+  font-weight: 400;
+  color: $brand-secondary;
+  margin-bottom: $small-spacing / 2;
+  padding: 0;
+}
+
+label {
+  display: block;
+  color: $brand-secondary;
+  font-weight: 400;
+  font-size: $small-font-size;
+
+  // .form-field--radio &,
+  // .form-field--checkbox & {
+  //   color: $dark-gray;
+  // }
+}
+
+// Text fields
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input:not([type]),
+textarea,
+select {
+  background-color: $base-background-color;
+  border: 1px solid $mid-gray;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  box-sizing: border-box;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  margin-bottom: $small-spacing;
+  padding: $base-spacing / 3;
+  transition: border-color $base-duration $base-timing;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    border-color: $action-color;
+    box-shadow: $form-box-shadow-focus;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: shade($base-background-color, 5%);
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      border-color: $mid-gray;
+      box-shadow: $form-box-shadow;
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+// Radio button fields
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+}
+
+input[type='radio'] + label {
+  position: relative;
+  padding: 0 0 0 $base-spacing * 2;
+}
+
+input[type='radio'] + label:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -4px;
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  border: 2px solid $mid-gray;
+  box-shadow: inset 0px 0px 0px 4px white;
+  border-radius: 14px;
+}
+
+input[type='radio']:checked + label:before {
+  background: $brand-primary;
+  border-color: $brand-primary;
+}
+
+// Checkboxe fields (label follows)
+input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+}
+
+input[type='checkbox'] + label {
+  position: relative;
+  padding: 0 0 0 $base-spacing * 2;
+}
+
+input[type='checkbox'] + label:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -4px;
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  border: 2px solid $mid-gray;
+  box-shadow: inset 0px 0px 0px 4px #fff;
+  border-radius: $base-border-radius;
+}
+
+input[type='checkbox']:checked + label:before {
+  background: $brand-primary;
+  border-color: $brand-primary;
+}
+
+// Field containers
+.form-field-group {
+  label + .form-field-inline-group {
+    margin-top: $small-spacing;
+  }
+}
+
+.form-field-inline-group {
+  @include breakpoint(large) {
+    @include flexbox($justify-content: space-between);
+
+    .form-field {
+      width: 49%;
+    }
+  }
+}
+
+form > .form-field {
+  margin: $base-spacing 0;
+}
+
+.form-field {
+  padding: 0;
+}
+
+.form-field--radio,
+.form-field--checkbox {
+  padding: $small-spacing 0;
+}
+
+.form-field--slider {
+  padding: 0 $base-spacing $base-spacing;
+  border-bottom: 1px solid $mid-gray;
+}
+
+.form-actions {
+  @include flexbox($justify-content: space-around);
+  margin: $small-spacing 0;
+
+  @include breakpoint(small) {
+    @include flexbox($justify-content: space-between);
+
+    &.centred {
+      @include flexbox($justify-content: space-around);
+    }
+  }
+}
+
+.form-field-row {
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap);
+  margin-bottom: $small-spacing;
+  border-bottom: 1px solid $mid-gray;
+}
+
+.form-field-summary {
+  label {
+    font-size: $small-font-size;
+  }
+
+  input {
+    display: none;
+  }
+}
+
+
+
+// These rules dont belong here!
+.consent-items {
+  counter-reset: consent-item;
+
+    .credentials {
+      color: $brand-secondary;
+      font-size: $small-font-size;
+      border-bottom: 1px solid $mid-gray;
+    }
+
+  .consent-item {
+    @include flexbox($justify-content: space-between, $align-items: flex-start, $flex-wrap: nowrap);
+    margin-bottom: $small-spacing;
+    border-bottom: 1px solid $mid-gray;
+
+    p {
+      font-size: $small-font-size;
+      padding: 0 $small-spacing 0 0;
+      width: 100%;
+
+      @include breakpoint(large) {
+        padding: 0 $base-spacing 0 0;
+      }
+    }
+
+    label {
+      // WARNING: 27px is a magic number!
+      padding: 0 27px 0 0 !important;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+  }
+
+  .consent-item--with-counter {
+    &:before {
+      content: counter(consent-item);
+      counter-increment: consent-item;
+      vertical-align: top;
+      color: $brand-secondary;
+      padding-right: $base-spacing;
+
+      @include breakpoint(large) {
+        padding-right: $base-spacing * 2;
+      }
+    }
+  }
+}

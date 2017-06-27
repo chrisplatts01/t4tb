@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+// Typography
+$base-font-family: 'Rubik', 'HelveticaNeue', 'Arial', sans-serif;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 18px;
+$small-font-size: 16px;
+$tiny-font-size: 14px;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.25;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 16px;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$green: #1aab98;
+$blue: #022553;
+$light-blue: #1067cf;
+
+$white: #fff;
+$light-gray: #f3f0ee;
+$mid-gray: #ccc2bb;
+$dark-gray: #756661;
+$black: #000;
+
+// Brand colors
+$brand-primary: $green;
+$brand-secondary: $blue;
+$brand-tertiary: $light-blue;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$heading-font-color: $brand-secondary;
+$action-color: $green;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 2px rgba($black, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 3px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+// // Buttons
+// $buttons-list: 'button',
+//                'input[type="button"]',
+//                'input[type="reset"]',
+//                'input[type="submit"]',
+//                '.button';
+
+// $all-buttons:              assign-inputs($buttons-list);
+// $all-buttons-active:       assign-inputs($buttons-list, active);
+// $all-buttons-focus:        assign-inputs($buttons-list, focus);
+// $all-buttons-hover:        assign-inputs($buttons-list, hover);
+
+// $all-button-inputs:        $all-buttons;
+// $all-button-inputs-active: $all-buttons-active;
+// $all-button-inputs-focus:  $all-buttons-focus;
+// $all-button-inputs-hover:  $all-buttons-hover;
+
+// // Text inputs
+// input[type="color"]'
+// input[type="date"]'
+// input[type="datetime"]'
+// input[type="datetime-local"]'
+// input[type="email"]'
+// input[type="month"]'
+// input[type="number"]'
+// input[type="password"]'
+// input[type="search"]'
+// input[type="tel"]'
+// input[type="text"]'
+// input[type="time"]'
+// input[type="url"]'
+// input[type="week"]'
+// input:not([type])'
+// textarea'
+
+// $all-text-inputs:        assign-inputs($text-inputs-list);
+// $all-text-inputs-active: assign-inputs($text-inputs-list, active);
+// $all-text-inputs-focus:  assign-inputs($text-inputs-list, focus);
+// $all-text-inputs-hover:  assign-inputs($text-inputs-list, hover);
+

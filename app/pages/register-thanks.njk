@@ -1,0 +1,34 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "register-5.html",
+    next: "/"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Register for the study",
+        show_progress_header = false,
+        show_progress_bar = false,
+        show_progress_steps = false
+      )
+    }}
+
+    <article>
+      <h1>Thank you</h1>
+      <p>Thank you for registering.</p>
+      <div class="form-actions">
+        <a class="button button--next" href="{{ page.next }}">Continue</a>
+      </div>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "physical-fitness-2.html",
+    next: "physical-fitness-3.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Physical fitness measures",
+        info = "<a href=\"#\">Why is this important?</a>" | safe,
+        step = 2,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1>Timed chair stand test complete</h1>
+      <p>Well done!</p>
+      <p>You are performing as we would expect for your age.</p>
+      <form id="register" method="get" action="{{ page.next }}">
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

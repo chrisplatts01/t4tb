@@ -1,0 +1,34 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "physical-fitness-3a.html",
+    next: "physical-fitness-5.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Physical fitness measures",
+        info = "<a href=\"#\">Why is this important?</a>" | safe,
+        step = 4,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1>How would you describe your walking speed?</h1>
+      <form id="register" method="get" action="{{ page.next }}">
+        {{ form.radios( "walking-speed", "Please choose from the following option that best describes you.", ["Unable to walk", "Very slow", "Stroll at an easy pace", "Normal speed", "Fairly brisk", "Fast"] ) }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

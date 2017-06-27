@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+.panel--progress {
+  header {
+    position: relative;
+
+    .section-title {
+      background-color: $light-gray;
+
+      h1 {
+        color: $dark-gray;
+        padding: $base-spacing;
+        margin: 0;
+
+        .steps {
+          display: inline-block;
+          padding-right: $base-spacing;
+          color: $mid-gray;
+
+          em {
+            color: $dark-gray;
+            font-style: normal;
+          }
+        }
+      }
+    }
+
+    .progress-header {
+      @include clearfix;
+      position: relative;
+      background-color: $light-gray;
+      padding: 0;
+
+      hr {
+        height: 1px;
+        background-color: $mid-gray;
+        border:none;
+        margin: 0 $base-spacing;
+        padding: 0;
+        line-height: 0;
+      }
+
+      .progress-duration,
+      .progress-complete {
+        margin: $small-spacing 0;
+        padding: 0 $base-spacing;
+
+        @include breakpoint(large) {
+          width: 45%;
+          float: left;
+        }
+
+        img {
+          vertical-align: middle;
+          margin-right: $small-spacing;
+        }
+      }
+
+      .progress-complete {
+        display: none;
+      }
+
+      .progress-info {
+        margin: $small-spacing 0;
+        padding: 0 $base-spacing;
+
+        @include breakpoint(large) {
+          width: 45%;
+          float: right;
+          text-align: right;
+        }
+      }
+    }
+
+    .progress-bar {
+      margin: $base-spacing 0;
+
+      .wrapper {
+        padding: 0 $base-spacing;
+      }
+
+      .progress-total {
+        display: block;
+        width: 100%;
+        height: 16px;
+        background-color: $light-gray;
+        border-radius: $base-border-radius;
+      }
+
+      .progress-done {
+        display: block;
+        height: 16px;
+        background-color: $brand-primary;
+        border-top-left-radius: $base-border-radius;
+        border-bottom-left-radius: $base-border-radius;
+        margin-top: -16px;
+      }
+    }
+
+    .progress-steps {
+      font-size: 2em;
+      font-weight: 100;
+      color: $mid-gray;
+      margin-bottom: -25px;
+
+      .wrapper {
+        padding-left: $base-spacing;
+      }
+
+      em {
+        color: $brand-primary;
+        font-style: normal;
+      }
+
+      @include breakpoint(large) {
+        margin-bottom: -75px;
+      }
+    }
+  }
+
+  article {
+    width: 100%;
+    max-width: 520px;
+    padding: $base-spacing;
+    margin: 0 auto;
+
+    // @include breakpoint(large) {
+    //   padding: $base-spacing  0 $base-spacing;
+    // }
+  }
+
+  footer {
+    position: relative;
+    background-color: $mid-gray;
+    padding: $small-spacing 0;
+
+    .footer-info {
+
+      a {
+        &:link,
+        &:active,
+        &:visited {
+          display: block;
+          color: $dark-gray;
+          text-align: left;
+          padding-left: $base-spacing;
+          padding-right: $base-spacing * 3;
+
+          @include breakpoint(medium) {
+            text-align: right;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          border-bottom: 1px solid $dark-gray;
+        }
+
+        &:after {
+          position: absolute;
+          top: 12px;
+          right: $base-spacing;
+          font-size: 40px;
+          content: '\00a0\2297';
+          line-height: 0;
+        }
+      }
+    }
+  }
+
+  &.is-complete {
+    .section-title {
+      background-color: $brand-primary;
+
+      h1 {
+        color: $white;
+
+        .steps {
+          color: $dark-gray;
+
+          em {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .progress-header {
+      background-color: $brand-primary;
+      // border-top: 1px solid $dark-gray;
+      border-bottom: 1px solid $white;
+
+        hr {
+          background-color: $dark-gray;
+        }
+
+      .progress-duration {
+        display: none;
+      }
+
+      .progress-complete {
+        display: block;
+        color: $white;
+      }
+    }
+
+    article{
+      display: none;
+    }
+  }
+}

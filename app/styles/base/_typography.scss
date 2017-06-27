@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+
+  header,
+  article,
+  section,
+  footer {
+    color: $base-font-color;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  margin: 0 0 $small-spacing;
+  color: $heading-font-color;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0 0 $base-spacing * 2;
+
+  @include breakpoint(small) {
+    font-size: 32px;
+  }
+
+  @include breakpoint(medium) {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $action-color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($action-color, 25%);
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}

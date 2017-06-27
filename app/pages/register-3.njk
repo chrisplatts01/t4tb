@@ -1,0 +1,57 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "register-2.html",
+    next: "register-4.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Register for the study",
+        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        step = 3,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1>Please enter your address</h1>
+      <form id="register" method="get" action="{{ page.next }}">
+         <div class="form-field-group">
+          <div class="form-field form-field-select">
+            <label for="address-list">Please select your address from this list</label>
+            <select id="address-list">
+            <option disabled>Please choose&hellip;</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field-group">
+          <div class="form-field form-field--text">
+            <label for="Address">Address</label>
+            <input id="address-1" type="text">
+            <input id="address-2" type="text">
+            <input id="address-3" type="text">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="town">Town</label>
+            <input id="town" type="text">
+          </div>
+          <div class="form-field form-field--text">
+            <label for="postcode">Postcode</label>
+            <input id="postcode" type="text">
+          </div>
+        </div>
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

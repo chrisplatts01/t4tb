@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+#page-footer {
+  @include clearfix;
+  padding: $small-spacing 0;
+  background-color: $brand-secondary;
+  color: $white;
+
+  .logos {
+    @include flexbox($justify-content: space-between);
+  }
+
+  .sponsor-logos {
+    img {
+      margin: 0 24px;
+    }
+  }
+
+  .project-logos {
+    img {
+      margin: 8px 24px 0;
+    }
+  }
+
+  .utility-nav {
+    font-size: $small-font-size;
+    border-top: 1px solid $white;
+    margin:  12px 24px 0;
+    padding: 12px 0 0 0;
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        @include breakpoint(medium) {
+          display: inline-block;
+          padding: 0 $small-spacing;
+          border-right: 1px solid $white;
+
+          &:first-child {
+            padding-left: 0;
+          }
+
+          &:last-child {
+            border-right: none;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+  }
+}
