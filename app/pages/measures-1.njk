@@ -10,7 +10,11 @@
   %}
   <section id="measures-and-goals" class="panel--progress">
     <header>
-      <h1>{{ section.title }}</h1>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>{{ section.title }}</h1>
+        </div>
+      </div>
     </header>
     <article>
       <p>Before we start the training programme we need to complete certain measures and set some goals.</p>
@@ -31,12 +35,20 @@
   %}
   <section id="{{ section.id }}" class="{{ section.class }}">
     <header>
-      <h1>
-        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
-        {{ section.title }}
-      </h1>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
       <div class="progress-header">
-        <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
       </div>
     </header>
     <article>
@@ -49,7 +61,6 @@
       <div class="form-actions">
         <a class="button" href="physical-fitness-1.html">Begin task</a>
       </div>
-
     </article>
   </section>
 
@@ -66,12 +77,20 @@
   %}
   <section id="{{ section.id }}" class="{{ section.class }}">
     <header>
-      <h1>
-        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
-        {{ section.title }}
-      </h1>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
       <div class="progress-header">
-        <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
       </div>
     </header>
     <article>
@@ -93,12 +112,20 @@
   %}
   <section id="{{ section.id }}" class="{{ section.class }}">
     <header>
-      <h1>
-        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
-        {{ section.title }}
-      </h1>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
       <div class="progress-header">
-        <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
       </div>
     </header>
     <article>
@@ -119,12 +146,20 @@
   %}
   <section id="{{ section.id }}" class="{{ section.class }}">
     <header>
-      <h1>
-        <span>{{ section.steps.done }}/<small>{{ section.steps.total }}</small></span>
-        {{ section.title }}
-      </h1>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
       <div class="progress-header">
-        <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
       </div>
    </header>
     <article>

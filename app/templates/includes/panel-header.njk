@@ -9,11 +9,14 @@
     {% if section.progress.time or section.progress.info %}
     <div class="progress-header">
       <div class="wrapper">
+        <hr>
+        XXXXXXXXXXXXX
         {% if section.progress.time %}<div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>{% endif %}
         {% if section.progress.info %}<div class="progress-info"><a href="#">What happens to my data?</a></div>{% endif %}
       </div>
     </div>
     {% endif %}
+
     {% if section.progress.bar %}
     <div class="progress-bar">
       <div class="wrapper">
@@ -22,6 +25,7 @@
       </div>
     </div>
     {% endif %}
+
     {% if section.progress.steps %}
     <div class="progress-steps">
       <div class="wrapper">

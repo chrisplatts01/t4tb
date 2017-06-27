@@ -1,0 +1,51 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "setting-goals-2.html",
+    next: "/"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Setting your goals",
+        info = "" | safe,
+        duration = 5,
+        step = 3,
+        steps = 3
+      )
+    }}
+
+    <article>
+      <h1>Personal goal</h1>
+      <p>Now set a goal that is meaningful to you.</p>
+      <p>We use a personal goal attainment scale to help you, and us, to follow your progress.</p>
+      <p>When setting this goal, currently on the sliding scale you should be at 0%, achieving the goal would be rated at 100%.</p>
+
+      {{ form.slider("", "", 0, 100, 25, "%", "No confidence", "Complete confidence") }}
+
+      <br>
+      <p>Here are some potential examples that may help you to think of a goal that is important to you.</p>
+      <ul>
+        <li>To be able to walk to my local post office confidently</li>
+        <li>To return to playing tennis twice a week</li>
+        <li>To be able to complete an hour of gardening without feeling tired</li>
+        <li>To walk to the local park without needing to stop to rest</li>
+      </ul>
+      <p>Remember, it needs to be something that is achievable within the next 6 weeks and important to you.</p>
+
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.textarea("personal-goal", "Insert your personal goal", "") }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

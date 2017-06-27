@@ -33,10 +33,7 @@
           </div>
           <p class="credentials">John Smith, 28th May 2017</p>
         </div>
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
+        {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 

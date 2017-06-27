@@ -14,7 +14,7 @@
 
     {{ section.header(
         title = "Physical fitness measures",
-        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        info = "<a href=\"#\">Why is this important?</a>" | safe,
         step = 2,
         steps = 5
       )
@@ -29,14 +29,8 @@
       </div>
       <p>After watching the video, enter how many seconds it takes for you to stand up and sit down from a chair 10 times in a row.</p>
       <form id="register" method="get" action="{{ page.next }}">
-
-        {{ form.text("chair-stands-time", "chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number") }}
-
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
-
+        {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number") }}
+        {{ form.actions( page.previous, page.next ) }}
       </form>
       <p><a href="/">Why is this important?</a></p>
     </article>

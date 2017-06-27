@@ -37,10 +37,7 @@
             <label for="cardio-3">Any blackouts?</label>
           </div>
         </div>
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
+        {{ form.actions( page.previous, page.next ) }}
       </form>
       <p><a href="/">Why is this important?</a></p>
     </article>

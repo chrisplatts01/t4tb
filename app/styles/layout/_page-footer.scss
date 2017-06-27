@@ -18,7 +18,7 @@
 
   .project-logos {
     img {
-      margin: 18px 24px 0;
+      margin: 8px 24px 0;
     }
   }
 
@@ -34,7 +34,7 @@
       padding: 0;
 
       li {
-        @include breakpoint(small) {
+        @include breakpoint(medium) {
           display: inline-block;
           padding: 0 $small-spacing;
           border-right: 1px solid $white;

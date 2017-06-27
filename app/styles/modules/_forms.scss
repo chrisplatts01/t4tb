@@ -100,7 +100,7 @@ input[type='radio'] + label:before {
   display: block;
   position: absolute;
   left: 0;
-  top: 0;
+  top: -4px;
   height: 24px;
   width: 24px;
   background-color: white;
@@ -130,7 +130,7 @@ input[type='checkbox'] + label:before {
   display: block;
   position: absolute;
   left: 0;
-  top: 0;
+  top: -4px;
   height: 24px;
   width: 24px;
   background-color: white;
@@ -146,11 +146,18 @@ input[type='checkbox']:checked + label:before {
 
 // Field containers
 .form-field-group {
+  label + .form-field-inline-group {
+    margin-top: $small-spacing;
+  }
 }
 
 .form-field-inline-group {
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     @include flexbox($justify-content: space-between);
+
+    .form-field {
+      width: 49%;
+    }
   }
 }
 
@@ -167,12 +174,21 @@ form > .form-field {
   padding: $small-spacing 0;
 }
 
+.form-field--slider {
+  padding: 0 $base-spacing $base-spacing;
+  border-bottom: 1px solid $mid-gray;
+}
+
 .form-actions {
-  @include flexbox($justify-content: space-between);
+  @include flexbox($justify-content: space-around);
   margin: $small-spacing 0;
 
-  &.centred {
-    @include flexbox($justify-content: space-around);
+  @include breakpoint(small) {
+    @include flexbox($justify-content: space-between);
+
+    &.centred {
+      @include flexbox($justify-content: space-around);
+    }
   }
 }
 
@@ -214,7 +230,7 @@ form > .form-field {
       padding: 0 $small-spacing 0 0;
       width: 100%;
 
-      @include breakpoint(medium) {
+      @include breakpoint(large) {
         padding: 0 $base-spacing 0 0;
       }
     }
@@ -238,7 +254,7 @@ form > .form-field {
       color: $brand-secondary;
       padding-right: $base-spacing;
 
-      @include breakpoint(medium) {
+      @include breakpoint(large) {
         padding-right: $base-spacing * 2;
       }
     }

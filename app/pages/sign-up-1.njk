@@ -24,10 +24,7 @@
       <h1>Important information about you</h1>
       <p>Before we start your programme it is important that we are aware of certain medical conditions.</p>
       <form id="sign-up" method="get" action="{{ page.next }}">
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
+        {{ form.actions( page.previous, page.next ) }}
       </form>
       <p><a href="/">Why is this important?</a></p>
     </article>

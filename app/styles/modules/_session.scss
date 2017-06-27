@@ -1,0 +1,202 @@
+.session-panel {
+  margin: 0 $base-spacing $base-spacing;
+}
+
+.session-panel--dark {
+  background-color: $light-gray;
+  padding: $base-spacing * 2 $base-spacing;
+}
+
+// .session-weeks {
+//   table {
+//     width: 100%;
+//     border-radius: 5px;
+//   }
+
+//   th, td {
+//     width: 16.6%;
+//     font-size: $small-font-size;
+//     font-weight: 400;
+//     background-color: $light-gray;
+//     text-align: left;
+//     padding: 2px 6px;
+//   }
+// }
+
+.session-weeks {
+  @include flexbox($justify-content: stretch, $flex-wrap: nowrap, $align-items: top)
+}
+
+.session-week {
+  position: relative;
+  width: 16.6%;
+}
+
+.session-week_heading,
+.session-week_status {
+  width: 100%;
+  font-size: $small-font-size;
+  font-weight: 400;
+  background-color: $light-gray;
+  text-align: left;
+  padding: 2px 4px;
+  border: 1px solid $white;
+
+  &:before {
+    content: '\2009';
+  }
+}
+
+.session-week_heading {
+  .is-started & {
+    color: $white;
+    background-color: $brand-tertiary;
+  }
+
+  .is-done & {
+    color: $white;
+    background-color: $brand-primary;
+  }
+}
+
+.session-week_status {
+  position: relative;
+
+  .session-week_progress {
+    position: absolute;
+    left: 0;
+    width: 0;
+    background-color: $mid-gray;
+
+    &:before {
+      content: '\2009';
+    }
+  }
+
+  .session-week_text {
+    position: absolute;
+    left: 4px;
+    background-color: transparent;
+  }
+}
+
+.session-progress {
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top)
+}
+
+.session-progress_week {
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top)
+  width: 33.3%;
+  border-right: 1px solid $light-gray;
+  padding: 0 4px;
+
+  &:first-child {
+    padding-left: none;
+  }
+
+  &:last-child {
+    border: none;
+    padding-right: none;
+  }
+}
+
+.session-progress_task {
+  width: 33.3%;
+  font-size: $small-font-size;
+  margin: 0;
+  text-align: center;
+  padding: $base-spacing 0;
+  border-left: 1px solid $white;
+  border-right: 1px solid $white;
+  background-color: $light-gray;
+
+  &.is-started {
+    color: $white;
+    background-color: $brand-tertiary;
+  }
+
+  &.is-done {
+    color: $white;
+    background-color: $brand-primary;
+  }
+}
+
+.key-statistics {
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top);
+}
+
+.key-statistic {
+  width: 33%;
+  font-size: $small-font-size;
+  text-align: center;
+  border-right: 1px solid $mid-gray;
+  padding: $base-spacing $small-spacing;
+
+  &:last-child {
+    border: none;
+  }
+
+  .stat {
+    display: block;
+    font-size: 36px;
+    font-weight: 300;
+    color: $brand-primary;
+  }
+}
+
+.achievements {
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top);
+  text-align: center;
+}
+
+.achievement {
+  width: 16.6%;
+  font-size: $small-font-size;
+  padding: 0 $small-spacing;
+  border-right: 1px solid $light-gray;
+
+  &:last-child {
+    border: none;
+  }
+
+  .icon:after {
+    content: url('/images/1-2-3-bg.png');
+    text-align: center;
+  }
+
+  &.is-started .icon:after {
+    content: url('/images/1-2-3-grey.png');
+    text-align: center;
+  }
+
+  &.is-done .icon:after {
+    content: url('/images/1-2-3-color.png');
+    text-align: center;
+  }
+
+  h4, p {
+    font-weight: 400;
+    color: $base-font-color;
+  }
+
+  &.is-started h4,
+  &.is-done h4,
+  &.is-started p,
+  &.is-done p {
+    color: $heading-font-color;
+  }
+}
+
+.button--session-start {
+  width: 100%;
+  background-color: $brand-tertiary;
+  border-right-color:  shade($brand-tertiary, 20%);
+  border-bottom-color:  shade($brand-tertiary, 20%);
+  font-size: 32px;
+  font-weight: 400;
+
+  &:hover,
+  &:focus {
+    background-color: shade($brand-tertiary, 20%);
+  }
+}

@@ -11,43 +11,50 @@
 </head>
 <body>
 
-  <div class="page-wrapper">
-    {% include "includes/page-header.njk" %}
+{% include "includes/page-header.njk" %}
 
-    <main id="page-content" role="main">
-      {% block content %}{% endblock %}
-    </main>
+<main id="page-content" role="main">
+  {% block content %}{% endblock %}
+</main>
 
-    {% include "includes/page-footer.njk" %}
-  </div>
+{% include "includes/page-footer.njk" %}
 
-  {# include "dev-menu.njk" #}
+{% include "dev-menu.njk" %}
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-  <script src="scripts/main.js"></script>
-  <script>
-$(function() {
-  $(".slider").slider({
-      range: false,
-      min: 0,
-      max: 10,
-      value: 5,
-      slide: function( event, ui ) {
-          var value,
-              max = $(this).slider( "option", "max" ),
-              fill;
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="scripts/main.js"></script>
 
-          $(this).find("input").val( ui.value );
+<script>
+  jQuery.noConflict();
+  (function($) {
+    $('.slider').slider({
+      create: function(event, ui) {
+        var $this = $(this);
+        var $input = $this.find('input');
+        var dataMin = $input.data('min');
+        var dataMax = $input.data('max');
+        var dataStep = $input.data('step');
 
-          value = $(this).find("input").val();
-          fill  = (value / max * 100) + "%";
+        $this.slider('option', 'min', dataMin);
+        $this.slider('option', 'max', dataMax);
+        $this.slider('option', 'step', dataStep);
+        $this.slider('option', 'range', false);
+        $this.slider('option', 'animate', 500);
+      },
+      slide: function(event, ui) {
+        var $this = $(this);
+        var min = $this.slider('option', 'min');
+        var max = $this.slider('option', 'max');
+        var value = ui.value;
+        var fill = (value / (max - min) * 100) + '%';
 
-          $(this).find(".slider_fill").width(fill);
+        $(this).find('input').val(value);
+        $(this).find('.slider_fill').width(fill);
       }
-  });
-});
-
+    });
+  })(jQuery);
 </script>
+
 </body>
 </html>

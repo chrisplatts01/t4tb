@@ -3,13 +3,14 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
 body {
-  color: $base-font-color;
-  background-color: $mid-gray;
   font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
 
-  * {
+  header,
+  article,
+  section,
+  footer {
     color: $base-font-color;
   }
 }
@@ -27,37 +28,41 @@ h6 {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 28px;
   font-weight: 300;
   margin: 0 0 $base-spacing * 2;
 
+  @include breakpoint(small) {
+    font-size: 32px;
+  }
+
   @include breakpoint(medium) {
-    font-size: 2.5rem;
+    font-size: 36px;
   }
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: 300;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 18px;
   font-weight: 300;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 700;
 }
 
 h5 {
-  font-size: 0.8rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
 h6 {
-  font-size: 0.8rem;
+  font-size: 12px;
   font-weight: 400;
   font-style: italic;
 }

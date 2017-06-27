@@ -25,6 +25,15 @@ ol {
   }
 }
 
+li {
+  font-size: $small-font-size;
+  color: $base-font-color;
+  border-bottom: 1px solid $light-gray;
+  margin-left: $base-spacing;
+  margin-bottom: $small-spacing;
+  padding-bottom: $small-spacing;
+}
+
 blockquote {
   border-left: 5px solid $light-gray;
   margin-left: 0;

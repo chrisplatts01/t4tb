@@ -1,10 +1,12 @@
 <header id="page-header" role="banner">
-  <h1>Train for the Brain</h1>
-  <div class="user-status">
-    {% if user.loggedIn %}
-      {{ user.name }} | <a class="reversed" href="#">Profile</a>
-    {% else %}
-      <a class="reversed" href="#">Log in</a> | <a class="reversed" href="register-1.html">Register</a>
-    {% endif %}
+  <div class="wrapper">
+    <h1>Train for the Brain</h1>
+    <div class="user-status">
+      {% if user.loggedIn %}
+        {{ user.name }} | <a class="reversed" href="#">Profile</a>
+      {% else %}
+        <a class="reversed" href="#">Log in</a> | <a class="reversed" href="register-1.html">Register</a>
+      {% endif %}
+    </div>
   </div>
 </header>

@@ -4,8 +4,8 @@
 {% import "macros/form.njk" as form %}
 
 {% set page = {
-    previous: "physical-fitness-2.html",
-    next: "physical-fitness-3.html"
+    previous: "physical-fitness-3.html",
+    next: "physical-fitness-4.html"
   }
 %}
 
@@ -14,7 +14,7 @@
 
     {{ section.header(
         title = "Physical fitness measures",
-        info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        info = "<a href=\"#\">Why is this important?</a>" | safe,
         step = 3,
         steps = 5
       )
@@ -25,10 +25,7 @@
       <p>Well done!</p>
       <p>That’s all of the physical tests that you need to do for now.</p>
       <form id="register" method="get" action="{{ page.next }}">
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
+        {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 

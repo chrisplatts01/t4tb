@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "/",
+    next: "setting-goals-2.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Setting your goals",
+        info = "" | safe,
+        duration = 5,
+        step = 1,
+        steps = 3
+      )
+    }}
+
+    <article>
+      <h1>Setting your goals</h1>
+      <p>We recommend that you aim to set 2 goals that are achievable within the next 6 weeks.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

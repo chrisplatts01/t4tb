@@ -2,41 +2,68 @@
 
 .display-panel {
   @include clearfix;
-  padding: 0 $base-spacing $base-spacing;
-  padding-top: $base-spacing * 2;
-  padding-bottom: $base-spacing * 2;
 
-  > h1 {
+  .wrapper {
+    width: 100%;
+    max-width: 472px;
+    margin: 0 auto;
+    padding: 0 $base-spacing $base-spacing;
+    padding-top: $base-spacing * 2;
+    padding-bottom: $base-spacing * 2;
+
+    &.wrapper--wide {
+      max-width: 800px;
+    }
+  }
+
+  h1 {
     text-align: center;
     margin-bottom: $base-spacing * 2;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       width: 75%
     }
   }
 
-  > .display-panel_text {
+  .display-panel_text {
     margin-bottom:  $base-spacing * 2;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       width: 75%
     }
   }
 
-  > .display-panel_action {
-    text-align: center;
+  .button{
+    width: 272px;
+    font-size: 20px;
   }
 }
 
 .display-panel_text {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 20px;
+}
+
+.display-panel_boxes {
+  @include flexbox;
+}
+
+.display-panel_box {
+  width: 200px;
+
+  &.display-panel_box--small {
+    width: 120px;
+
+    @include breakpoint(medium) {
+      width: 200px;
+    }
+  }
 }
 
 .display-panel_image {
@@ -47,14 +74,6 @@
   img {
     width: 100%;
   }
-}
-
-.display-panel_boxes {
-  @include flexbox;
-}
-
-.display-panel_box {
-  width: 200px;
 }
 
 &.display-panel--dark {

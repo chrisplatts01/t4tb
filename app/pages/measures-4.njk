@@ -1,0 +1,151 @@
+{% extends "layouts/layout.njk" %}
+
+
+{% block content %}
+  {% set section = {
+      title: "Measures and goals",
+      id: "measures-and-goals",
+      class: "panel--progress"
+    }
+  %}
+  <section id="measures-and-goals" class="panel--progress">
+    <header>
+      <h1><span class="wrapper">{{ section.title }}</span></h1>
+    </header>
+    <article>
+      <p>Before we start the training programme we need to complete certain measures and set some goals.</p>
+      <p>Your progress on this page will be saved should you log out or wish to complete it over more than one session.</p>
+    </article>
+  </section>
+
+  {% set section = {
+      title: "Physical fitness measures",
+      id: "physical-fitness",
+      class: "panel--progress is-complete",
+      steps: {
+        done: 1,
+        total: 4
+      },
+      duration: 15
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
+      <div class="progress-header">
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  {% set section = {
+      title: "Your exercise diary",
+      id: "exercise-diary",
+      class: "panel--progress is-complete",
+      steps: {
+        done: 2,
+        total: 4
+      },
+      duration: 10
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
+      <div class="progress-header">
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  {% set section = {
+      title: "Set your goals",
+      id: "set-goals",
+      class: "panel--progress is-complete",
+      steps: {
+        done: 3,
+        total: 4
+      },
+      duration: 5
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
+      <div class="progress-header">
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  {% set section = {
+      title: "Cognitive measures, activity and mood scores",
+      id: "cognitive-measures",
+      class: "panel--progress",
+      steps: {
+        done: 4,
+        total: 4
+      },
+      duration: 15
+    }
+  %}
+  <section id="{{ section.id }}" class="{{ section.class }}">
+    <header>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>
+              <span class="steps"><em>{{ section.steps.done }}</em>/{{ section.steps.total }}</span>
+              {{ section.title }}
+          </h1>
+        </div>
+      </div>
+      <div class="progress-header">
+        <div class="wrapper">
+          <hr>
+          <div class="progress-duration"><img src="images/time-icon-{{ section.duration }}.svg" >Takes about {{ section.duration }} minutes</div>
+          <div class="progress-complete"><img src="images/white-tick-icon.svg" >Task completed</div>
+        </div>
+      </div>
+   </header>
+    <article>
+      <p>These measures are important and focus on your memory, ability to complete day to day activities and mood.</p>
+      <p>(Please note, you will be directed to a separate page with these measures, and will return here once complete)</p>
+      <div class="form-actions">
+        <a class="button" href="physical-fitness-1.html">Begin task</a>
+      </div>
+    </article>
+  </section>
+{% endblock %}

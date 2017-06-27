@@ -1,19 +1,16 @@
 @charset "UTF-8";
 
 body {
-  background-color: $dark-gray;
   margin: 0;
   padding: 0;
-
-  .page-wrapper {
-    width: 100%;
-    // max-width: 800px;
-    // margin: 0 auto;
-  }
 }
 
 .wrapper {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 948px;
   position: relative;
+}
+
+span.wrapper {
+  display: block;
 }

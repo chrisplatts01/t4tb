@@ -37,10 +37,7 @@
             <input id="dob-year" type="number" min="1900" max="2017" value="1900">
           </div>
         </div>
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
+        {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 

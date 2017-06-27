@@ -13,9 +13,9 @@
   <section id="sign-up" class="panel panel--progress">
 
     {{ section.header(
-        title = "Walking speed",
-        info = "<a href=\"#\">What happens to my data?</a>" | safe,
-        step = 3,
+        title = "Physical fitness measures",
+        info = "<a href=\"#\">Why is this important?</a>" | safe,
+        step = 4,
         steps = 5
       )
     }}
@@ -23,13 +23,8 @@
     <article>
       <h1>How would you describe your walking speed?</h1>
       <form id="register" method="get" action="{{ page.next }}">
-
         {{ form.radios( "walking-speed", "Please choose from the following option that best describes you.", ["Unable to walk", "Very slow", "Stroll at an easy pace", "Normal speed", "Fairly brisk", "Fast"] ) }}
-
-        <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Continue</button>
-        </div>
+        {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 

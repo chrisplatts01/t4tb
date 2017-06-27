@@ -1,0 +1,39 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "exercise-diary-2a.html",
+    next: "exercise-diary-4.html"
+  }
+%}
+
+{% block content %}
+  <section id="sign-up" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Your exercise diary",
+        info = "" | safe,
+        duration = 10,
+        step = 3,
+        steps = 6
+      )
+    }}
+
+    <article>
+      <h1>Vigorous activities</h1>
+      <p>Think about all the vigorous activities that you did in the last 7 days. Vigorous physical activities refer to activities that take hard physical effort and make you breathe much harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.radios( "vigorous-activity-days", "During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, aerobics, or fast bicycling?<br><br>Include any exercise you carry out as part of the Train for the Brain programme." | safe, ["0 days", "1 day", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days"] ) }}
+        {{ form.text2("How much time did you usually spend doing vigorous physical activities on one of those days?", "vigorous-activity-hours", "Hours per day", "text", "", "vigorous-activity-minutes", "Minutes per day", "text", "" ) }}
+        {{ form.checkbox( "vigorous-activity-unknown", "Don't know/not sure" ) }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+      <p><a href="/">This question is based on the International Physical Activity Questionnaire (IPAQ) – click here to find out more</a></p>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}
