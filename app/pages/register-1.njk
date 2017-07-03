@@ -10,11 +10,12 @@
 %}
 
 {% block content %}
-  <section id="sign-up" class="panel panel--progress">
+  <section class="panel panel--progress">
 
     {{ section.header(
         title = "Register for the study",
         info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        duration = 15,
         step = 1,
         steps = 5
       )

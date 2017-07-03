@@ -35,6 +35,8 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
 
+var cp = require('child_process');
+
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 

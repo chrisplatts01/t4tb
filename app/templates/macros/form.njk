@@ -1,16 +1,29 @@
+{#
+========================================
+Field: Text input - note if type="date"
+       a JQuery UI date widget is used
+========================================
+#}
 {% macro text(
-    name = "FIELD_NAME",
+    name  = "FIELD_NAME",
     label = "FIELD_LABEL",
-    type = "text",
-    value = ""
+    type  = "text",
+    value = "",
+    changeMonth = false,
+    changeYear = true
   )
 %}
 <div class="form-field form-field--text">
   <label for="{{ name }}">{{ label }}</label>
-  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}">
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %}>
 </div>
 {% endmacro %}
 
+{#
+========================================
+Field group: Inline text input
+========================================
+#}
 {% macro text2(
     label = "FIELD_LABEL",
     name1 = "FIELD_NAME_1",
@@ -37,6 +50,11 @@
   </div>
 </div>
 {% endmacro %}
+{#
+========================================
+Field: Text area
+========================================
+#}
 
 {% macro textarea(
     name = "FIELD_NAME",
@@ -50,54 +68,112 @@
 </div>
 {% endmacro %}
 
+{#
+========================================
+Field: Checkbox with optional time icon
+========================================
+#}
 {% macro checkbox(
     name = "FIELD_NAME",
     label = "FIELD_LABEL",
-    value = ""
+    value ="",
+    checked = "",
+    duration = ""
   )
 %}
 <div class="form-field form-field--checkbox">
-  <input id="{{ name }}" name="{{ name }}" type="checkbox" value="{{ value }}">
+  <input id="{{ name }}" name="{{ name }}" type="checkbox" value="{{ value }}" {{ checked }}>
   <label for="{{ name }}">{{ label }}</label>
+  {% if duration %}
+    <div class="duration duration--{{ duration }} }}">{{ duration }} mins</div>
+  {% endif %}
 </div>
 {% endmacro %}
 
+{#
+========================================
+Field group: Checkboxes with optional
+             time icons
+========================================
+#}
 {% macro checkboxes(
     name ="NAME",
     label ="LABEL",
-    fields =["OPTION-1"]
+    values =["OPTION-1"],
+    durations = []
   )
 %}
 <div class="form-field-group">
   <label>{{ label }}</label>
 
-  {% for field in fields %}
+  {% for value in values %}
   <div class="form-field form-field--checkbox">
-    <input id="{{ name }}-{{ field | lower | replace(" ", "-") }}" name="{{ name }}" type="checkbox" value="{{ field }}" >
-    <label for="{{ name }}-{{ field | lower | replace(" ", "-") }}">{{ field }}</label>
+    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="checkbox" value="{{ value }}" >
+    <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
+    {% if durations[loop.index0] %}
+      <div class="duration duration--{{ durations[loop.index0] }} }}">{{ durations[loop.index0] }} mins</div>
+    {% endif %}
   </div>
   {% endfor %}
 </div>
 {% endmacro %}
 
+{#
+========================================
+Field: Radio button with optional time
+       icon
+========================================
+#}
+{% macro radio(
+    name = "FIELD_NAME",
+    label = "FIELD_LABEL",
+    value ="",
+    checked = "",
+    duration = ""
+  )
+%}
+<div class="form-field form-field--radio">
+  <input id="{{ name }}" name="{{ name }}" type="radio" value="{{ value }}" {{ checked }}>
+  <label for="{{ name }}">{{ label }}</label>
+  {% if duration %}
+    <div class="duration duration--{{ duration }} }}">{{ duration }} mins</div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{#
+========================================
+Field group: Radio buttons with optional
+             time icons
+========================================
+#}
 {% macro radios(
     name ="NAME",
     label ="LABEL",
-    fields =["OPTION-1"]
+    values =["OPTION-1"],
+    durations = []
   )
 %}
 <div class="form-field-group">
   <label>{{ label }}</label>
 
-  {% for field in fields %}
+  {% for value in values %}
   <div class="form-field form-field--radio">
-    <input id="{{ name }}-{{ field | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ field }}" >
-    <label for="{{ name }}-{{ field | lower | replace(" ", "-") }}">{{ field }}</label>
+    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ value }}" >
+    <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
+    {% if durations[loop.index0] %}
+      <div class="duration duration--{{ durations[loop.index0] }} }}">{{ durations[loop.index0] }} mins</div>
+    {% endif %}
   </div>
   {% endfor %}
 </div>
 {% endmacro %}
 
+{#
+========================================
+Field group: Yes/No radio buttons
+========================================
+#}
 {% macro yesno(
     name = "NAME",
     label = "LABEL"
@@ -116,7 +192,12 @@
 </div>
 {% endmacro %}
 
-
+{#
+========================================
+Field: Input field as JQuery UI Slider
+       (numeric)
+========================================
+#}
 {% macro slider(
     name = "SLIDER_NAME",
     label = "SLIDER_LABEL",
@@ -146,6 +227,53 @@
 </div>
 {% endmacro %}
 
+{#
+========================================
+Field: Input field as JQuery UI Slider
+       (option list)
+========================================
+#}
+{% macro slider_1(
+    name = "slider-1",
+    label = "Choose an option",
+    values = ["0", "1", "2", "3", "4", "5" ],
+    floor = "Least",
+    ceiling = "Most"
+  )
+%}
+<div class="form-field form-field--slider-1">
+  <label for="{{ name }}">{{ label }}</label>
+  <div class="slider-1">
+    <div class="slider-1_fill"></div>
+
+    <div class="slider-1_values">
+      {% for value in values -%}
+        <div class="slider-1_value">{{ value }}</div>
+      {%- endfor %}
+    </div>
+
+    {% if floor or span %}
+    <div class="slider-1_labels">
+      <span>{{ floor }}</span>
+      <span>{{ ceiling }}</span>
+    </div>
+    {% endif %}
+
+    <select id="{{ name }}" name="{{ name }}" data-values="{{ values | join('|') }}" style="visibility: hidden">
+      <option disabled selected>Please choose&hellip;</option>
+      {% for value in values %}
+        <option value="{{ value }}">{{ value }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% endmacro %}
+
+{#
+========================================
+Field actions: Form submit/back buttons
+========================================
+#}
 {% macro actions(
     previous = "#",
     next = "#",

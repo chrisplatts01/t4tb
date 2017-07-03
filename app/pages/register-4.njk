@@ -10,33 +10,21 @@
 %}
 
 {% block content %}
-  <section id="sign-up" class="panel panel--progress">
+  <section class="panel panel--progress">
 
     {{ section.header(
         title = "Register for the study",
         info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        duration = 15,
         step = 4,
         steps = 5
       )
     }}
 
     <article>
-      <h1>Please enter your date of birth</h1>
+      <h1>Your date of birth</h1>
       <form id="register" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-          <div class="form-field form-field--text">
-            <label for="dob-day">Day</label>
-            <input id="dob-day" type="number" min="1" max="31" value="1">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="dob-month">Month</label>
-            <input id="dob-month" type="number" min="1" max="12" value="1">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="dob-year">Year</label>
-            <input id="dob-year" type="number" min="1900" max="2017" value="1900">
-          </div>
-        </div>
+        {{ form.text("dob", "Please enter your date of birth", "date", changeMonth = true, changeYear = true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

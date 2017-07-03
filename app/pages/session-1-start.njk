@@ -3,12 +3,6 @@
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
 
-{% set page = {
-    previous: "welcome-1;html",
-    next: "/"
-  }
-%}
-
 {% block content %}
   <section id="session-start" class="panel panel--session-start">
     <div class="wrapper">
@@ -19,47 +13,20 @@
         </div>
       </div>
 
-{#       <div class="session-panel">
-        <div class="session-weeks">
-          <table>
-            <thead>
-              <tr>
-                <th class="in-progress">Week 1</th>
-                <th>Week 2</th>
-                <th>Week 3</th>
-                <th>Week 4</th>
-                <th>Week 5</th>
-                <th>Week 6</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>7 days left</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
- #}
       <div class="session-panel">
         <div class="session-weeks">
-          <div class="session-week is-done">
+          <div class="session-week is-started">
             <div class="session-week_heading">Week 1</div>
             <div class="session-week_status">
-              <span class="session-week-_rogress" style="width: 100%"></span>
-              <span class="session-week_text">Complete</span>
+              <span class="session-week_progress"></span>
+              <span class="session-week_text">7 days left</span>
             </div>
           </div>
-          <div class="session-week is-started">
+          <div class="session-week">
             <div class="session-week_heading">Week 2</div>
             <div class="session-week_status">
-              <span class="session-week_progress" style="width: 29%"></span>
-              <span class="session-week_text">2 days left</span>
+              <span class="session-week_progress"></span>
+              <span class="session-week_text"></span>
             </div>
           </div>
           <div class="session-week">
@@ -98,13 +65,13 @@
 
         <div class="session-progress">
           <div class="session-progress_week">
-            <div class="session-progress_task is-done">1</div>
-            <div class="session-progress_task is-done">2</div>
-            <div class="session-progress_task is-done">3</div>
+            <div class="session-progress_task is-started">1</div>
+            <div class="session-progress_task is-next">2</div>
+            <div class="session-progress_task is-next">3</div>
           </div>
 
           <div class="session-progress_week">
-            <div class="session-progress_task is-started">4</div>
+            <div class="session-progress_task">4</div>
             <div class="session-progress_task">5</div>
             <div class="session-progress_task">6</div>
           </div>
@@ -138,8 +105,8 @@
       <div class="session-panel session-panel--dark">
         <h3 class="centred">My key stats</h3>
         <div class="key-statistics">
-          <div class="key-statistic"><span class="stat">3</span> sessions completed</div>
-          <div class="key-statistic"><span class="stat">110</span> minutes spent exercising</div>
+          <div class="key-statistic"><span class="stat">0</span> session(s) completed</div>
+          <div class="key-statistic"><span class="stat">0</span> minutes spent exercising</div>
           <div class="key-statistic"><span class="stat">0</span> minutes spent walking</div>
 
         </div>
@@ -148,13 +115,13 @@
       <div class="session-panel">
         <h3 class="centred">My achievements</h3>
         <div class="achievements">
-          <div class="achievement is-done">
+          <div class="achievement is-started">
             <div class="icon"></div>
             <h4>Easy as 123</h4>
             <p>Complete your first 3 training sessions</p>
           </div>
 
-          <div class="achievement is-started">
+          <div class="achievement">
             <div class="icon"></div>
             <h4>Double Diary</h4>
             <p>Update your exercise diary at the end of Week 2</p>

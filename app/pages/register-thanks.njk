@@ -10,7 +10,7 @@
 %}
 
 {% block content %}
-  <section id="sign-up" class="panel panel--progress">
+  <section class="panel panel--progress">
 
     {{ section.header(
         title = "Register for the study",
@@ -27,8 +27,6 @@
         <a class="button button--next" href="{{ page.next }}">Continue</a>
       </div>
     </article>
-
-    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
 
   </section>
 {% endblock %}
