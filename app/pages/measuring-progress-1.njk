@@ -1,0 +1,39 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "welcome-1;html",
+    next: "/"
+  }
+%}
+
+{% block content %}
+  <section id="welcome" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Physical fitness measures",
+        info = "<a href=\"#\">Why is this important?</a>" | safe,
+        duration = 15,
+        step = 1,
+        steps = 5
+      )
+    }}
+
+    <article>
+      <h1>Measuring your progress</h1>
+      <div class="video">
+        <div class="video-wrapper">
+          <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="form-actions">
+        <a class="button button--next" href="{{ page.next }}">Continue</a>
+      </div>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}

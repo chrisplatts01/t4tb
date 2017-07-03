@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "#",
+    next: "#"
+  }
+%}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Review your goals",
+        info = "<a href=\"#\">Why is the important?</a>" | safe,
+        duration = 5,
+        step = 3,
+        steps = 3
+      )
+    }}
+
+    <article>
+      <h1>Personal goal</h1>
+      <p>You have achieved your personal goal, well done!</p>
+      <p>You will need to choose another personal goal that is important to you.</p>
+      <p>Remember, it needs to be something that is achievable within the next 3 weeks and important to you.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.textarea("personal-goal", "Insert your personal goal") }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}

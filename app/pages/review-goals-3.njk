@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "#",
+    next: "#"
+  }
+%}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Review your goals",
+        info = "<a href=\"#\">Why is the important?</a>" | safe,
+        duration = 5,
+        step = 3,
+        steps = 3
+      )
+    }}
+
+    <article>
+      <h1>Personal goal</h1>
+      <p>Your second goal was a personal goal.</p>
+      <p class="heading">“To be able to complete an hour of gardening without feeling tired”</p>
+      <p class="heading">Please rate on the sliding scale how you feel you are progressing with this goal.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.slider_1("how-you-feel", "Please rate on the sliding scale how you feel you are progressing with this goal.", ["0%", "25%", "50%", "75%", "100%"], "No confidence", "Complete confidence") }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}

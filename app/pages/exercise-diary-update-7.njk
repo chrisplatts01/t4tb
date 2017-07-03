@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "exercise-diary-update-1.html",
+    next: "exercise-diary-update-7a.html"
+  }
+%}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Your exercise diary",
+        info = "" | safe,
+        duration = 10,
+        step = 7,
+        steps = 7
+      )
+    }}
+
+    <article>
+      <h1>Have you had any ill health during the last 7 days?</h1>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.yesno("ill-health", "") }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}

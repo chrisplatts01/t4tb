@@ -1,0 +1,10 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/timer.njk" as timer %}
+
+{% block content %}
+<h1>SVG Test</h1>
+<div>
+  {{ timer.timer() }}
+</div>
+{% endblock %}

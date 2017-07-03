@@ -1,0 +1,54 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "session-1-1.html",
+    next: "session-1-3.html"
+  }
+%}
+
+{% block content %}
+  <section id="session" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Session 1",
+        step = 2,
+        steps = 6,
+        bg_color = "blue"
+      )
+    }}
+
+    <article>
+      <h1>Warm up</h1>
+      <div class="video">
+        <div class="video-wrapper">
+          <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <p>You will require a chair for this session, if you require support during any of the standing exercises, please do use this for support.</p>
+      <h2><img src="images/sitting-icon.svg" alt=""> Starting position: sitting</h2>
+      <ol class="special">
+        <li>Start with gentle marching in the chair and then after 15 seconds, add in some punching with your arms for 30 seconds.</li>
+        <li>Sit nice and tall and turn your head from side to side, looking over your right shoulder, stretch as far as is comfortable and hold for 5 seconds and then swap sides.</li>
+        <li>Bring your right ear to your shoulder – try not to hitch your shoulder up, hold 5 seconds.</li>
+        <li>Bring your chin to your chest, hold for 5 seconds and then look to the ceiling and hold for 5 seconds.</li>
+        <li>Take your right arm and reach over your left shoulder, use your left arm to add a little stretch, hold for 5 seconds. Swap sides.</li>
+        <li>Now reach with your right arm down your back, again use your left arm to add a little stretch, hold for 5 seconds. Now swap sides.</li>
+        <li>Punch forwards for 10 seconds, up above your head for 10 seconds and out to the side for 10 seconds.</li>
+        <li>Sit nice and tall in your chair and bring yourself forward, stretch out your right leg planting your heel. Lean forward until you feel a stretch in the back of your thigh, hold for 10 seconds. Now swap legs.</li>
+        <li>Start heel and toe tapping, starting with your right foot for 20 seconds, then swap over to your left for 20 seconds.</li>
+        <li>For the next 30 seconds stand up and sit down as many times as you are able to.</li>
+        <li>Stand up behind you chair and practice going up and down on your heels, repeat 10 times.</li>
+        <li>Standing tall, bring your right leg slowly out to the side, try not to let you toes point out to the side – they should be facing forwards, this is focusing on strengthening your hip. Repeat 10 times. Swap to your left leg and repeat.</li>
+      </ol>
+      <form id="session-1" method="get" action="{{ page.next }}">
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"/\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}
