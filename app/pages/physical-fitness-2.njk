@@ -14,7 +14,7 @@
 
     {{ section.header(
         title = "Physical fitness measures",
-        info = "<a href=\"#\">Why is this important?</a>" | safe,
+        info = "<a href=\"#why-important\">Why is this important?</a>" | safe,
         step = 2,
         steps = 5
       )
@@ -32,7 +32,7 @@
         {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number") }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
-      <p><a href="/">Why is this important?</a></p>
+      <p><a href="#why-important">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a href=\"measures-1.html\">Cancel and return to measures and goals</a>" | safe ) }}
