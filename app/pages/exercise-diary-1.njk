@@ -4,13 +4,13 @@
 {% import "macros/form.njk" as form %}
 
 {% set page = {
-    previous: "/",
+    previous: "measures-2.html",
     next: "exercise-diary-2.html"
   }
 %}
 
 {% block content %}
-  <section id="sign-up" class="panel panel--progress">
+  <section class="panel panel--progress">
 
     {{ section.header(
         title = "Your exercise diary",
@@ -31,7 +31,7 @@
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+    {{ section.footer( info = "<a href=\"measures-2.html\">Cancel and return to measures and goals</a>" | safe ) }}
 
   </section>
 {% endblock %}

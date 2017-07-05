@@ -10,11 +10,12 @@
 %}
 
 {% block content %}
-  <section id="sign-up" class="panel panel--progress">
+  <section class="panel panel--progress">
 
     {{ section.header(
         title = "Sign up to the study",
         info = "<a href=\"#\">What happens to my data?</a>" | safe,
+        duration = 15,
         step = 4,
         steps = 9
       )
@@ -38,7 +39,7 @@
       <p><a href="/">Why is this important?</a></p>
     </article>
 
-    {{ section.footer( info = "<a href=\"/\">Cancel and return to home page</a>" | safe ) }}
+    {{ section.footer( info = "<a href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
 
   </section>
 {% endblock %}

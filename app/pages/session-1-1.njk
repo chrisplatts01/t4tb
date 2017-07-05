@@ -1,0 +1,42 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "session-1-start.html",
+    next: "session-1-2.html"
+  }
+%}
+
+{% block content %}
+  <section id="session" class="panel panel--progress">
+
+    {{ section.header(
+        title = "Session 1",
+        step = 1,
+        steps = 6,
+        bg_color = "blue"
+      )
+    }}
+
+    <article>
+      <h1>Schedule</h1>
+      <form id="session-1" method="get" action="{{ page.next }}">
+        {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10) }}
+        <hr>
+        {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11]) }}
+        <hr>
+        {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10) }}
+        <hr>
+        <p>Total session time</p>
+        <div class="duration duration--40">40 mins</div>
+        <hr>
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}

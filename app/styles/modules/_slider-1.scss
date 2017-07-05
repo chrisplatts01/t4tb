@@ -1,0 +1,41 @@
+.slider-1 {
+  position: relative;
+  width: 90%;
+  margin: $base-spacing auto $base-spacing * 2;
+  background-color: $light-gray;
+  box-shadow: 0 1px 3px $mid-gray inset;
+
+  .slider-1_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0.8em;
+    background-color: $brand-primary;
+    transition: width .5s ease-in-out;
+  }
+}
+
+.slider-1_values {
+  margin: $base-spacing 0 0 0;
+
+  .slider-1_value {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    vertical-align: top;
+
+    font-size: $small-font-size;
+    color: $brand-secondary;
+  }
+}
+
+.slider-1_labels {
+  @include flexbox($justify-content: space-between);
+  margin-left: -5%;
+  margin-right: -5%;
+
+  span {
+    font-size: $small-font-size;
+  }
+}

@@ -1,12 +1,24 @@
 <header id="page-header" role="banner">
   <div class="wrapper">
     <h1>Train for the Brain</h1>
-    <div class="user-status">
+    <div class="user-info">
       {% if user.loggedIn %}
-        {{ user.name }} | <a class="reversed" href="#">Profile</a>
+        <a class="user-info_name reversed" href="#">{{ user.name }}</a> | <a class="user-info_profile reversed" href="#">Profile</a>
       {% else %}
-        <a class="reversed" href="#">Log in</a> | <a class="reversed" href="register-1.html">Register</a>
+        <a id="sign-in" class="user-info_login reversed" href="#">Log in</a> | <a class="user-info_register reversed" href="register-1.html">Register</a>
       {% endif %}
     </div>
   </div>
 </header>
+
+<div id="user-status" class="user-status">
+  <div class="wrapper">
+    <div class="user-status_name">
+      <h2 class="h1">Logged in as {{ user.name }}</h2>
+    </div>
+    <div class="user-status_actions">
+      <div><a id="sign-out" class="user-status_sign-out reversed" href="#">Sign out</a> | <a class="reversed" href="http://protectstudy.org.uk/" target="_blank">Back to PROTECT site</a></div>
+      <div><a class="user-status_close reversed" href="#">Close <img src="images/white-cross-icon.svg" alt=""></a></div>
+    </div>
+  </div>
+</div>

@@ -48,7 +48,8 @@ input[type='button'] {
     border-bottom: 2px solid shade($light-gray, 20%);
     border-right: 2px solid  shade($light-gray, 20%);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $light-gray;
     }
   }
@@ -87,7 +88,6 @@ input[type='button'] {
     }
   }
 }
-
 
 .button-wrapper {
   @include flexbox($justify-content: space-between);

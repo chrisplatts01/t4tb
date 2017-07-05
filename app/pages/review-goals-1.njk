@@ -1,0 +1,35 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "#",
+    next: "#"
+  }
+%}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Review your goals",
+        info = "<a href=\"#\">Why is the important?</a>" | safe,
+        duration = 5,
+        step = 1,
+        steps = 3
+      )
+    }}
+
+    <article>
+      <h1>Reviewing your goals</h1>
+      <p>At the beginning of the programme, you set two goals, we would like to review how you feel you have progressed.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}

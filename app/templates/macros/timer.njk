@@ -1,0 +1,25 @@
+{% macro timer( minutes = 15, color = "#444444" ) %}
+
+  {% set width  = 29 %}
+  {% set height = 29 %}
+  {% set strokeWidth = 2 %}
+
+  {% set c = { cx: 14, cy: 14, r: 12 } %}
+  {% set p = { cx: 14, cy: 14, r: 8 } %}
+
+  <svg style="width: 290px; height: 290px" width="{{ width }}px" height="{{ height }}px" viewBox="0 0 {{ width }} {{ height }}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <circle cx="{{ c.cx }}" cy="{{ c.cy }}" r="{{ c.r }}" stroke="{{ color }}" stroke-width="{{ strokeWidth }}" fill="none" />
+    <path d="M {{ p.cx }} {{ p.cy }} L {{ p.cx }} {{ p.cy - p.r }} A {{ p.r }} {{ p.r }} 1 0 1 {{ p.cx + p.r }} {{ p.cy }} z" stroke="{{ color }}" stroke-width="{{ strokeWidth }}" fill="{{ color }}" />
+  </svg>
+
+
+<script>
+  var angle = {{ minutes }} / (2 * Math.PI);
+  var endx = {{ p.r }} * Math.sin(angle) + {{ p.cx }};
+  var endy = {{ p.r }} * Math.cos(angle) + {{ p.cy }};
+  var d = "M {{ p.cx }} {{ p.cy }} L {{ p.cx }} {{ p.cy - p.r }} A {{ p.r }} {{ p.r }} 1 0 1 " + endx + " " + endy + " z";
+
+  console.log( d );
+</script>
+
+{% endmacro %}

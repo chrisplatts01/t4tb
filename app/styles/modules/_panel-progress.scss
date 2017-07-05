@@ -23,6 +23,14 @@
           }
         }
       }
+
+      &.blue {
+        background-color: $light-blue;
+
+        h1 {
+          color: $white;
+        }
+      }
     }
 
     .progress-header {
@@ -35,7 +43,7 @@
         height: 1px;
         background-color: $mid-gray;
         border:none;
-        margin: 0 $base-spacing;
+        margin: 0 $small-spacing;
         padding: 0;
         line-height: 0;
       }
@@ -99,7 +107,7 @@
 
     .progress-steps {
       font-size: 2em;
-      font-weight: 100;
+      font-weight: 300;
       color: $mid-gray;
       margin-bottom: -25px;
 
@@ -123,10 +131,6 @@
     max-width: 520px;
     padding: $base-spacing;
     margin: 0 auto;
-
-    // @include breakpoint(large) {
-    //   padding: $base-spacing  0 $base-spacing;
-    // }
   }
 
   footer {
@@ -135,6 +139,7 @@
     padding: $small-spacing 0;
 
     .footer-info {
+      position: relative;
 
       a {
         &:link,
@@ -144,17 +149,11 @@
           color: $dark-gray;
           text-align: left;
           padding-left: $base-spacing;
-          padding-right: $base-spacing * 3;
+          padding-right: $base-spacing * 2.5;
 
           @include breakpoint(medium) {
             text-align: right;
           }
-        }
-
-        &:hover,
-        &:focus {
-          text-decoration: none;
-          border-bottom: 1px solid $dark-gray;
         }
 
         &:after {
@@ -188,7 +187,6 @@
 
     .progress-header {
       background-color: $brand-primary;
-      // border-top: 1px solid $dark-gray;
       border-bottom: 1px solid $white;
 
         hr {

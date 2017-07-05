@@ -3,14 +3,15 @@
     show_progress_header = true,
     show_progress_bar = true,
     show_progress_steps = true,
-    duration = 15,
-    info = "SECTION_INFO",
+    duration = false,
+    info = "",
     step = 1,
-    steps = 5
+    steps = 5,
+    bg_color = ""
   )
 %}
 <header>
-  <div class="section-title">
+  <div class="section-title  {% if bg_color %}{{ bg_color }}{% endif %}">
     <div class="wrapper">
       <h1>{{ title }}</h1>
     </div>
@@ -19,9 +20,11 @@
   {% if show_progress_header %}
   <div class="progress-header">
     <div class="wrapper">
-      <hr>
-      {% if duration %}<div class="progress-duration"><img src="images/time-icon-{{ duration }}.svg" >Takes about {{ duration }} minutes</div>{% endif %}
-      {% if info %}<div class="progress-info">{{ info }}</div>{% endif %}
+      {% if duration or info %}
+        <hr>
+        {% if duration %}<div class="progress-duration"><img src="images/time-icon-{{ duration }}.svg" >Takes about {{ duration }} minutes</div>{% endif %}
+        {% if info %}<div class="progress-info">{{ info }}</div>{% endif %}
+      {% endif %}
     </div>
   </div>
   {% endif %}

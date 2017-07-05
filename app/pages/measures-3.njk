@@ -1,6 +1,5 @@
 {% extends "layouts/layout.njk" %}
 
-
 {% block content %}
   {% set section = {
       title: "Measures and goals",
@@ -10,7 +9,11 @@
   %}
   <section id="measures-and-goals" class="panel--progress">
     <header>
-      <h1><span class="wrapper">{{ section.title }}</span></h1>
+      <div class="section-title">
+        <div class="wrapper">
+          <h1>{{ section.title }}</h1>
+        </div>
+      </div>
     </header>
     <article>
       <p>Before we start the training programme we need to complete certain measures and set some goals.</p>
@@ -112,7 +115,7 @@
     <article>
       <p>We will guide you through the process of setting two goals which will focus on improving your physical fitness and achieving an activity that is important to you.</p>
       <div class="form-actions">
-        <a class="button" href="physical-fitness-1.html">Begin task</a>
+        <a class="button" href="setting-goals-1.html">Begin task</a>
       </div>
     </article>
   </section>

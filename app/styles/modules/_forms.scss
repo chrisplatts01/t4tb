@@ -103,14 +103,14 @@ input[type='radio'] + label:before {
   top: -4px;
   height: 24px;
   width: 24px;
-  background-color: white;
+  background-color: $white;
   border: 2px solid $mid-gray;
   box-shadow: inset 0px 0px 0px 4px white;
   border-radius: 14px;
 }
 
 input[type='radio']:checked + label:before {
-  background: $brand-primary;
+  background-color: $brand-primary;
   border-color: $brand-primary;
 }
 
@@ -133,14 +133,14 @@ input[type='checkbox'] + label:before {
   top: -4px;
   height: 24px;
   width: 24px;
-  background-color: white;
+  background-color: $white;
   border: 2px solid $mid-gray;
   box-shadow: inset 0px 0px 0px 4px #fff;
   border-radius: $base-border-radius;
 }
 
 input[type='checkbox']:checked + label:before {
-  background: $brand-primary;
+  background-color: $brand-primary;
   border-color: $brand-primary;
 }
 
@@ -155,14 +155,14 @@ input[type='checkbox']:checked + label:before {
   @include breakpoint(large) {
     @include flexbox($justify-content: space-between);
 
-    .form-field {
-      width: 49%;
+    .form-field--text {
+    width: 49%;
     }
   }
 }
 
 form > .form-field {
-  margin: $base-spacing 0;
+  margin: $small-spacing 0;
 }
 
 .form-field {
@@ -208,6 +208,57 @@ form > .form-field {
   }
 }
 
+// These might not belong here
+input ~ .duration,
+p ~ .duration {
+  margin-top: -32px;
+  text-align: right;
+  font-size: $small-font-size;
+  color: $heading-font-color;
+  background-color: transparent;
+
+  &:after {
+    display: inline-block;
+    content: url('/images/time-icon-5-grey.svg');
+    vertical-align: middle;
+    padding-left: $small-spacing;
+  }
+}
+
+p ~ .duration { margin-top: -44px; }
+
+input ~ .duration--5:after  { content: url('/images/time-icon-5-grey.svg'); }
+input ~ .duration--8:after  { content: url('/images/time-icon-8-grey.svg'); }
+input ~ .duration--10:after { content: url('/images/time-icon-10-grey.svg'); }
+input ~ .duration--11:after { content: url('/images/time-icon-11-grey.svg'); }
+input ~ .duration--12:after { content: url('/images/time-icon-12-grey.svg'); }
+input ~ .duration--15:after { content: url('/images/time-icon-15-grey.svg'); }
+input ~ .duration--20:after { content: url('/images/time-icon-20-grey.svg'); }
+input ~ .duration--30:after { content: url('/images/time-icon-30-grey.svg'); }
+input ~ .duration--40:after { content: url('/images/time-icon-40-grey.svg'); }
+input ~ .duration--50:after { content: url('/images/time-icon-50-grey.svg'); }
+
+input:checked ~ .duration--5:after  { content: url('/images/time-icon-5.svg'); }
+input:checked ~ .duration--8:after  { content: url('/images/time-icon-8.svg'); }
+input:checked ~ .duration--10:after { content: url('/images/time-icon-10.svg'); }
+input:checked ~ .duration--11:after { content: url('/images/time-icon-11.svg'); }
+input:checked ~ .duration--12:after { content: url('/images/time-icon-12.svg'); }
+input:checked ~ .duration--15:after { content: url('/images/time-icon-15.svg'); }
+input:checked ~ .duration--20:after { content: url('/images/time-icon-20.svg'); }
+input:checked ~ .duration--30:after { content: url('/images/time-icon-30.svg'); }
+input:checked ~ .duration--40:after { content: url('/images/time-icon-40.svg'); }
+input:checked ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
+
+p ~ .duration--5:after  { content: url('/images/time-icon-5.svg'); }
+p ~ .duration--8:after  { content: url('/images/time-icon-8.svg'); }
+p ~ .duration--10:after { content: url('/images/time-icon-10.svg'); }
+p ~ .duration--11:after { content: url('/images/time-icon-11.svg'); }
+p ~ .duration--12:after { content: url('/images/time-icon-12.svg'); }
+p ~ .duration--15:after { content: url('/images/time-icon-15.svg'); }
+p ~ .duration--20:after { content: url('/images/time-icon-20.svg'); }
+p ~ .duration--30:after { content: url('/images/time-icon-30.svg'); }
+p ~ .duration--40:after { content: url('/images/time-icon-40.svg'); }
+p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
 
 
 // These rules dont belong here!

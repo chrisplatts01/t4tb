@@ -1,0 +1,38 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "#",
+    next: "#"
+  }
+%}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Post-programme survey",
+        info = "",
+        duration = 10,
+        step = 1,
+        steps = 15
+      )
+    }}
+
+    <article>
+      <h1>Rationale for the study</h1>
+      <p>Your second goal was a personal goal.</p>
+      <form id="sign-up" method="get" action="{{ page.next }}">
+        {{ form.slider_1("enough-info", "There was enough information provided at the outset detailing the rationale behind the Train for the Brain study:", ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"], "", "") }}
+        <hr>
+        {{ form.textarea("tell-more", "Tell us more:") }}
+        {{ form.actions( page.previous, page.next ) }}
+      </form>
+    </article>
+
+    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}

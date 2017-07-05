@@ -1,0 +1,164 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "/",
+    next: "exercise-diary-update-1.html"
+  }
+%}
+
+{% block content %}
+  <section id="session-start" class="panel panel--session-start">
+    <div class="wrapper">
+
+      <div class="session-panel">
+        <div class="session-start">
+          <a href="welcome-week-2.html" class="button button--session-start disabled">Programme resumes in 1 day</a>
+        </div>
+      </div>
+
+      <div class="session-panel">
+        <div class="session-weeks">
+          <div class="session-week is-done">
+            <div class="session-week_heading">Week 1</div>
+            <div class="session-week_status">
+              <span class="session-week_progress" style="width: 86%;"></span>
+              <span class="session-week_text">1 day left</span>
+            </div>
+          </div>
+          <div class="session-week">
+            <div class="session-week_heading">Week 2</div>
+            <div class="session-week_status">
+              <span class="session-week_progress"></span>
+              <span class="session-week_text"></span>
+            </div>
+          </div>
+          <div class="session-week">
+            <div class="session-week_heading">Week 3</div>
+            <div class="session-week_status">
+              <span class="session-week_progress"></span>
+              <span class="session-week_text"></span>
+            </div>
+          </div>
+          <div class="session-week">
+            <div class="session-week_heading">Week 4</div>
+            <div class="session-week_status">
+              <span class="session-week_progress"></span>
+              <span class="session-week_text"></span>
+            </div>
+          </div>
+          <div class="session-week">
+            <div class="session-week_heading">Week 5</div>
+            <div class="session-week_status">
+              <span class="session-week_progress"></span>
+              <span class="session-week_text"></span>
+            </div>
+          </div>
+          <div class="session-week">
+            <div class="session-week_heading">Week 6</div>
+            <div class="session-week_status">
+              <span class="session-week_progress"></span>
+              <span class="session-week_text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-panel">
+        <h3 class="centred">Session progress</h3>
+
+        <div class="session-progress">
+          <div class="session-progress_week">
+            <div class="session-progress_task is-done">1</div>
+            <div class="session-progress_task is-done">2</div>
+            <div class="session-progress_task is-done" is-next>3</div>
+          </div>
+
+          <div class="session-progress_week">
+            <div class="session-progress_task">4</div>
+            <div class="session-progress_task">5</div>
+            <div class="session-progress_task">6</div>
+          </div>
+
+          <div class="session-progress_week">
+            <div class="session-progress_task">7</div>
+            <div class="session-progress_task">8</div>
+            <div class="session-progress_task">9</div>
+          </div>
+
+          <div class="session-progress_week">
+            <div class="session-progress_task">10</div>
+            <div class="session-progress_task">11</div>
+            <div class="session-progress_task">12</div>
+          </div>
+
+          <div class="session-progress_week">
+            <div class="session-progress_task is-disabled">13</div>
+            <div class="session-progress_task is-disabled">14</div>
+            <div class="session-progress_task is-disabled">15</div>
+          </div>
+
+          <div class="session-progress_week">
+            <div class="session-progress_task is-disabled">16</div>
+            <div class="session-progress_task is-disabled">17</div>
+            <div class="session-progress_task is-disabled">18</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-panel session-panel--dark">
+        <h3 class="centred">My key stats</h3>
+        <div class="key-statistics">
+          <div class="key-statistic"><span class="stat">3</span> session(s) completed</div>
+          <div class="key-statistic"><span class="stat">110</span> minutes spent exercising</div>
+          <div class="key-statistic"><span class="stat">0</span> minutes spent walking</div>
+
+        </div>
+      </div>
+
+      <div class="session-panel">
+        <h3 class="centred">My achievements</h3>
+        <div class="achievements">
+          <div class="achievement is-done">
+            <div class="icon"></div>
+            <h4>Easy as 123</h4>
+            <p>Complete your first 3 training sessions</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Double Diary</h4>
+            <p>Update your exercise diary at the end of Week 2</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Goal Machine</h4>
+            <p>Review your measures and goals for the first time</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Give Me Five</h4>
+            <p>Try each of the 5 exercise types at least once</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Fully Trained</h4>
+            <p>Finish all 18 sessions in the programme</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Quiz Master</h4>
+            <p>Take our survey at the end of the programme</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}

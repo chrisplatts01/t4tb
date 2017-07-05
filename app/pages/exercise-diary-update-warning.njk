@@ -1,0 +1,33 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% set page = {
+    previous: "exercise-diary-update-start.html",
+    next: "exercise-diary-update-7.html"
+  }
+%}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Your exercise diary",
+        info = "",
+        duration = 10,
+        show_progress_bar = false,
+        show_progress_steps = false
+      )
+    }}
+
+    <article>
+      <h1>Warning!</h1>
+      <p>Due to the information provided we will temporarily stop your exercise programme and contact you within 3 working days for further information.</p>
+      <p>Please contact us on 0207 848 8183 or email us at <a href="mailto:admin@protectstudy.org.uk">admin@protectstudy.org.uk</a> should you have any queries.</p>
+    </article>
+
+    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+
+  </section>
+{% endblock %}
