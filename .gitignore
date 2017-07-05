@@ -3,3 +3,6 @@ node_modules
 dist/
 .tmp
 app.yaml
+/app/scripts/.DS_Store
+/app/scripts/library/.DS_Store
+/app/styles/.DS_Store
