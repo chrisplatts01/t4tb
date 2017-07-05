@@ -25,15 +25,14 @@
 @import 'modules/video';
 @import 'modules/slider';
 @import 'modules/slider-1';
+@import 'modules/mask';
 
 // @import 'modules/panel';
 @import 'modules/panel-hero';
 @import 'modules/panel-display';
 @import 'modules/panel-progress';
-@import 'modules/panel-dashboard';
 @import 'modules/panel-overlay';
 @import 'modules/session';
-
 
 // These should be rolled imto a custom JQuery UI theme
 .slider span.ui-slider-handle {
@@ -48,7 +47,24 @@
 .slider span.ui-slider-handle:active {
   border: 1px solid $brand-primary !important;
   background-color: $white !important;
+  outline: 0;
 }
+
+.slider-1 span.ui-slider-handle {
+  border-radius: 50% !important;
+  height: $base-spacing;
+  width: $base-spacing;
+  outline: 0;
+}
+
+.slider-1 span.ui-slider-handle:hover,
+.slider-1 span.ui-slider-handle:focus,
+.slider-1 span.ui-slider-handle:active {
+  border: 3px solid $brand-primary !important;
+  background-color: $white !important;
+}
+
+
 
 .ui-datepicker {
   .ui-datepicker-header {

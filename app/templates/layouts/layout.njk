@@ -81,7 +81,8 @@
         $this.slider('option', 'range', false);
         $this.slider('option', 'animate', 500);
 
-        $this.find('.slider-1_values, .slider-1_labels').css({marginLeft: margin, marginRight: margin});
+        // $this.find('.slider-1_values, .slider-1_labels').css({marginLeft: margin, marginRight: margin});
+        $this.find('.slider-1_values').css({marginLeft: margin, marginRight: margin});
         $this.find('.slider-1_value').width(width);
       },
       slide: function(event, ui) {
@@ -128,8 +129,5 @@
 
   })(jQuery);
 </script>
-
-{% include "includes/dev-menu.njk" %}
-
 </body>
 </html>

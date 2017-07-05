@@ -1,0 +1,70 @@
+body > .mask {
+  padding: 0;
+}
+
+.mask {
+  position: relative;
+  padding: 12px 0 24px;
+}
+
+.mask.is-masked::before {
+  content: "\0a00";
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(2, 37, 83, 0.9);
+}
+
+.mask .mask_content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  color: white;
+  padding: 48px 0;
+  z-index: 20;
+}
+
+.mask .mask_content h1,
+.mask .mask_content p {
+  color: white;
+}
+
+.mask.is-masked .mask_content {
+  display: none;
+}
+
+.mask .mask_content.above {
+  top: auto;
+  bottom: 100%;
+}
+
+.mask .mask_content .wrapper {
+  max-width: 420px;
+}
+
+.achievement-unlocked {
+  background-color: $white;
+  padding: $base-spacing 0;
+  margin: 0 $base-spacing;
+  border-radius: 3px;
+
+  h1, p {
+    color: $brand-secondary !important;
+    text-align: center;
+  }
+
+  .achievement-icon {
+    text-align: center;
+    padding-bottom: $base-spacing;
+
+  }
+
+  .form-action {
+    text-align: center;
+  }
+}

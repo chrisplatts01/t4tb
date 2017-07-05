@@ -1,0 +1,252 @@
+{% extends "layouts/layout-dashboard.njk" %}
+
+{% block content %}
+<div class="mask is-masked">
+  <header id="page-header" role="banner">
+    <div class="wrapper">
+      <h1>Train for the Brain</h1>
+      <div class="user-info">
+          <a id="sign-in" class="user-info_login reversed" href="#">Log in</a> | <a class="user-info_register reversed" href="register-1.html">Register</a>
+      </div>
+  </header>
+</div>
+
+<div class="mask">
+  <div class="mask_content">
+    <div class="wrapper">
+      <h1>Welcome to your dashboard</h1>
+      <p>The dashboard is your personalised homepage for Train For The Brain where you’ll see everything you need to progress throught he sessions.</p>
+      <p>We'll walk you through you through the elements fo the dashboard. To see this tutorial again,click 'replay tutorial' on the dashboard.</p>
+      <div class="form-actions">
+        <a class="button button--next" href="tutorial-1.html">Start tutorial</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="page-content" role="main">
+  <section id="session-start" class="panel panel--session-start">
+
+<div class="mask is-masked">
+  <div class="mask_content">
+    <div class="wrapper">
+      <p>This area directs you to your next available session.</p>
+      <div class="form-actions">
+        <a class="button button--next" href="tutorial-2.html">Next tip</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="session-panel">
+      <div class="session-start">
+        <a href="#" class="button button--session-start">Start session 1</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mask is-masked">
+  <div class="mask_content">
+    <div class="wrapper">
+      <p>This area indicates your progress. For example, this participant is about to start their 5th session and are in their 3rd week.</p>
+      <div class="form-actions">
+        <a class="button button--back secondary" href="tutorial-1.html">Previous tip</a>
+        <a class="button button--next" href="tutorial-3.html">Next tip</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="session-panel">
+      <div class="session-weeks">
+        <div class="session-week is-done">
+          <div class="session-week_heading">Week 1</div>
+          <div class="session-week_status">
+            <span class="session-week_progress" style="width: 100%"></span>
+            <span class="session-week_text"></span>
+          </div>
+        </div>
+        <div class="session-week is-done">
+          <div class="session-week_heading">Week 2</div>
+          <div class="session-week_status">
+            <span class="session-week_progress" style="width: 100%"></span>
+            <span class="session-week_text"></span>
+          </div>
+        </div>
+        <div class="session-week is-started">
+          <div class="session-week_heading">Week 3</div>
+          <div class="session-week_status">
+            <span class="session-week_progress" style="width: 29%"></span>
+            <span class="session-week_text">5 days left</span>
+          </div>
+        </div>
+        <div class="session-week">
+          <div class="session-week_heading">Week 4</div>
+          <div class="session-week_status">
+            <span class="session-week_progress"></span>
+            <span class="session-week_text"></span>
+          </div>
+        </div>
+        <div class="session-week">
+          <div class="session-week_heading">Week 5</div>
+          <div class="session-week_status">
+            <span class="session-week_progress"></span>
+            <span class="session-week_text"></span>
+          </div>
+        </div>
+        <div class="session-week">
+          <div class="session-week_heading">Week 6</div>
+          <div class="session-week_status">
+            <span class="session-week_progress"></span>
+            <span class="session-week_text"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="session-panel">
+      <h3 class="centred">Session progress</h3>
+
+      <div class="session-progress">
+        <div class="session-progress_week">
+          <div class="session-progress_task is-done">1</div>
+          <div class="session-progress_task is-done">2</div>
+          <div class="session-progress_task is-done">3</div>
+        </div>
+
+        <div class="session-progress_week">
+          <div class="session-progress_task is-done">4</div>
+          <div class="session-progress_task is-started">5</div>
+          <div class="session-progress_task is-next">6</div>
+        </div>
+
+        <div class="session-progress_week">
+          <div class="session-progress_task is-next">7</div>
+          <div class="session-progress_task is-next">8</div>
+          <div class="session-progress_task is-next">9</div>
+        </div>
+
+        <div class="session-progress_week">
+          <div class="session-progress_task">10</div>
+          <div class="session-progress_task">11</div>
+          <div class="session-progress_task">12</div>
+        </div>
+
+        <div class="session-progress_week">
+          <div class="session-progress_task is-disabled">13</div>
+          <div class="session-progress_task is-disabled">14</div>
+          <div class="session-progress_task is-disabled">15</div>
+        </div>
+
+        <div class="session-progress_week">
+          <div class="session-progress_task is-disabled">16</div>
+          <div class="session-progress_task is-disabled">17</div>
+          <div class="session-progress_task is-disabled">18</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mask is-masked">
+  <div class="mask_content above">
+    <div class="wrapper">
+      <p>This provides you with up to date information as to how you are progressing.</p>
+      <div class="form-actions">
+        <a class="button button--back secondary" href="tutorial-2.html">Previous tip</a>
+        <a class="button button--next" href="tutorial-4.html">Next tip</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="session-panel session-panel--dark">
+      <h3 class="centred">My key stats</h3>
+      <div class="key-statistics">
+        <div class="key-statistic"><span class="stat">0</span> session(s) completed</div>
+        <div class="key-statistic"><span class="stat">0</span> minutes spent exercising</div>
+        <div class="key-statistic"><span class="stat">0</span> minutes spent walking</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mask is-masked">
+  <div class="mask_content above">
+    <div class="wrapper">
+      <p>Badges are awarded for different achievements, such a scompleting all of your sessions and walking programme within a week, achievng a goal or repeating measures when requested.</p>
+      <div class="form-actions">
+        <a class="button button--back secondary" href="tutorial-3.html">Previous tip</a>
+        <a class="button" href="tutorial-start.html">Finish tutorial</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="session-panel">
+      <h3 class="centred">My achievements</h3>
+      <div class="achievements">
+        <div class="achievement is-started">
+          <div class="icon"></div>
+          <h4>Easy as 123</h4>
+          <p>Complete your first 3 training sessions</p>
+        </div>
+
+        <div class="achievement">
+          <div class="icon"></div>
+          <h4>Double Diary</h4>
+          <p>Update your exercise diary at the end of Week 2</p>
+        </div>
+
+        <div class="achievement">
+          <div class="icon"></div>
+          <h4>Goal Machine</h4>
+          <p>Review your measures and goals for the first time</p>
+        </div>
+
+        <div class="achievement">
+          <div class="icon"></div>
+          <h4>Give Me Five</h4>
+          <p>Try each of the 5 exercise types at least once</p>
+        </div>
+
+        <div class="achievement">
+          <div class="icon"></div>
+          <h4>Fully Trained</h4>
+          <p>Finish all 18 sessions in the programme</p>
+        </div>
+
+        <div class="achievement">
+          <div class="icon"></div>
+          <h4>Quiz Master</h4>
+          <p>Take our survey at the end of the programme</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+</main>
+
+<div class="mask is-masked">
+  <footer id="page-footer" role="contentinfo">
+    <div class="wrapper">
+      <div class="logos">
+        <div class="sponsor-logos">
+          <img src="images/kings-logo.svg">
+          <img src="images/exeter-logo.svg">
+        </div>
+        <div class="project-logos">
+          <img src="images/protect-logo.svg">
+        </div>
+      </div>
+      <nav class="utility-nav">
+        <ol>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Report and issue</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ol>
+      </nav>
+    </div>
+  </footer>
+</div>
+{% endblock %}

@@ -1,7 +1,6 @@
 .slider-1 {
-  // @include clearfix;
   position: relative;
-  width: 80%;
+  width: 90%;
   margin: $base-spacing auto $base-spacing * 2;
   background-color: $light-gray;
   box-shadow: 0 1px 3px $mid-gray inset;
@@ -18,7 +17,6 @@
 }
 
 .slider-1_values {
-  // @include clearfix();
   margin: $base-spacing 0 0 0;
 
   .slider-1_value {
@@ -34,25 +32,10 @@
 
 .slider-1_labels {
   @include flexbox($justify-content: space-between);
+  margin-left: -5%;
+  margin-right: -5%;
 
   span {
     font-size: $small-font-size;
   }
 }
-
-// This should be rolled imto a custom JQuery UI theme
-.slider-1 span.ui-slider-handle {
-  border-radius: 50% !important;
-  height: $base-spacing;
-  width: $base-spacing;
-  outline: 0;
-}
-
-.slider-1 span.ui-slider-handle:hover,
-.slider-1 span.ui-slider-handle:focus,
-.slider-1 span.ui-slider-handle:active {
-  border: 1px solid $brand-primary !important;
-  background-color: $white !important;
-}
-
-
