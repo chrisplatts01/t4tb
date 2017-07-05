@@ -22,7 +22,7 @@
     <div class="wrapper">
       {% if duration or info %}
         <hr>
-        {% if duration %}<div class="progress-duration"><img src="images/time-icon-{{ duration }}.svg" >Takes about {{ duration }} minutes</div>{% endif %}
+        {% if duration %}<div class="progress-duration"><img src="/images/time-icon-{{ duration }}.svg" >Takes about {{ duration }} minutes</div>{% endif %}
         {% if info %}<div class="progress-info">{{ info }}</div>{% endif %}
       {% endif %}
     </div>
