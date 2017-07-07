@@ -66,6 +66,18 @@ input[type='button'] {
     }
   }
 
+  &.warning {
+    background-color: $red;
+    color: $white !important;
+    border-bottom: 2px solid  shade($red, 20%);
+    border-right: 2px solid  shade($red, 20%);
+
+    &:hover,
+    &:focus {
+      background-color: shade($red, 10%);
+    }
+  }
+
   &.button--back {
     position: relative;
     padding: $small-spacing $base-spacing * 2;

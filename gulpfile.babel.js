@@ -123,9 +123,12 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
+      './app/scripts/library/jquery/jquery-3.2.1.js',
+      './app/scripts/library/jquery/jquery-ui.js',
+      './app/scripts/library/jquery/jquery.ui.touch-punch.js',
+      './app/scripts/library/jquery/jquery.popupoverlay.js',
       './app/scripts/wsk.js',
       './app/scripts/main.js'
-      // Other scripts
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())

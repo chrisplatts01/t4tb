@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "app"
+		},
+		{
+			"path": "dist"
 		}
 	]
 }

@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "physical-fitness-3.html",
@@ -14,7 +15,7 @@
 
     {{ section.header(
         title = "Physical fitness measures",
-        info = "<a href=\"#why-important\">Why is this important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is this important?</a>" | safe,
         step = 3,
         steps = 5
       )
@@ -29,7 +30,7 @@
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"measures-1.html\">Cancel and return to measures and goals</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}
 
   </section>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "exercise-diary-2.html",
@@ -23,7 +24,7 @@
 
     <article>
       <h1>Do you have a device that records your step count?</h1>
-      <form id="diary" method="get" action="{{ page.next }}">
+      <form id="exercise-diary" method="get" action="{{ page.next }}">
         {{ form.yesno("has-device", "") }}
         {{ form.text("daily-steps", "Over the last 7 days, what is you average daily stepcount?", "number") }}
         {{ form.checkboxes( "device-type", "What device records your stepcount?", ["Smartphone e.g. Apple/Android phone", "Worn device e.g. Fitbit", "Pedometer"] ) }}
@@ -32,7 +33,7 @@
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"measures-2.html\">Cancel and return to measures and goals</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}
 
   </section>
 {% endblock %}

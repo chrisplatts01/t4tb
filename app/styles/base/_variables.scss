@@ -23,6 +23,7 @@ $base-z-index: 0;
 $green: #1aab98;
 $blue: #022553;
 $light-blue: #1067cf;
+$red: #fc5c7a;
 
 $white: #fff;
 $light-gray: #f3f0ee;
@@ -55,44 +56,3 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 3px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
-
-// // Buttons
-// $buttons-list: 'button',
-//                'input[type="button"]',
-//                'input[type="reset"]',
-//                'input[type="submit"]',
-//                '.button';
-
-// $all-buttons:              assign-inputs($buttons-list);
-// $all-buttons-active:       assign-inputs($buttons-list, active);
-// $all-buttons-focus:        assign-inputs($buttons-list, focus);
-// $all-buttons-hover:        assign-inputs($buttons-list, hover);
-
-// $all-button-inputs:        $all-buttons;
-// $all-button-inputs-active: $all-buttons-active;
-// $all-button-inputs-focus:  $all-buttons-focus;
-// $all-button-inputs-hover:  $all-buttons-hover;
-
-// // Text inputs
-// input[type="color"]'
-// input[type="date"]'
-// input[type="datetime"]'
-// input[type="datetime-local"]'
-// input[type="email"]'
-// input[type="month"]'
-// input[type="number"]'
-// input[type="password"]'
-// input[type="search"]'
-// input[type="tel"]'
-// input[type="text"]'
-// input[type="time"]'
-// input[type="url"]'
-// input[type="week"]'
-// input:not([type])'
-// textarea'
-
-// $all-text-inputs:        assign-inputs($text-inputs-list);
-// $all-text-inputs-active: assign-inputs($text-inputs-list, active);
-// $all-text-inputs-focus:  assign-inputs($text-inputs-list, focus);
-// $all-text-inputs-hover:  assign-inputs($text-inputs-list, hover);
-

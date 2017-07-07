@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "measures-2.html",
@@ -26,12 +27,12 @@
       <p>We are interested in finding out about the kinds of physical activities that people do as part of their everyday lives. The questions will ask you about the time you spent being physically active in the last 7 days.</p>
       <p>Please answer each question even if you do not consider yourself to be an active person.</p>
       <p>Please think about the activities you do at work, as part of your house and yard work, to get from place to place, and in your spare time for recreation, exercise or sport.</p>
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      <form id="exercise-diary" method="get" action="{{ page.next }}">
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"measures-2.html\">Cancel and return to measures and goals</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}
 
   </section>
 {% endblock %}

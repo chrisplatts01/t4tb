@@ -1,0 +1,26 @@
+.modal {
+  padding: $base-spacing * 4 $base-spacing $base-spacing;
+  width: 100%;
+
+  .modal_close {
+    color: $white;
+    position: absolute;
+    top: $base-spacing;
+    right: $base-spacing;
+  }
+
+  .modal_content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: $base-spacing;
+    color: $base-font-color;
+    background-color: $white;
+    border-radius: 3px;
+  }
+
+  article {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
