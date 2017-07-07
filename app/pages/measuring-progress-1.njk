@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "welcome-1;html",
@@ -10,11 +11,11 @@
 %}
 
 {% block content %}
-  <section id="welcome" class="panel panel--progress">
+  <section class="panel panel--progress">
 
     {{ section.header(
         title = "Physical fitness measures",
-        info = "<a href=\"#why-important\">Why is this important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is this important?</a>" | safe,
         duration = 15,
         step = 1,
         steps = 5
@@ -33,7 +34,7 @@
       </div>
     </article>
 
-    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
 
   </section>
 {% endblock %}

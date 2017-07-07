@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "sign-up-3.html",
@@ -14,7 +15,7 @@
 
     {{ section.header(
         title = "Sign up to the study",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"my-data-open\" class=\"modal-open\" href=\"#my-data\">What happens to my data?</a>" | safe,
         duration = 15,
         step = 4,
         steps = 9
@@ -36,10 +37,10 @@
         </div>
         {{ form.actions( page.previous, page.next ) }}
       </form>
-      <p><a href="#why-important">Why is this important?</a></p>
+      <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 
-    {{ section.footer( info = "<a href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
 
   </section>
 {% endblock %}

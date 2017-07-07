@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "setting-goals-2.html",
@@ -39,13 +40,13 @@
       </ul>
       <p>Remember, it needs to be something that is achievable within the next 6 weeks and important to you.</p>
 
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      <form id="setting-goals" method="get" action="{{ page.next }}">
         {{ form.textarea("personal-goal", "Insert your personal goal", "") }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"measures-3.html\">Cancel and return to measures and goals</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}
 
   </section>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "#",
@@ -27,12 +28,12 @@
       <p class="heading">Your initial goal was to be able to complete xxx chair stands in 30 seconds.</p>
       <p class="heading">In your most recent physical test you completed xxx chair stands in 30 seconds.</p>
       <p class="heading">You still need to work towards achieving this goal, keep working on it!</p>
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      <form id="review-goals" method="get" action="{{ page.next }}">
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
 
   </section>
 {% endblock %}

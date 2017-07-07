@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "exercise-diary-update-start.html",
@@ -24,12 +25,12 @@
     <article>
       <h1>Update exercise diary</h1>
       <p>Please complete the information within your exercise diary to ensure that we are aware of your activity and progress.</p>
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      <form id="exercise-diary-update" method="get" action="{{ page.next }}">
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
 
   </section>
 {% endblock %}

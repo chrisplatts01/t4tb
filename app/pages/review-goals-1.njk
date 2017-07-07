@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% set page = {
     previous: "#",
@@ -29,7 +30,7 @@
       </form>
     </article>
 
-    {{ section.footer( info = "<a href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
+    {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}
 
   </section>
 {% endblock %}

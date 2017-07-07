@@ -9,14 +9,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700" rel="stylesheet">
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/styles/library/jquery/jquery-ui.min.css">
   <link rel="stylesheet" href="/styles/main.css">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-  <script src="/scripts/main.js"></script>
+  <script src="/scripts/main.min.js"></script>
 </head>
 <body>
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+{# % import "macros/modal.njk" as modal % #}
 
 {% include "includes/page-header.njk" %}
 
@@ -25,6 +27,15 @@
 </main>
 
 {% include "includes/page-footer.njk" %}
+
+{% include "includes/my-data.njk" %}
+{% include "includes/why-important.njk" %}
+{% include "includes/why-exercise.njk" %}
+{% include "includes/ill-health.njk" %}
+{% include "includes/ipaq.njk" %}
+{% include "includes/exit-home.njk" %}
+{% include "includes/exit-measures.njk" %}
+{% include "includes/exit-dashboard.njk" %}
 
 <script>
   jQuery.noConflict();
@@ -114,17 +125,81 @@
       yearRange: "1900:+0"
     });
 
+
     // Handle user-status overlay display
     $("#page-header").find(".user-info_name, .user-info_profile").on( "click", function() {
-      console.log("Show?");
       $("#user-status").show();
-      // return false;
     });
 
     $("#user-status").find(".user-status_close").on( "click", function() {
-      console.log("Hide?");
       $("#user-status").hide();
-      // return false;
+    });
+
+    // Handle modals
+    $('.modal').popup({
+      color: '#022553',
+      opacity: 0.9,
+      horizontal: 'center',
+      vertical: 'top',
+      escape: true,
+      blur: false
+    });
+
+    // Show/hide individual modals - needs to be replaced by generic click events
+    $('#my-data-open').on('click', function() {
+      $('#my-data').popup('show');
+    });
+    $('#my-data-close').on('click', function() {
+      $('#my-data').popup('hide');
+    });
+
+    $('#why-important-open').on('click', function() {
+      $('#why-important').popup('show');
+    });
+    $('#why-important-close').on('click', function() {
+      $('#why-important').popup('hide');
+    });
+
+    $('#why-exercise-open').on('click', function() {
+      $('#why-exercise').popup('show');
+    });
+    $('#why-exercise-close').on('click', function() {
+      $('#why-exercise').popup('hide');
+    });
+
+    $('#ill-health-open').on('click', function() {
+      $('#ill-health').popup('show');
+    });
+    $('#ill-health-close').on('click', function() {
+      $('#ill-health').popup('hide');
+    });
+
+    $('#ipaq-open').on('click', function() {
+      $('#ipaq').popup('show');
+    });
+    $('#ipaq-close').on('click', function() {
+      $('#ipaq').popup('hide');
+    });
+
+    $('#exit-home-open').on('click', function() {
+      $('#exit-home').popup('show');
+    });
+    $('#exit-home-close, #exit-home-close-button').on('click', function() {
+      $('#exit-home').popup('hide');
+    });
+
+    $('#exit-measures-open').on('click', function() {
+      $('#exit-measures').popup('show');
+    });
+    $('#exit-measures-close, #exit-measures-close-button').on('click', function() {
+      $('#exit-measures').popup('hide');
+    });
+
+    $('#exit-dashboard-open').on('click', function() {
+      $('#exit-dashboard').popup('show');
+    });
+    $('#exit-dashboard-close, #exit-dashboard-close-button').on('click', function() {
+      $('#exit-dashboard').popup('hide');
     });
 
   })(jQuery);

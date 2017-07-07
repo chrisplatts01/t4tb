@@ -26,6 +26,7 @@
 @import 'modules/slider';
 @import 'modules/slider-1';
 @import 'modules/mask';
+@import 'modules/modal';
 
 // @import 'modules/panel';
 @import 'modules/panel-hero';
@@ -97,5 +98,13 @@
   margin: 1px 2px;
 }
 
+// .ui-widget-overlay {
+//   background-color: $brand-secondary;
+//   opacity: 0.9;
+// }
 
-
+// .ui-widget-header {
+//   color: $heading-font-color;
+//   background-color: $white;
+//   border: none;
+// }

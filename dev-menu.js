@@ -10,11 +10,11 @@ var fs = require('fs');
 var path = 'dist';
 
 fs.readdir(path, function(err, items) {
-    console.log('<nav class="dev-menu">');
+    console.log('<nav class="dev-menu"><ul>');
     for (var i = 0; i < items.length; i++) {
       if (items[i].substr(-5) === '.html') {
-        console.log('<div>- <a href="' + items[i] + '">' + items[i] + '</a></div>');
+        console.log('<li><a href="' + items[i] + '" target="_blank">' + items[i] + '</a></li>');
       }
     }
-    console.log('</div>');
+    console.log('</ul></nav>');
 });
