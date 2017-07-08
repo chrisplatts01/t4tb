@@ -13,9 +13,14 @@ Field: Text input - note if type="date"
     changeYear = true
   )
 %}
+
 <div class="form-field form-field--text">
   <label for="{{ name }}">{{ label }}</label>
+  {% if type == "date" %}
+  <input id="{{ name }}" name="{{ name }}" type="text" data-type="date" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %}>
+  {% else %}
   <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %}>
+  {% endif %}
 </div>
 {% endmacro %}
 
