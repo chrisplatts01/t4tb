@@ -21,6 +21,7 @@
 @import 'layout/page-footer';
 
 @import 'modules/forms';
+@import 'modules/form-validation';
 @import 'modules/buttons';
 @import 'modules/video';
 @import 'modules/slider';
@@ -101,36 +102,41 @@
 
 
 
-
+.form-field { position: relative; }
 
 input.parsley-success,
 select.parsley-success,
 textarea.parsley-success {
-  color: #468847;
-  background-color: #DFF0D8;
-  border: 1px solid #D6E9C6;
+  // color: #468847;
+  // background-color: #DFF0D8;
+  border: 1px solid $brand-primary !important;
 }
 
 input.parsley-error,
 select.parsley-error,
 textarea.parsley-error {
-  color: #B94A48;
-  background-color: #F2DEDE;
-  border: 1px solid #EED3D7;
+  // color: #B94A48;
+  // background-color: #F2DEDE;
+  border: 1px solid $red !important;
 }
 
 .parsley-errors-list {
-  margin: 2px 0 3px;
+  list-style: none;
   padding: 0;
-  list-style-type: none;
-  font-size: 0.9em;
-  line-height: 0.9em;
+  margin: 0;
+  position: absolute;
+  top: 3px;
+  right: 0;
   opacity: 0;
 
-  transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  -webkit-transition: all .3s ease-in;
+  li {
+    color: $white;
+    background-color: $red;
+    padding: 0 3px;
+    border-radius: 3px;
+    font-size: 14px;
+    // text-transform: uppercase;
+  }
 }
 
 .parsley-errors-list.filled {

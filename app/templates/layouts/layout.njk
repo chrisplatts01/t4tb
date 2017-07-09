@@ -9,8 +9,14 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles/library/jquery/jquery-ui.min.css">
+  <link rel="stylesheet" href="/styles/vendor/jquery/jquery-ui.min.css">
   <link rel="stylesheet" href="/styles/main.css">
+
+  <script src="/scripts/vendor/jquery/jquery-3.2.1.js"></script>
+  <script src="/scripts/vendor/jquery/jquery-ui.js"></script>
+  <script src="/scripts/vendor/furf/jquery.ui.touch-punch.js"></script>
+  <script src="/scripts/vendor/vast/jquery.popupoverlay.js"></script>
+  <script src="/scripts/vendor/parsley/parsley.js"></script>
 
   <script src="/scripts/main.min.js"></script>
 </head>
@@ -41,6 +47,10 @@
   jQuery.noConflict();
 
   (function($) {
+
+    $("#t4tb").parsley({
+      debug: true
+    });
 
     // Handle JQuery UI Slider as numeric value
     $('.slider').slider({

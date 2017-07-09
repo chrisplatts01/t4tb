@@ -123,10 +123,11 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './app/scripts/vendor/jquery/jquery-3.2.1.js',
-      './app/scripts/vendor/jquery/jquery-ui.js',
-      './app/scripts/vendor/furf/jquery.ui.touch-punch.js',
-      './app/scripts/vendor/vast/jquery.popupoverlay.js',
+      // './app/scripts/vendor/jquery/jquery-3.2.1.js',
+      // './app/scripts/vendor/jquery/jquery-ui.js',
+      // './app/scripts/vendor/furf/jquery.ui.touch-punch.js',
+      // './app/scripts/vendor/vast/jquery.popupoverlay.js',
+      // './app/scripts/vendor/parsley/parsley.js',
       './app/scripts/wsk.js',
       './app/scripts/main.js'
     ])
@@ -157,20 +158,27 @@ gulp.task('html', () => {
     }))
 
     // Minify any HTML
-    .pipe($.if('*.html', $.htmlmin({
-      removeComments: true,
-      collapseWhitespace: true,
-      collapseBooleanAttributes: true,
-      removeAttributeQuotes: true,
-      removeRedundantAttributes: true,
-      removeEmptyAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      removeOptionalTags: true
-    })))
+    // .pipe($.if('*.html', $.htmlmin({
+    //   removeComments: true,
+    //   collapseWhitespace: true,
+    //   collapseBooleanAttributes: true,
+    //   removeAttributeQuotes: true,
+    //   removeRedundantAttributes: true,
+    //   removeEmptyAttributes: true,
+    //   removeScriptTypeAttributes: true,
+    //   removeStyleLinkTypeAttributes: true,
+    //   removeOptionalTags: true
+    // })))
     // Output files
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
     .pipe(gulp.dest('dist'));
+});
+
+// Copy over the vendor scripts.
+gulp.task('copy-vendor-scripts', () => {
+  return gulp.src(['app/scripts/vendor/**/*.js'])
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe(gulp.dest('.tmp/scripts'));
 });
 
 // Clean output directory
@@ -220,7 +228,7 @@ gulp.task('default', ['clean'], cb =>
   runSequence(
     'nunjucks',
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'html', 'scripts', 'images', 'copy', 'copy-vendor-scripts'],
     'generate-service-worker',
     cb
   )
