@@ -15,7 +15,7 @@
 
     {{ section.header(
         title = "Register for the study",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 15,
         step = 5,
         steps = 5
@@ -24,7 +24,7 @@
 
     <article>
       <h1>Please enter your sex</h1>
-      <form id="register" method="get" action="{{ page.next }}">
+      <form id="t4tb" method="get" action="{{ page.next }}">
         <div class="form-field-inline-group">
           <div class="form-field form-field--radio">
             <input id="sex-male" name="sex" type="radio" value="Male">

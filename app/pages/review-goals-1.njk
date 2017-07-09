@@ -15,7 +15,7 @@
 
     {{ section.header(
         title = "Review your goals",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 5,
         step = 1,
         steps = 3
@@ -25,7 +25,7 @@
     <article>
       <h1>Reviewing your goals</h1>
       <p>At the beginning of the programme, you set two goals, we would like to review how you feel you have progressed.</p>
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      <form id="t4tb" method="get" action="{{ page.next }}">
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

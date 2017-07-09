@@ -15,7 +15,7 @@
 
     {{ section.header(
         title = "Review your goals",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 5,
         step = 3,
         steps = 3
@@ -27,7 +27,7 @@
       <p>You have achieved your personal goal, well done!</p>
       <p>You will need to choose another personal goal that is important to you.</p>
       <p>Remember, it needs to be something that is achievable within the next 3 weeks and important to you.</p>
-      <form id="review-goals" method="get" action="{{ page.next }}">
+      <form id="t4tb" method="get" action="{{ page.next }}">
         {{ form.textarea("personal-goal", "Insert your personal goal") }}
         {{ form.actions( page.previous, page.next ) }}
       </form>

@@ -15,7 +15,7 @@
 
     {{ section.header(
         title = "Review your goals",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 5,
         step = 2,
         steps = 3
@@ -28,7 +28,7 @@
       <p class="heading">Your initial goal was to be able to complete xxx chair stands in 30 seconds.</p>
       <p class="heading">You have completed your goal, well done!</p>
       <p class="heading">You will need to reset your physical exercise goal. We would recommend that you aim to be able to do XXX chair stands in 30 seconds over the coming weeks.</p>
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      <form id="t4tb" method="get" action="{{ page.next }}">
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

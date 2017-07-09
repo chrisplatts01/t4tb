@@ -25,7 +25,7 @@
     <article>
       <h1>Moderate activities</h1>
       <p>Think about all the moderate activities that you did in the last 7 days. Moderate activities refer to activities that take moderate physical effort and make you breathe somewhat harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</p>
-      <form id="exercise-diary" method="get" action="{{ page.next }}">
+      <form id="t4tb" method="get" action="{{ page.next }}">
         {{ form.radios( "moderate-activity-days", "During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.<br><br>Include any exercise you carry out as part of the Train for the Brain programme." | safe, ["0 days", "1 day", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days"] ) }}
         {{ form.text2("How much time did you usually spend doing moderate physical activities on one of those days?", "moderate-activity-hours", "Hours per day", "text", "", "moderate-activity-minutes", "Minutes per day", "text", "" ) }}
         {{ form.checkbox( "moderate-activity-unknown", "Don't know/not sure" ) }}

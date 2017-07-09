@@ -9,6 +9,7 @@ Field: Text input - note if type="date"
     label = "FIELD_LABEL",
     type  = "text",
     value = "",
+    required = "",
     changeMonth = false,
     changeYear = true
   )
@@ -17,9 +18,9 @@ Field: Text input - note if type="date"
 <div class="form-field form-field--text">
   <label for="{{ name }}">{{ label }}</label>
   {% if type == "date" %}
-  <input id="{{ name }}" name="{{ name }}" type="text" data-type="date" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %}>
+  <input id="{{ name }}" name="{{ name }}" type="text" data-type="date" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %} {% if required %}"required"{% endif %}>
   {% else %}
-  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %}>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if type=="date" %}placeholder="dd/mm/yyyy" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% endif %} {% if required %}"required"{% endif %}>
   {% endif %}
 </div>
 {% endmacro %}
@@ -38,7 +39,8 @@ Field group: Inline text input
     name2 = "FIELD_NAME_2",
     label2 = "FIELD_LABEL_2",
     type2 = "text",
-    value2 = ""
+    value2 = "",
+    required = ""
   )
 %}
 <div class="form-field-group">
@@ -46,11 +48,11 @@ Field group: Inline text input
   <div class="form-field-inline-group">
     <div class="form-field form-field--text">
       <label for="{{ name1 }}">{{ label1 }}</label>
-      <input id="{{ name1 }}" name="{{ name1 }}" type="{{ type1 }}" value="{{ value1 }}">
+      <input id="{{ name1 }}" name="{{ name1 }}" type="{{ type1 }}" value="{{ value1 }}" {% if required %}"required"{% endif %}>
     </div>
     <div class="form-field form-field--text">
       <label for="{{ name2 }}">{{ label2 }}</label>
-      <input id="{{ name2 }}" name="{{ name2 }}" type="{{ type2 }}" value="{{ value2 }}">
+      <input id="{{ name2 }}" name="{{ name2 }}" type="{{ type2 }}" value="{{ value2 }}" {% if required %}"required"{% endif %}>
     </div>
   </div>
 </div>
@@ -64,7 +66,8 @@ Field: Text area
 {% macro textarea(
     name = "FIELD_NAME",
     label = "FIELD_LABEL",
-    value = ""
+    value = "",
+    required = ""
   )
 %}
 <div class="form-field form-field--text">
@@ -83,7 +86,8 @@ Field: Checkbox with optional time icon
     label = "FIELD_LABEL",
     value ="",
     checked = "",
-    duration = ""
+    duration = "",
+    required = ""
   )
 %}
 <div class="form-field form-field--checkbox">
@@ -105,7 +109,8 @@ Field group: Checkboxes with optional
     name ="NAME",
     label ="LABEL",
     values =["OPTION-1"],
-    durations = []
+    durations = [],
+    required = ""
   )
 %}
 <div class="form-field-group">
@@ -134,7 +139,8 @@ Field: Radio button with optional time
     label = "FIELD_LABEL",
     value ="",
     checked = "",
-    duration = ""
+    duration = "",
+    required = ""
   )
 %}
 <div class="form-field form-field--radio">
@@ -156,7 +162,8 @@ Field group: Radio buttons with optional
     name ="NAME",
     label ="LABEL",
     values =["OPTION-1"],
-    durations = []
+    durations = [],
+    required = ""
   )
 %}
 <div class="form-field-group">
@@ -181,7 +188,8 @@ Field group: Yes/No radio buttons
 #}
 {% macro yesno(
     name = "NAME",
-    label = "LABEL"
+    label = "LABEL",
+    required = ""
   )
 %}
 <div class="form-field-group">
@@ -211,7 +219,8 @@ Field: Input field as JQuery UI Slider
     step = 1,
     unit = "",
     lower_guide = "",
-    upper_guide = ""
+    upper_guide = "",
+    required = ""
   )
 %}
 <div class="form-field form-field--slider">
@@ -243,7 +252,8 @@ Field: Input field as JQuery UI Slider
     label = "Choose an option",
     values = ["0", "1", "2", "3", "4", "5" ],
     floor = "Least",
-    ceiling = "Most"
+    ceiling = "Most",
+    required = ""
   )
 %}
 <div class="form-field form-field--slider-1">

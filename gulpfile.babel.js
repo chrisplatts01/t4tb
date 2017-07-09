@@ -42,7 +42,7 @@ const reload = browserSync.reload;
 
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src(['app/scripts/**/*.js', '!app/scripts/library/**', '!node_modules/**'])
+  gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**', '!node_modules/**', '!app/scripts/wsk.js', '!app/scripts/sw/runtime-caching.js'])
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
@@ -123,10 +123,10 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './app/scripts/library/jquery/jquery-3.2.1.js',
-      './app/scripts/library/jquery/jquery-ui.js',
-      './app/scripts/library/jquery/jquery.ui.touch-punch.js',
-      './app/scripts/library/jquery/jquery.popupoverlay.js',
+      './app/scripts/vendor/jquery/jquery-3.2.1.js',
+      './app/scripts/vendor/jquery/jquery-ui.js',
+      './app/scripts/vendor/furf/jquery.ui.touch-punch.js',
+      './app/scripts/vendor/vast/jquery.popupoverlay.js',
       './app/scripts/wsk.js',
       './app/scripts/main.js'
     ])
@@ -136,7 +136,7 @@ gulp.task('scripts', () =>
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
       .pipe($.concat('main.min.js'))
-      .pipe($.uglify())
+      // .pipe($.uglify())
       // Output files
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))

@@ -15,7 +15,7 @@
 
     {{ section.header(
         title = "Register for the study",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 15,
         step = 4,
         steps = 5
@@ -24,7 +24,7 @@
 
     <article>
       <h1>Your date of birth</h1>
-      <form id="register" method="get" action="{{ page.next }}">
+      <form id="t4tb" method="get" action="{{ page.next }}">
         {{ form.text("dob", "Please enter your date of birth", "date", changeMonth = true, changeYear = true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
