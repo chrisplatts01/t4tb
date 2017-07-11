@@ -25,16 +25,7 @@
     <article>
       <h1>Please enter your address</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-         <div class="form-field form-field--text">
-            <label for="lookup-house-number">House name or number</label>
-            <input id="lookup-house-number" type="text">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="lookup-postcode">Postcode</label>
-            <input id="lookup-postcode" type="text">
-          </div>
-        </div>
+        {{ form.text2("", "lookup-house-number", "House name or number", "text", "", "lookup-postcode", "Postcode", "text", "", required=true) }}
          <div class="form-actions">
           <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
           <button class="button button--next" type="submit">Look up address</button>

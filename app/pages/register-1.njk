@@ -25,22 +25,8 @@
     <article>
       <h1>Please enter your name and email address</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-          <div class="form-field form-field--text">
-            <label for="first-name">First name</label>
-            <input id="first-name" type="text" required>
-          </div>
-          <div class="form-field form-field--text">
-            <label for="last-name">Last name</label>
-            <input id="last-name" type="text" required>
-          </div>
-        </div>
-        <div class="form-field-group">
-          <div class="form-field form-field--email">
-            <label for="email">Email address</label>
-            <input id="email" type="email" required>
-          </div>
-        </div>
+        {{ form.text2("", "first-name", "First name", "text", "", "last-name", "Last name", "text", "", required=true) }}
+        {{ form.text("email", "Email address", "email", required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

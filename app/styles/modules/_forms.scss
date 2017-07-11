@@ -23,11 +23,6 @@ label {
   color: $brand-secondary;
   font-weight: 400;
   font-size: $small-font-size;
-
-  // .form-field--radio &,
-  // .form-field--checkbox & {
-  //   color: $dark-gray;
-  // }
 }
 
 // Text fields
@@ -139,6 +134,92 @@ input[type='checkbox'] + label:before {
   border-radius: $base-border-radius;
 }
 
+.form-field.parsley-error {
+  input[type='checkbox'] + label:before {
+    border-color: red;
+  }
+
+  input[type='radio'] + label:before {
+    border-color: red;
+  }
+
+  & ~ .form-field {
+    input[type='checkbox'] + label:before {
+      border-color: red;
+    }
+
+    input[type='radio'] + label:before {
+      border-color: red;
+    }
+  }
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+   border: 1px solid $brand-primary !important;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  border: 1px solid $red !important;
+}
+
+.parsley-errors-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -3px;
+  right: 0;
+  opacity: 0;
+
+  &:after {
+    position: absolute;
+    left: 12px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $red;
+  }
+
+  li {
+    color: $white;
+    background-color: $red;
+    padding: 0 3px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+}
+
+.form-field-group,
+.form-field-inline-group {
+  .parsley-errors-list {
+    top: -22px;
+    right: 0;
+    left: 0;
+  }
+}
+
+.form-field-row {
+  .parsley-errors-list {
+    top: -18px;
+  }
+}
+
+.form-field-row,
+.form-field-group,
+.form-field-inline-group,
+.form-field--text,
+.form-field--textarea,
+.form-field--select,
+.form-field--slider {
+  position: relative;
+}
+
 input[type='checkbox']:checked + label:before {
   background-color: $brand-primary;
   border-color: $brand-primary;
@@ -194,7 +275,7 @@ form > .form-field {
 
 .form-field-row {
   @include flexbox($justify-content: space-between, $flex-wrap: nowrap);
-  margin-bottom: $small-spacing;
+  margin: $base-spacing 0;
   border-bottom: 1px solid $mid-gray;
 }
 

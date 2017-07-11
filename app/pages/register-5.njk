@@ -25,20 +25,7 @@
     <article>
       <h1>Please enter your sex</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-          <div class="form-field form-field--radio">
-            <input id="sex-male" name="sex" type="radio" value="Male">
-            <label for="sex-male">Male</label>
-          </div>
-          <div class="form-field form-field--radio">
-            <input id="sex-female" name="sex" type="radio" value="Female">
-            <label for="sex-female">Female</label>
-          </div>
-          <div class="form-field form-field--radio">
-            <input id="sex-inter" name="sex" type="radio" value="Intersex">
-            <label for="sex-inter">Intersex</label>
-          </div>
-        </div>
+        {{ form.radios("sex", "", ["Male", "Femail", "Intersex"], inline=true, required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

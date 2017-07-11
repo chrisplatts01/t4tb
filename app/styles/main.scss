@@ -36,7 +36,9 @@
 @import 'modules/panel-overlay';
 @import 'modules/session';
 
-// These should be rolled imto a custom JQuery UI theme
+// =============================================================================
+// Override some JQuery UI rules
+// Ideally these should be rolled imto a custom JQuery UI theme
 .slider span.ui-slider-handle {
   border-radius: 50% !important;
   height: $base-spacing;
@@ -65,8 +67,6 @@
   border: 3px solid $brand-primary !important;
   background-color: $white !important;
 }
-
-
 
 .ui-datepicker {
   .ui-datepicker-header {
@@ -97,46 +97,6 @@
 
 .ui-datepicker .ui-datepicker-title select {
   margin: 1px 2px;
-}
-
-
-
-
-.form-field { position: relative; }
-
-input.parsley-success,
-select.parsley-success,
-textarea.parsley-success {
-  // color: #468847;
-  // background-color: #DFF0D8;
-  border: 1px solid $brand-primary !important;
-}
-
-input.parsley-error,
-select.parsley-error,
-textarea.parsley-error {
-  // color: #B94A48;
-  // background-color: #F2DEDE;
-  border: 1px solid $red !important;
-}
-
-.parsley-errors-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 3px;
-  right: 0;
-  opacity: 0;
-
-  li {
-    color: $white;
-    background-color: $red;
-    padding: 0 3px;
-    border-radius: 3px;
-    font-size: 14px;
-    // text-transform: uppercase;
-  }
 }
 
 .parsley-errors-list.filled {

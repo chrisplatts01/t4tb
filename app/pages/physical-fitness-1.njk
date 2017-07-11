@@ -30,9 +30,9 @@
       </div>
       <p>After watching this video, enter how many times you are able to stand up and sit down from a chair within 30 seconds. Please use a standard armchair (typically 17” or 43cm high).</p>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.text("chair-stand-number", "Number of chair stands completed in 30 seconds", "number") }}
-        {{ form.yesno("help", "Did you require support from your hands when standing?") }}
-        {{ form.slider("how-easy", "Please rate how difficult you found this test - 0 being effortless and 10 being maximum difficulty.", 0, 10, 1, "", "Minimum effort", "Maximum effort") }}
+        {{ form.text("chair-stand-number", "Number of chair stands completed in 30 seconds", "number", required=true) }}
+        {{ form.yesno("help", "Did you require support from your hands when standing?", required=true) }}
+        {{ form.slider("how-easy", "Please rate how difficult you found this test - 0 being effortless and 10 being maximum difficulty.", 0, 10, 1, "", "Minimum effort", "Maximum effort", required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

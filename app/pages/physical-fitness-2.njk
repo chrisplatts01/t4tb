@@ -30,7 +30,7 @@
       </div>
       <p>After watching the video, enter how many seconds it takes for you to stand up and sit down from a chair 10 times in a row.</p>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number") }}
+        {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number", required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
       <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>

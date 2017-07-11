@@ -25,20 +25,7 @@
     <article>
       <h1>In the last 3 months have you had:</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        <div class="form-field-group">
-          <div class="form-field form-field--checkbox">
-            <input id="cardio-1" name="cardio" type="checkbox" value="myocardial-infarction">
-            <label for="cardio-1">A myocardial infarction or ‘heart attack’?</label>
-          </div>
-          <div class="form-field form-field--checkbox">
-            <input id="cardio-2" name="cardio" type="checkbox" value="stroke">
-            <label for="cardio-2">A stroke?</label>
-          </div>
-          <div class="form-field form-field--checkbox">
-            <input id="cardio-3" name="cardio" type="checkbox" value="blackout">
-            <label for="cardio-3">Any blackouts?</label>
-          </div>
-        </div>
+        {{ form.checkboxes("cardio", "", ["A myocardial infarction or ‘heart attack’?", "A stroke?", "Any blackouts?"], required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
       <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>

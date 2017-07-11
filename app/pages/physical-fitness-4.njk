@@ -24,7 +24,7 @@
     <article>
       <h1>How would you describe your walking speed?</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.radios( "walking-speed", "Please choose from the following option that best describes you.", ["Unable to walk", "Very slow", "Stroll at an easy pace", "Normal speed", "Fairly brisk", "Fast"] ) }}
+        {{ form.radios( "walking-speed", "Please choose from the following option that best describes you.", ["Unable to walk", "Very slow", "Stroll at an easy pace", "Normal speed", "Fairly brisk", "Fast"] , required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

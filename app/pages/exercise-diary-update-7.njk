@@ -25,7 +25,7 @@
     <article>
       <h1>Have you had any ill health during the last 7 days?</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.yesno("ill-health", "") }}
+        {{ form.yesno("ill-health", "", required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
       <p><a id="ill-health-open" class="modal-open" href="#ill-health">What do we mean by 'ill-health'?</a></p>

@@ -25,7 +25,7 @@
     <article>
       <h1>Your date of birth</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.text("dob", "Please enter your date of birth", "date", changeMonth = true, changeYear = true) }}
+        {{ form.text("dob", "Please enter your date of birth", "date", changeMonth = true, changeYear = true, required=true) }}
         {{ form.actions( page.previous, page.next ) }}
       </form>
     </article>

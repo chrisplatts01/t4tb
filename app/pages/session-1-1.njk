@@ -26,11 +26,11 @@
     <article>
       <h1>Schedule</h1>
       <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10) }}
+        {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10, required=true) }}
         <hr>
-        {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11]) }}
+        {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11], required=true) }}
         <hr>
-        {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10) }}
+        {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10, required=true) }}
         <hr>
         <p>Total session time</p>
         <div class="duration duration--40">40 mins</div>
