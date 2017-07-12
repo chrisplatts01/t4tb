@@ -177,7 +177,7 @@ textarea.parsley-error {
 
   &:after {
     position: absolute;
-    left: 12px;
+    left: 8px;
     content: "";
     width: 0;
     height: 0;
@@ -193,6 +193,11 @@ textarea.parsley-error {
     border-radius: 3px;
     font-size: 14px;
   }
+}
+
+.consent-item .parsley-errors-list:after {
+  left: auto;
+  right: 8px;
 }
 
 .form-field-group,

@@ -17,8 +17,6 @@
   <script src="/scripts/vendor/furf/jquery.ui.touch-punch.js"></script>
   <script src="/scripts/vendor/vast/jquery.popupoverlay.js"></script>
   <script src="/scripts/vendor/parsley/parsley.js"></script>
-
-  <script src="/scripts/main.min.js"></script>
 </head>
 <body>
 
@@ -27,6 +25,8 @@
 {# % import "macros/modal.njk" as modal % #}
 
 {% include "includes/page-header.njk" %}
+
+{% include "includes/form-errors.njk" %}
 
 <main id="page-content" role="main">
   {% block content %}{% endblock %}
@@ -43,175 +43,36 @@
 {% include "includes/exit-measures.njk" %}
 {% include "includes/exit-dashboard.njk" %}
 
+<script src="/scripts/main.min.js"></script>
 <script>
   jQuery.noConflict();
 
   (function($) {
 
-    $("#t4tb").parsley({
-      debug: true
-    });
+    // -------------------------------------------------------------------------
+    // Handle form validation
+    // -------------------------------------------------------------------------
+    $("#t4tb").parsley()
 
-    // Handle JQuery UI Slider as numeric value
-    $('.slider').slider({
-      create: function(event, ui) {
-        var $this = $(this);
-        var $input = $this.find('input');
-        var min = $input.data('min');
-        var max = $input.data('max');
-        var step = $input.data('step');
+      // Prevent form submission (for development only)
+      // .on('form:submit', function() {
+      //   console.log('NOT SUBMITTING');
+      //   return false;
+      // })
 
-        $this.slider('option', 'min', min);
-        $this.slider('option', 'max', max);
-        $this.slider('option', 'step', step);
-        $this.slider('option', 'range', false);
-        $this.slider('option', 'animate', 500);
-      },
-      slide: function(event, ui) {
-        var $this  = $(this);
-        var $input = $this.find('input');
-        var $fill  = $this.find('.slider_fill');
+      // Toggles .hidden and .disabled classes on error messages
+      // and submit button if field validation has errors
+      .on('field:validated', function() {
+        var hasErrors = $('.parsley-error').length !== 0;
 
-        var min    = $this.slider('option', 'min');
-        var max    = $this.slider('option', 'max');
-        var value  = ui.value;
-        var fill   = (value / (max - min) * 100) + '%';
-
-        $input.val(value);
-        $fill.width(fill);
-      }
-    });
-
-    // Handle JQuery UI Slider as option list
-    var $slider = $('.slider-1').slider({
-      create: function(event, ui) {
-        var $this   = $(this);
-        var $select = $this.find('select');
-        var $fill   = $this.find('.slider_fill');
-
-        var values  = $select.data('values').split('|');
-        var max     = values.length - 1;
-
-        var width   = 100 / (max + 1) + "%";
-        var margin  = -0.5 * 100 / (max + 1) + "%";
-
-        $this.slider('option', 'min', 0);
-        $this.slider('option', 'max', max);
-        $this.slider('option', 'step', 1);
-        $this.slider('option', 'value', parseInt(max / 2));
-        $this.slider('option', 'range', false);
-        $this.slider('option', 'animate', 500);
-
-        // $this.find('.slider-1_values, .slider-1_labels').css({marginLeft: margin, marginRight: margin});
-        $this.find('.slider-1_values').css({marginLeft: margin, marginRight: margin});
-        $this.find('.slider-1_value').width(width);
-      },
-      slide: function(event, ui) {
-        var $this   = $(this);
-        var $select = $this.find('select');
-        var $fill   = $this.find('.slider_fill');
-
-        var max     = $this.slider('option', 'max');
-        var value   = ui.value;
-        var values  = $select.data('values').split('|');
-        var fill    = (value / max * 100) + '%';
-
-        $select.selectedIndex = value;
-        $select.val(values[value]);
-        $this.find('.slider-1_fill').width(fill);
-      }
-    });
-
-    $(".slider-1").find('select').on("change", function() {
-      $slider.slider("value", this.selectedIndex);
-    });
-
-    // Handle JQuery UI date widget
-    $("input[data-type=date]").datepicker({
-      maxDate: 0,
-      dateFormat: "dd/mm/yy",
-      changeMonth: true,
-      changeYear: true,
-      yearRange: "1900:+0"
-    });
-
-
-    // Handle user-status overlay display
-    $("#page-header").find(".user-info_name, .user-info_profile").on( "click", function() {
-      $("#user-status").show();
-    });
-
-    $("#user-status").find(".user-status_close").on( "click", function() {
-      $("#user-status").hide();
-    });
-
-    // Handle modals
-    $('.modal').popup({
-      color: '#022553',
-      opacity: 0.9,
-      horizontal: 'center',
-      vertical: 'top',
-      escape: true,
-      blur: false
-    });
-
-    // Show/hide individual modals - needs to be replaced by generic click events
-    $('#my-data-open').on('click', function() {
-      $('#my-data').popup('show');
-    });
-    $('#my-data-close').on('click', function() {
-      $('#my-data').popup('hide');
-    });
-
-    $('#why-important-open').on('click', function() {
-      $('#why-important').popup('show');
-    });
-    $('#why-important-close').on('click', function() {
-      $('#why-important').popup('hide');
-    });
-
-    $('#why-exercise-open').on('click', function() {
-      $('#why-exercise').popup('show');
-    });
-    $('#why-exercise-close').on('click', function() {
-      $('#why-exercise').popup('hide');
-    });
-
-    $('#ill-health-open').on('click', function() {
-      $('#ill-health').popup('show');
-    });
-    $('#ill-health-close').on('click', function() {
-      $('#ill-health').popup('hide');
-    });
-
-    $('#ipaq-open').on('click', function() {
-      $('#ipaq').popup('show');
-    });
-    $('#ipaq-close').on('click', function() {
-      $('#ipaq').popup('hide');
-    });
-
-    $('#exit-home-open').on('click', function() {
-      $('#exit-home').popup('show');
-    });
-    $('#exit-home-close, #exit-home-close-button').on('click', function() {
-      $('#exit-home').popup('hide');
-    });
-
-    $('#exit-measures-open').on('click', function() {
-      $('#exit-measures').popup('show');
-    });
-    $('#exit-measures-close, #exit-measures-close-button').on('click', function() {
-      $('#exit-measures').popup('hide');
-    });
-
-    $('#exit-dashboard-open').on('click', function() {
-      $('#exit-dashboard').popup('show');
-    });
-    $('#exit-dashboard-close, #exit-dashboard-close-button').on('click', function() {
-      $('#exit-dashboard').popup('hide');
-    });
-
+        if (hasErrors) {
+          $('#form-errors').removeClass('hidden');
+          $('#t4tb').find('button[type=submit]').addClass('disabled');
+        } else {
+          $('#form-errors').addClass('hidden');
+          $('#t4tb').find('button[type=submit]').removeClass('disabled');
+        }
+      });
   })(jQuery);
 </script>
 </body>
