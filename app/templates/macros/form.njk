@@ -39,6 +39,7 @@ Field: Text input - note if type="date"
     type  = "text",
     value = "",
     required = "",
+    validation = "",
     changeMonth = false,
     changeYear = false
   )
@@ -47,9 +48,9 @@ Field: Text input - note if type="date"
 <div class="form-field form-field--text">
   <label for="{{ name }}">{{ label }}</label>
   {% if type == "date" %}
-  <input id="{{ name }}" name="{{ name }}" type="text" value="{{ value }}" placeholder="dd/mm/yyyy" pattern="\d{2}\/\d{2}\/\d{4}" data-type="date" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}" {% if required %}required{% endif %}>
+  <input id="{{ name }}" name="{{ name }}" type="text" value="{{ value }}" placeholder="dd/mm/yyyy" pattern="\d{2}\/\d{2}\/\d{4}" data-type="date" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}" {% if required %}required{% endif %} {{ validation }}>
   {% else %}
-  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if required %}required{% endif %}>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if required %}required{% endif %} {{ validation }} {{ validation }}>
   {% endif %}
 </div>
 {% endmacro %}
@@ -69,7 +70,8 @@ Field group: Inline text input
     label2 = "FIELD_LABEL_2",
     type2 = "text",
     value2 = "",
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field-group">
@@ -77,11 +79,11 @@ Field group: Inline text input
   <div class="form-field-inline-group">
     <div class="form-field form-field--text">
       <label for="{{ name1 }}">{{ label1 }}</label>
-      <input id="{{ name1 }}" name="{{ name1 }}" type="{{ type1 }}" value="{{ value1 }}" {% if required %}required{% endif %}>
+      <input id="{{ name1 }}" name="{{ name1 }}" type="{{ type1 }}" value="{{ value1 }}" {% if required %}required{% endif %} {{ validation }}>
     </div>
     <div class="form-field form-field--text">
       <label for="{{ name2 }}">{{ label2 }}</label>
-      <input id="{{ name2 }}" name="{{ name2 }}" type="{{ type2 }}" value="{{ value2 }}" {% if required %}required{% endif %}>
+      <input id="{{ name2 }}" name="{{ name2 }}" type="{{ type2 }}" value="{{ value2 }}" {% if required %}required{% endif %} {{ validation }}>
     </div>
   </div>
 </div>
@@ -96,12 +98,13 @@ Field: Text area
     name = "FIELD_NAME",
     label = "FIELD_LABEL",
     value = "",
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field form-field--text">
   <label for="{{ name }}">{{ label }}</label>
-  <textarea id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if required %}required{% endif %}></textarea>
+  <textarea id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" {% if required %}required{% endif %} {{ validation }}></textarea>
 </div>
 {% endmacro %}
 
@@ -116,11 +119,12 @@ Field: Checkbox with optional time icon
     value ="",
     checked = "",
     duration = "",
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field form-field--checkbox">
-  <input id="{{ name }}" name="{{ name }}" type="checkbox" value="{{ value }}" {{ checked }} {% if required %}required{% endif %}>
+  <input id="{{ name }}" name="{{ name }}" type="checkbox" value="{{ value }}" {{ checked }} {% if required %}required{% endif %} {{ validation }}>
   <label for="{{ name }}">{{ label }}</label>
   {% if duration %}
     <div class="duration duration--{{ duration }} }}">{{ duration }} mins</div>
@@ -140,7 +144,8 @@ Field group: Checkboxes with optional
     values =["OPTION-1"],
     durations = [],
     inline = false,
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field{% if inline %}-inline{% endif %}-group">
@@ -148,7 +153,7 @@ Field group: Checkboxes with optional
 
   {% for value in values %}
   <div class="form-field form-field--checkbox">
-    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="checkbox" value="{{ value }}" {% if required %}required{% endif %}>
+    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="checkbox" value="{{ value }}" {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
     {% if durations[loop.index0] %}
       <div class="duration duration--{{ durations[loop.index0] }} }}">{{ durations[loop.index0] }} mins</div>
@@ -170,11 +175,12 @@ Field: Radio button with optional time
     value ="",
     checked = "",
     required = "",
+    validation = "",
     duration = ""
   )
 %}
 <div class="form-field form-field--radio">
-  <input id="{{ name }}" name="{{ name }}" type="radio" value="{{ value }}" {{ checked }} {% if required %}required{% endif %}>
+  <input id="{{ name }}" name="{{ name }}" type="radio" value="{{ value }}" {{ checked }} {% if required %}required{% endif %} {{ validation }}>
   <label for="{{ name }}">{{ label }}</label>
   {% if duration %}
     <div class="duration duration--{{ duration }} }}">{{ duration }} mins</div>
@@ -193,6 +199,7 @@ Field group: Radio buttons with optional
     label ="LABEL",
     values =["OPTION-1"],
     required = "",
+    validation = "",
     inline = false,
     durations = []
   )
@@ -202,7 +209,7 @@ Field group: Radio buttons with optional
 
   {% for value in values %}
   <div class="form-field form-field--radio">
-    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ value }}"  {% if required %}required{% endif %}>
+    <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ value }}"  {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
     {% if durations[loop.index0] %}
       <div class="duration duration--{{ durations[loop.index0] }} }}">{{ durations[loop.index0] }} mins</div>
@@ -221,12 +228,13 @@ Field: Select field
     name = "FIELD_NAME",
     label = "FIELD_LABEL",
     values = ["0", "1", "2", "3", "4", "5" ],
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field form-field--select">
   <label for="{{ name }}">{{ label }}</label>
-  <select id="{{ name }}" name="{{ name }}" data-values="{{ values | join('|') }}" {% if required %}required{% endif %}>
+  <select id="{{ name }}" name="{{ name }}" data-values="{{ values | join('|') }}" {% if required %}required{% endif %} {{ validation }}>
     <option disabled selected>Please choose&hellip;</option>
     {% for value in values %}
       <option value="{{ value }}">{{ value }}</option>
@@ -243,17 +251,18 @@ Field group: Yes/No radio buttons
 {% macro yesno(
     name = "NAME",
     label = "LABEL",
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field-group">
   {% if label %}<label>{{ label }}</label>{% endif %}
   <div class="form-field form-field--radio">
-    <input id="{{ name }}-yes" name="{{ name }}" type="radio" value="yes" {% if required %}required{% endif %}>
+    <input id="{{ name }}-yes" name="{{ name }}" type="radio" value="yes" {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}-yes">Yes</label>
   </div>
   <div class="form-field form-field--radio">
-    <input id="{{ name }}-no" name="{{ name }}" type="radio" value="no" {% if required %}required{% endif %}>
+    <input id="{{ name }}-no" name="{{ name }}" type="radio" value="no" {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}-no">No</label>
   </div>
 </div>
@@ -274,7 +283,8 @@ Field: Input field as JQuery UI Slider
     unit = "",
     lower_guide = "",
     upper_guide = "",
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field form-field--slider">
@@ -290,7 +300,7 @@ Field: Input field as JQuery UI Slider
       <span>{{ lower_guide }}</span>
       <span>{{ upper_guide }}</span>
     </div>
-    <input id="{{ name }}" name="{{ name }}" type="text" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}"  {% if required %}required{% endif %} style="visibility: hidden;">
+    <input id="{{ name }}" name="{{ name }}" type="text" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}"  {% if required %}required{% endif %} {{ validation }} style="visibility: hidden;">
   </div>
 </div>
 {% endmacro %}
@@ -307,7 +317,8 @@ Field: Input field as JQuery UI Slider
     values = ["0", "1", "2", "3", "4", "5" ],
     floor = "Least",
     ceiling = "Most",
-    required = ""
+    required = "",
+    validation = ""
   )
 %}
 <div class="form-field form-field--slider-1">
@@ -328,7 +339,7 @@ Field: Input field as JQuery UI Slider
     </div>
     {% endif %}
 
-    <select id="{{ name }}" name="{{ name }}"  data-type="slider" data-values="{{ values | join('|') }}" {% if required %}required{% endif %} style="visibility: hidden;">
+    <select id="{{ name }}" name="{{ name }}"  data-type="slider" data-values="{{ values | join('|') }}" {% if required %}required{% endif %} {{ validation }} style="visibility: hidden;">
       <option disabled selected>Please choose&hellip;</option>
       {% for value in values %}
         <option value="{{ value }}">{{ value }}</option>

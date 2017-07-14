@@ -213,7 +213,7 @@ jQuery.noConflict();
   $('#t4tb').find('#address-list').on('change', function() {
     var address = $(this).val().split(',');
 
-    $('#t4tb').find('input[type=text]').val("");
+    $('#t4tb').find('input[type=text]').val('');
     for (var i = 0; i <= Math.min(address.length-3, 2); i++) {
       $('#t4tb').find('#address-' + (i+1)).val(address[i]);
     }
