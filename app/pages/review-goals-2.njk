@@ -4,18 +4,12 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "#",
-    next: "#"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
     {{ section.header(
         title = "Review your goals",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 5,
         step = 2,
         steps = 3
@@ -28,9 +22,8 @@
       <p class="heading">Your initial goal was to be able to complete xxx chair stands in 30 seconds.</p>
       <p class="heading">In your most recent physical test you completed xxx chair stands in 30 seconds.</p>
       <p class="heading">You still need to work towards achieving this goal, keep working on it!</p>
-      <form id="review-goals" method="get" action="{{ page.next }}">
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("review-goals-1.html", "review-goals-2a.html") %}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}

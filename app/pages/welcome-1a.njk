@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "welcome-1;html",
-    next: "/"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
     <article>
@@ -21,7 +15,7 @@
       </div>
       <p>This video provides a brief overview of the Train for the Brain programme.</p>
       <div class="form-actions">
-        <a class="button button--next" href="{{ page.next }}">Continue</a>
+        <a class="button button--next" href="tutorial-start.html">Continue</a>
       </div>
     </article>
   </section>

@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "measures-1.html",
-    next: "physical-fitness-1a.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -29,12 +23,11 @@
         </div>
       </div>
       <p>After watching this video, enter how many times you are able to stand up and sit down from a chair within 30 seconds. Please use a standard armchair (typically 17” or 43cm high).</p>
-      <form id="physical-fitness" method="get" action="{{ page.next }}">
-        {{ form.text("chair-stand-number", "Number of chair stands completed in 30 seconds", "number") }}
-        {{ form.yesno("help", "Did you require support from your hands when standing?") }}
-        {{ form.slider("how-easy", "Please rate how difficult you found this test - 0 being effortless and 10 being maximum difficulty.", 0, 10, 1, "", "Minimum effort", "Maximum effort") }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("measures-1.html", "physical-fitness-1a.html") %}
+        {{ form.text("chair-stand-number", "Number of chair stands completed in 30 seconds", "number", required=true) }}
+        {{ form.yesno("help", "Did you require support from your hands when standing?", required=true) }}
+        {{ form.slider("how-easy", "Please rate how difficult you found this test - 0 being effortless and 10 being maximum difficulty.", 0, 10, 1, "", "Minimum effort", "Maximum effort", required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

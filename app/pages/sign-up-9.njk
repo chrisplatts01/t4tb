@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "sign-up-8.html",
-    next: "sign-up-9a.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,95 +19,58 @@
     <article>
       <h1>Consent</h1>
       <p>Please read the below statements carefully and tick all the boxes found in this form. Point 10 is optional.</p>
-      <form id="sign-up" method="get" action="{{ page.next }}">
+      {% call form.form("sign-up-8.html", "sign-up-9a.html") %}
         <div class="consent-items">
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I am aged over 50 or older, live in the UK and have access to a computer and the internet.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-1" name="consent-1" type="checkbox" value="consent-1">
-              <label for="consent-1"></label>
-            </div>
+            {{ form.checkbox("consent-1", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I confirm that I have read and understand the participant information sheet (version 1) dated 23/03/2017 for the above study. I have had the opportunity to consider the information, seek clarification and understand my involvement in the study.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-2" name="consent-2" type="checkbox" value="consent-2">
-              <label for="consent-2"></label>
-            </div>
+            {{ form.checkbox("consent-2", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I confirm that I am knowingly entering an exercise study and I have discussed any concerns about my suitability to the study with myGP.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-3" name="consent-3" type="checkbox" value="consent-3">
-              <label for="consent-3"></label>
-            </div>
+            {{ form.checkbox("consent-3", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason and without my medical care or legal rights being affected.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-4" name="consent-4" type="checkbox" value="consent-4">
-              <label for="consent-4"></label>
-            </div>
+            {{ form.checkbox("consent-4", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I understand that relevant data collected during the study may be looked at by individuals representing the research team at King’s College London or from regulatory authorities, where it is relevant to my taking part in this research. I give permission for these individuals to have access to my data.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-5" name="consent-5" type="checkbox" value="consent-5">
-              <label for="consent-5"></label>
-            </div>
+            {{ form.checkbox("consent-5", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I agree for anonymous data from this study to be used by other researchers in the future.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-6" name="consent-6" type="checkbox" value="consent-6">
-              <label for="consent-6"></label>
-            </div>
+            {{ form.checkbox("consent-6", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>In the event that a significant drop in my performance on the cognitive tests is detected during the study I give permission for the study team to contact my GP to recommend further testing.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-7" name="consent-7" type="checkbox" value="consent-7">
-              <label for="consent-7"></label>
-            </div>
+            {{ form.checkbox("consent-7", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>In the event that I lose capacity to consent during the period of this research I understand that I will immediately be withdrawn from the study.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-8" name="consent-8" type="checkbox" value="consent-8">
-              <label for="consent-8"></label>
-            </div>
+            {{ form.checkbox("consent-8", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>If I choose to withdraw or lose the capacity to consent as described in point 8, I understand that all anonymous data collected prior to my withdrawal will be retained and included in the study.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-9" name="consent-9" type="checkbox" value="consent-9">
-              <label for="consent-9"></label>
-            </div>
+            {{ form.checkbox("consent-9", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>If I lose the capacity to consent as described in point 8, I would like all identifying data about me that is held in the study to be destroyed (<i>optional</i>).</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-10" name="consent-10" type="checkbox" value="consent-10">
-              <label for="consent-10"></label>
-            </div>
+            {{ form.checkbox("consent-10", "") }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I understand that all data will be stored in a way complying with the provisions of the Data Protection Act.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-11" name="consent-11" type="checkbox" value="consent-11">
-              <label for="consent-11"></label>
-            </div>
+            {{ form.checkbox("consent-11", "", required=true) }}
           </div>
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I understand that the DNA sample I provide as part of the PROTECT study may be used for anonymous analysis in this study.</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-12" name="consent-12" type="checkbox" value="consent-12">
-              <label for="consent-12"></label>
-            </div>
+            {{ form.checkbox("consent-12", "", required=true) }}
           </div>
         </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

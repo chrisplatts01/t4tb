@@ -1,10 +1,26 @@
 {% extends "layouts/layout.njk" %}
 
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
 {% import "macros/timer.njk" as timer %}
 
+
 {% block content %}
-<h1>SVG Test</h1>
-<div>
-  {{ timer.timer() }}
-</div>
+<section class="panel panel--progress">
+  <article>
+    <h1>Testing...</h1>
+
+    <h2>Form macro</h2>
+    <div>
+      {% call form.form("NEXT.html", "PREVIOUS.html") %}
+      {{ form.text(required=true) }}
+      {% endcall %}
+    </div>
+
+    <h2>SVG timer</h2>
+    <div>
+      {{ timer.timer() }}
+    </div>
+  </article>
+</section>
 {% endblock %}

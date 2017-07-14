@@ -4,22 +4,12 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "/",
-    next: "sign-up-8.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
     <article>
       <h1>Due to some of the information you have provided, we recommend that you visit your GP prior to starting the exercise programme and discuss this with them.</h1>
-      <form id="sign-up" method="get" action="{{ page.next }}">
-        <div class="form-actions">
-          <a class="button secondary" href="{{ page.previous }}">I will return later</a>
-          <button class="button button--next" type="submit">I will continue</button>
-        </div>
-      </form>
+      {% call form.form("/", "sign-up-8.html", previous_label = "I will return later", next_label = "I will continue") %}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

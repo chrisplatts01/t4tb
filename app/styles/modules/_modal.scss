@@ -2,14 +2,14 @@
   padding: $base-spacing * 4 $base-spacing $base-spacing;
   width: 100%;
 
-  .modal_close {
+  .modal-close {
     color: $white;
     position: absolute;
     top: $base-spacing;
     right: $base-spacing;
   }
 
-  .modal_content {
+  .modal-content {
     width: 100%;
     max-width: 720px;
     margin: 0 auto;

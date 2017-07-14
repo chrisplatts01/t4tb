@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "setting-goals-1.html",
-    next: "setting-goals-3.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,10 +19,9 @@
     <article>
       <h1>Physical exercise goal</h1>
       <p>We would like to relate your first goal to your individual physical fitness results.</p>
-      <form id="setting-goals" method="get" action="{{ page.next }}">
+      {% call form.form("setting-goals-1.html", "setting-goals-3.html") %}
         <label>We would recommend that you aim to be able to do XXX chair stands in 30 seconds over the coming weeks.</label>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

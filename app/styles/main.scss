@@ -21,6 +21,7 @@
 @import 'layout/page-footer';
 
 @import 'modules/forms';
+// @import 'modules/form-validation';
 @import 'modules/buttons';
 @import 'modules/video';
 @import 'modules/slider';
@@ -35,7 +36,9 @@
 @import 'modules/panel-overlay';
 @import 'modules/session';
 
-// These should be rolled imto a custom JQuery UI theme
+// =============================================================================
+// Override some JQuery UI rules
+// Ideally these should be rolled imto a custom JQuery UI theme
 .slider span.ui-slider-handle {
   border-radius: 50% !important;
   height: $base-spacing;
@@ -64,8 +67,6 @@
   border: 3px solid $brand-primary !important;
   background-color: $white !important;
 }
-
-
 
 .ui-datepicker {
   .ui-datepicker-header {
@@ -98,13 +99,6 @@
   margin: 1px 2px;
 }
 
-// .ui-widget-overlay {
-//   background-color: $brand-secondary;
-//   opacity: 0.9;
-// }
-
-// .ui-widget-header {
-//   color: $heading-font-color;
-//   background-color: $white;
-//   border: none;
-// }
+.parsley-errors-list.filled {
+  opacity: 1;
+}

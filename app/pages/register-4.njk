@@ -4,18 +4,12 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "register-3.html",
-    next: "register-5.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
     {{ section.header(
         title = "Register for the study",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 15,
         step = 4,
         steps = 5
@@ -24,10 +18,9 @@
 
     <article>
       <h1>Your date of birth</h1>
-      <form id="register" method="get" action="{{ page.next }}">
-        {{ form.text("dob", "Please enter your date of birth", "date", changeMonth = true, changeYear = true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("register-3.html", "register-5.html") %}
+        {{ form.text("dob", "Please enter your date of birth", "date", changeMonth = true, changeYear = true, required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

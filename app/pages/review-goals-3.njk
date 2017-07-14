@@ -4,18 +4,12 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "#",
-    next: "#"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
     {{ section.header(
         title = "Review your goals",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 5,
         step = 3,
         steps = 3
@@ -27,10 +21,9 @@
       <p>Your second goal was a personal goal.</p>
       <p class="heading">“To be able to complete an hour of gardening without feeling tired”</p>
       <p class="heading">Please rate on the sliding scale how you feel you are progressing with this goal.</p>
-      <form id="review-goals" method="get" action="{{ page.next }}">
-        {{ form.slider_1("how-you-feel", "Please rate on the sliding scale how you feel you are progressing with this goal.", ["0%", "25%", "50%", "75%", "100%"], "No confidence", "Complete confidence") }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("review-goals-2a.html", "review-goals-3a.html") %}
+        {{ form.slider_1("how-you-feel", "Please rate on the sliding scale how you feel you are progressing with this goal.", ["0%", "25%", "50%", "75%", "100%"], "No confidence", "Complete confidence", required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}

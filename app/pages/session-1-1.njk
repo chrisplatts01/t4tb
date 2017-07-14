@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "session-1-start.html",
-    next: "session-1-2.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,18 +19,17 @@
 
     <article>
       <h1>Schedule</h1>
-      <form id="session-1" method="get" action="{{ page.next }}">
-        {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10) }}
+      {% call form.form("session-1-start.html", "session-1-2.html") %}
+        {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10, required=true) }}
         <hr>
-        {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11]) }}
+        {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11], required=true, validation="data-parsley-mincheck=2") }}
         <hr>
-        {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10) }}
+        {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10, required=true) }}
         <hr>
         <p>Total session time</p>
         <div class="duration duration--40">40 mins</div>
         <hr>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}

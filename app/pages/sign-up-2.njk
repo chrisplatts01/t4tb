@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "sign-up-1.html",
-    next: "sign-up-3.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,19 +18,9 @@
 
     <article>
       <h1>Do you suffer with ongoing angina on a weekly basis?</h1>
-      <form id="sign-up" method="get" action="{{ page.next }}">
-        <div class="form-field-group">
-          <div class="form-field form-field--radio">
-            <input id="angina-yes" name="angina" type="radio" value="yes" >
-            <label for="angina-yes">Yes</label>
-          </div>
-          <div class="form-field form-field--radio">
-            <input id="angina-no" name="angina" type="radio" value="no">
-            <label for="angina-no">No</label>
-          </div>
-        </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("sign-up-1.html", "sign-up-3.html") %}
+        {{ form.yesno("angina", "", required=true) }}
+      {% endcall %}
       <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 

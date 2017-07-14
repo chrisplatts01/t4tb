@@ -4,18 +4,12 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "/",
-    next: "register-2.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
     {{ section.header(
         title = "Register for the study",
-        info = "<a href=\"#why-important\">Why is the important?</a>" | safe,
+        info = "<a id=\"why-important-open\" class=\"modal-open\" href=\"#why-important\">Why is the important?</a>" | safe,
         duration = 15,
         step = 1,
         steps = 5
@@ -24,25 +18,10 @@
 
     <article>
       <h1>Please enter your name and email address</h1>
-      <form id="register" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-          <div class="form-field form-field--text">
-            <label for="first-name">First name</label>
-            <input id="first-name" type="text">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="last-name">Last name</label>
-            <input id="last-name" type="text">
-          </div>
-        </div>
-        <div class="form-field-group">
-          <div class="form-field form-field--email">
-            <label for="email">Email address</label>
-            <input id="email" type="email">
-          </div>
-        </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("/.html", "register-2.html") %}
+        {{ form.text2("", "first-name", "First name", "text", "", "last-name", "Last name", "text", "", required=true) }}
+        {{ form.text("email", "Email address", "email", required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
