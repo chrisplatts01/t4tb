@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "#",
-    next: "#"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -28,9 +22,8 @@
       <p class="heading">Your initial goal was to be able to complete xxx chair stands in 30 seconds.</p>
       <p class="heading">You have completed your goal, well done!</p>
       <p class="heading">You will need to reset your physical exercise goal. We would recommend that you aim to be able to do XXX chair stands in 30 seconds over the coming weeks.</p>
-      <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("review-goals-2.html", "review-goals-3.html") %}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}

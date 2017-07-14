@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "sign-up-9.html",
-    next: "sign-up-thanks.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,19 +18,15 @@
 
     <article>
       <h1>Consent</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("sign-up-9.html", "sign-up-thanks.html") %}
         <div class="consent-items">
           <div class="form-field-row consent-item">
             <p>I agree to take part in the Train for the Brain study</p>
-            <div class="form-field form-field--checkbox">
-              <input id="consent-last" name="consent-last" type="checkbox" value="consent-last">
-              <label for="consent-last"></label>
-            </div>
+            {{ form.checkbox("consent-last", "", required=true) }}
           </div>
           <p class="credentials">John Smith, 28th May 2017</p>
         </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

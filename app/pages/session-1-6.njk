@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "session-1-3.html",
-    next: "session-1-6.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,13 +19,12 @@
 
     <article>
       <h1>Session done<br>Well done!</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.slider_1("enjoy-session", "Did you enjoy the session?", ["Not at all", "Not really", "It was OK", "It was good", "Loved it!"], "", "") }}
+      {% call form.form("session-1-3.html", "session-2-start.html") %}
+        {{ form.slider_1("enjoy-session", "Did you enjoy the session?", ["Not at all", "Not really", "It was OK", "It was good", "Loved it!"], "", "", required=true) }}
         <hr>
-        {{ form.slider_1("how-easy", "How easy did you find it?", ["Very difficult", "Difficult", "OK", "Easy", "Very easy"], "", "") }}
+        {{ form.slider_1("how-easy", "How easy did you find it?", ["Very difficult", "Difficult", "OK", "Easy", "Very easy"], "", "", required=true) }}
         <hr>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}

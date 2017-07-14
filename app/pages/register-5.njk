@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "register-4.html",
-    next: "register-thanks.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,23 +18,9 @@
 
     <article>
       <h1>Please enter your sex</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-          <div class="form-field form-field--radio">
-            <input id="sex-male" name="sex" type="radio" value="Male">
-            <label for="sex-male">Male</label>
-          </div>
-          <div class="form-field form-field--radio">
-            <input id="sex-female" name="sex" type="radio" value="Female">
-            <label for="sex-female">Female</label>
-          </div>
-          <div class="form-field form-field--radio">
-            <input id="sex-inter" name="sex" type="radio" value="Intersex">
-            <label for="sex-inter">Intersex</label>
-          </div>
-        </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("register-4.html", "register-thanks.html") %}
+        {{ form.radios("sex", "", ["Male", "Femail", "Intersex"], inline=true, required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

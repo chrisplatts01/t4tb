@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "setting-goals-2.html",
-    next: "measures-4.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -28,7 +22,7 @@
       <p>We use a personal goal attainment scale to help you, and us, to follow your progress.</p>
       <p>When setting this goal, currently on the sliding scale you should be at 0%, achieving the goal would be rated at 100%.</p>
 
-      {{ form.slider("", "", 0, 100, 25, "%", "No confidence", "Complete confidence") }}
+      {{ form.slider("", "", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
 
       <br>
       <p>Here are some potential examples that may help you to think of a goal that is important to you.</p>
@@ -40,10 +34,9 @@
       </ul>
       <p>Remember, it needs to be something that is achievable within the next 6 weeks and important to you.</p>
 
-      <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.textarea("personal-goal", "Insert your personal goal", "") }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("setting-goals-2.html", "measures-4.html") %}
+        {{ form.textarea("personal-goal", "Insert your personal goal", "", required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

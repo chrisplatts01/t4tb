@@ -2,13 +2,6 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
-{# % import "macros/modal.njk" as modal % #}
-
-{% set page = {
-    previous: "exercise-diary-update-7.html",
-    next: "exercise-diary-update-start.html"
-  }
-%}
 
 {% block content %}
   <section class="panel panel--progress">
@@ -24,19 +17,18 @@
 
     <article>
       <h1>Have you had any ill health during the last 7 days?</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
-        {{ form.yesno("ill-health", "") }}
-        {{ form.checkboxes("ill-health-options", "Please tick all that apply:", ["An unplanned emergency hospitalisation", "A fall", "A loss of consciousness", "A fracture", "A torn ligament", "Other"]) }}
-        {{ form.text("ill-health-description", "Description") }}
-        {{ form.text("ill-health-start-date", "Start date", "date") }}
-        {{ form.text("ill-health-end-date", "End date", "date") }}
-        {{ form.yesno("ill-health-hospitalisation", "Did this event lead to your hospitalization?") }}
-        {{ form.yesno("ill-health-medication", "Did you start any medication due to this event?") }}
-        {{ form.textarea("ill-health-list-medication", "Please list all medication taken as part of this event, including dosage and duration i.e. taken once per day for a week") }}
-        {{ form.textarea("ill-health-comments", "Other comments") }}
-        {{ form.actions( page.previous, page.next ) }}
-        <p><a id="ill-health-open" class="modal-open" href="#ill-health">What do we mean by 'ill-health'?</a></p>
-      </form>
+      {% call form.form("exercise-diary-update-7.html", "exercise-diary-update-warning.html") %}
+        {{ form.yesno("ill-health", "", required=true) }}
+        {{ form.checkboxes("ill-health-options", "Please tick all that apply:", ["An unplanned emergency hospitalisation", "A fall", "A loss of consciousness", "A fracture", "A torn ligament", "Other"], required=true) }}
+        {{ form.text("ill-health-description", "Description", required=true) }}
+        {{ form.text("ill-health-start-date", "Start date", "date", required=true) }}
+        {{ form.text("ill-health-end-date", "End date", "date", required=true) }}
+        {{ form.yesno("ill-health-hospitalisation", "Did this event lead to your hospitalization?", required=true) }}
+        {{ form.yesno("ill-health-medication", "Did you start any medication due to this event?", required=true) }}
+        {{ form.textarea("ill-health-list-medication", "Please list all medication taken as part of this event, including dosage and duration i.e. taken once per day for a week", required=true) }}
+        {{ form.textarea("ill-health-comments", "Other comments", required=true) }}
+      {% endcall %}
+      <p><a id="ill-health-open" class="modal-open" href="#ill-health">What do we mean by 'ill-health'?</a></p>
     </article>
 
     {{ section.footer( info = "<a id=\"exit-dashboard-open\" class=\"modal-open\" href=\"#exit-dashboard\">Cancel and return to dashboard</a>" | safe ) }}

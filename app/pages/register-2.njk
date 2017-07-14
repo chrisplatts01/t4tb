@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "register-1.html",
-    next: "register-3.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,22 +18,9 @@
 
     <article>
       <h1>Please enter your address</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
-        <div class="form-field-inline-group">
-         <div class="form-field form-field--text">
-            <label for="lookup-house-number">House name or number</label>
-            <input id="lookup-house-number" type="text">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="lookup-postcode">Postcode</label>
-            <input id="lookup-postcode" type="text">
-          </div>
-        </div>
-         <div class="form-actions">
-          <a class="button button--back secondary" href="{{ page.previous }}">Go back</a>
-          <button class="button button--next" type="submit">Look up address</button>
-        </div>
-      </form>
+      {% call form.form("register-1-html", "register-3.html", previous_label = "Go back", next_label = "Look up address") %}
+        {{ form.text2("", "lookup-house-number", "House name or number", "text", "", "lookup-postcode", "Postcode", "text", "", required=true) }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
