@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "register-2.html",
-    next: "register-4.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,33 +18,14 @@
 
     <article>
       <h1>Please enter your address</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
-         <div class="form-field-group">
-          <div class="form-field form-field-select">
-            <label for="address-list">Please select your address from this list</label>
-            <select id="address-list">
-            <option disabled>Please choose&hellip;</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-field-group">
-          <div class="form-field form-field--text">
-            <label for="Address">Address</label>
-            <input id="address-1" type="text">
-            <input id="address-2" type="text">
-            <input id="address-3" type="text">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="town">Town</label>
-            <input id="town" type="text">
-          </div>
-          <div class="form-field form-field--text">
-            <label for="postcode">Postcode</label>
-            <input id="postcode" type="text">
-          </div>
-        </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% call form.form("register-2.html", "register-4.html") %}
+        {{ form.select("address-list", "Please select your address from this list", ["11 Hazel Court, Stonestile Lane, Hastings, TN35 4PE","3a Cantelowes Road, London, NW1 9XH","100 High Street, Newtown, ZZ11 1ZZ"], required=true) }}
+        {{ form.text("address-1", "Address", required=true)  }}
+        {{ form.text("address-2", "")  }}
+        {{ form.text("address-3", "")  }}
+        {{ form.text("town", "Town", required=true)  }}
+        {{ form.text("postcode", "Postcode", required=true)  }}
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

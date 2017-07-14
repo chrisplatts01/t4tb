@@ -29,6 +29,7 @@ jQuery.noConflict();
       var fill = (value / (max - min) * 100) + '%';
 
       $input.val(value);
+      $input.parsley().validate();
       $fill.width(fill);
     },
   });
@@ -72,6 +73,7 @@ jQuery.noConflict();
 
       $select.selectedIndex = value;
       $select.val(values[value]);
+      $select.parsley().validate();
       $this.find('.slider-1_fill').width(fill);
     },
   });
@@ -90,6 +92,16 @@ jQuery.noConflict();
     changeMonth: true,
     changeYear: true,
     yearRange: '1900:+0',
+    prevText: '<<',
+    nextText: '>>',
+
+    // Force validation when datepicker date is selected
+    onSelect: function(date) {
+      console.log('This is: ' + $(this).attr('name'));
+      $(this).change();
+      $(this).parsley().validate();
+      $(this).attr('placeholder', '');
+    },
   });
 
 
@@ -193,4 +205,19 @@ jQuery.noConflict();
     .on('click', function() {
       $('#exit-dashboard').popup('hide');
     });
+
+  // ---------------------------------------------------------------------------
+  // Handle psotcode lookup results - assumes last 2 array elements are town
+  // and postcode and there are no more than 3 other address fields.
+  // ---------------------------------------------------------------------------
+  $('#t4tb').find('#address-list').on('change', function() {
+    var address = $(this).val().split(',');
+
+    $('#t4tb').find('input[type=text]').val("");
+    for (var i = 0; i <= Math.min(address.length-3, 2); i++) {
+      $('#t4tb').find('#address-' + (i+1)).val(address[i]);
+    }
+    $('#t4tb').find('#town').val(address[address.length-2]);
+    $('#t4tb').find('#postcode').val(address[address.length-1]);
+  });
 })(jQuery);

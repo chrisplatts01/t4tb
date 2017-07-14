@@ -1,5 +1,34 @@
 {#
 ========================================
+Form: Basic skeleton for T4TB form with
+      markup for form action buttons
+      and div to flag form errors
+========================================
+#}
+{% macro form(
+    previous = "#",
+    next = "#",
+    previous_label = "Go back",
+    next_label = "Continue"
+  )
+%}
+<form id="t4tb" method="get" action="{{ next }}">
+  <div id="form-errors" class="form-errors hidden">
+    <p>There was a problem with your submission.
+    <br>The errors have been highlighted below.</p>
+  </div>
+
+  {{ caller() }}
+
+  <div class="form-actions">
+    <a class="button button--back secondary" href="{{ previous }}">{{ previous_label }}</a>
+    <button class="button button--next" type="submit">{{ next_label }}</button>
+  </div>
+</form>
+{% endmacro %}
+
+{#
+========================================
 Field: Text input - note if type="date"
        a JQuery UI date widget is used
 ========================================
@@ -197,7 +226,7 @@ Field: Select field
 %}
 <div class="form-field form-field--select">
   <label for="{{ name }}">{{ label }}</label>
-  <select id="{{ name }}" name="{{ name }}" data-values="{{ values | join('|') }}" style="visibility: hidden">
+  <select id="{{ name }}" name="{{ name }}" data-values="{{ values | join('|') }}" {% if required %}required{% endif %}>
     <option disabled selected>Please choose&hellip;</option>
     {% for value in values %}
       <option value="{{ value }}">{{ value }}</option>
@@ -261,7 +290,7 @@ Field: Input field as JQuery UI Slider
       <span>{{ lower_guide }}</span>
       <span>{{ upper_guide }}</span>
     </div>
-    <input id="{{ name }}" name="{{ name }}" type="hidden" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}" {% if required %}required{% endif %} {% if required %}required{% endif %} {% if required %}required{% endif %}>
+    <input id="{{ name }}" name="{{ name }}" type="text" data-type="slider" data-min="{{ min }}" data-max="{{ max }}" data-step="{{ step }}"  {% if required %}required{% endif %} style="visibility: hidden;">
   </div>
 </div>
 {% endmacro %}
@@ -299,7 +328,7 @@ Field: Input field as JQuery UI Slider
     </div>
     {% endif %}
 
-    <select id="{{ name }}" name="{{ name }}"  data-type="slider" data-values="{{ values | join('|') }}" style="visibility: hidden">
+    <select id="{{ name }}" name="{{ name }}"  data-type="slider" data-values="{{ values | join('|') }}" {% if required %}required{% endif %} style="visibility: hidden;">
       <option disabled selected>Please choose&hellip;</option>
       {% for value in values %}
         <option value="{{ value }}">{{ value }}</option>

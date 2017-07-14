@@ -26,7 +26,7 @@
 
 {% include "includes/page-header.njk" %}
 
-{% include "includes/form-errors.njk" %}
+{# % include "includes/form-errors.njk" % #}
 
 <main id="page-content" role="main">
   {% block content %}{% endblock %}
@@ -54,9 +54,17 @@
     // -------------------------------------------------------------------------
     $("#t4tb").parsley()
 
+      // Check if form has been initialised
+      .on('form:init', function() {
+        console.log('FORM INITIALISED');
+      })
+      .on('form:validate', function() {
+        console.log('FORM TO BE VALIDATED');
+      })
+
       // Prevent form submission (for development only)
       // .on('form:submit', function() {
-      //   console.log('NOT SUBMITTING');
+      //   console.log('SUBMIT BUTTON CLICKED');
       //   return false;
       // })
 
@@ -67,10 +75,10 @@
 
         if (hasErrors) {
           $('#form-errors').removeClass('hidden');
-          $('#t4tb').find('button[type=submit]').addClass('disabled');
+          $('#t4tb').find('button[type=submit]').prop('disabled', true);
         } else {
           $('#form-errors').addClass('hidden');
-          $('#t4tb').find('button[type=submit]').removeClass('disabled');
+          $('#t4tb').find('button[type=submit]').prop('disabled', false);
         }
       });
   })(jQuery);

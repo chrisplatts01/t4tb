@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "sign-up-8.html",
-    next: "sign-up-9a.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,7 +19,7 @@
     <article>
       <h1>Consent</h1>
       <p>Please read the below statements carefully and tick all the boxes found in this form. Point 10 is optional.</p>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("sign-up-8.html", "sign-up-9a.html") %}
         <div class="consent-items">
           <div class="form-field-row consent-item consent-item--with-counter">
             <p>I am aged over 50 or older, live in the UK and have access to a computer and the internet.</p>
@@ -76,8 +70,7 @@
             {{ form.checkbox("consent-12", "", required=true) }}
           </div>
         </div>
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

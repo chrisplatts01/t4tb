@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "physical-fitness-3a.html",
-    next: "physical-fitness-5.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -23,10 +17,9 @@
 
     <article>
       <h1>How would you describe your walking speed?</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("physical-fitness-3a.html", "physical-fitness-5.html") %}
         {{ form.radios( "walking-speed", "Please choose from the following option that best describes you.", ["Unable to walk", "Very slow", "Stroll at an easy pace", "Normal speed", "Fairly brisk", "Fast"] , required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

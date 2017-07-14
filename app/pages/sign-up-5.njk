@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "sign-up-4.html",
-    next: "sign-up-6.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,10 +18,9 @@
 
     <article>
       <h1>Do you suffer from emphysema or COPD?</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("sign-up-4.html", "sign-up-6.html") %}
         {{ form.yesno("emphysema", "", required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
       <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 

@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "/",
-    next: "register-2.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,11 +18,10 @@
 
     <article>
       <h1>Please enter your name and email address</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("/.html", "register-2.html") %}
         {{ form.text2("", "first-name", "First name", "text", "", "last-name", "Last name", "text", "", required=true) }}
         {{ form.text("email", "Email address", "email", required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "exercise-diary-update-7.html",
-    next: "exercise-diary-update-start.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,11 +18,10 @@
 
     <article>
       <h1>Have you had any ill health during the last 7 days?</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("exercise-diary-update-7.html", "exercise-diary-update-7b.html") %}
         {{ form.yesno("ill-health", "", required=true) }}
         {{ form.checkboxes("ill-health-had", "Please tick all that apply:", ["An unplanned emergency hospitalisation", "A fall", "A loss of consciousness", "A fracture", "A torn ligament", "Other"], required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
       <p><a id="ill-health-open" class="modal-open" href="#ill-health">What do we mean by 'ill-health'?</a></p>
     </article>
 

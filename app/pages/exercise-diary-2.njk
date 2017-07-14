@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "exercise-diary-1.html",
-    next: "exercise-diary-2a.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,10 +18,9 @@
 
     <article>
       <h1>Do you have a device that records your step count?</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("exercise-diary-1.html", "exercise-diary-2a.html") %}
         {{ form.yesno("has-device", "", required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

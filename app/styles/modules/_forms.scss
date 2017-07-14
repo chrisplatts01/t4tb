@@ -171,7 +171,8 @@ textarea.parsley-error {
   padding: 0;
   margin: 0;
   position: absolute;
-  top: -3px;
+  top: -22px;
+  left: 0;
   right: 0;
   opacity: 0;
 
@@ -195,9 +196,22 @@ textarea.parsley-error {
   }
 }
 
-.consent-item .parsley-errors-list:after {
-  left: auto;
-  right: 8px;
+.form-field--checkbox,
+.form-field--radio {
+  .parsley-errors-list:after {
+    left: 8px;
+    right: auto;
+  }
+}
+
+.consent-item {
+  .form-field--checkbox,
+  .form-field--radio {
+    .parsley-errors-list:after {
+      right: auto;
+      left: 8px;
+    }
+  }
 }
 
 .form-field-group,
@@ -211,8 +225,40 @@ textarea.parsley-error {
 
 .form-field-row {
   .parsley-errors-list {
-    top: -18px;
+    top: -22px;
   }
+}
+
+.form-field-row.consent-item {
+  .parsley-errors-list {
+    top: -22px;
+
+    &:after {
+      right: 8px;
+      left: auto;
+    }
+  }
+}
+
+.form-field--slider,
+.form-field--slider-1 {
+  .parsley-errors-list {
+    top: -32px;
+  }
+}
+
+.form-errors {
+  padding: 0 $small-spacing;
+  margin: $small-spacing 0;
+  color: $white;
+  background-color: $red;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.form-field-row,
+.form-field-group,
+.form-field-inline-group {
 }
 
 .form-field-row,
@@ -223,6 +269,7 @@ textarea.parsley-error {
 .form-field--select,
 .form-field--slider {
   position: relative;
+  margin-top: $small-spacing * 2.5;
 }
 
 input[type='checkbox']:checked + label:before {

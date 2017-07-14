@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "setting-goals-2.html",
-    next: "measures-4.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -40,10 +34,9 @@
       </ul>
       <p>Remember, it needs to be something that is achievable within the next 6 weeks and important to you.</p>
 
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("setting-goals-2.html", "measures-4.html") %}
         {{ form.textarea("personal-goal", "Insert your personal goal", "", required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

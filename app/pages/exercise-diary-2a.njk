@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "exercise-diary-2.html",
-    next: "exercise-diary-3.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -24,13 +18,12 @@
 
     <article>
       <h1>Do you have a device that records your step count?</h1>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("exercise-diary-2.html", "exercise-diary-3.html") %}
         {{ form.yesno("has-device", "", required=true) }}
         {{ form.text("daily-steps", "Over the last 7 days, what is you average daily stepcount?", "number", required=true) }}
         {{ form.checkboxes( "device-type", "What device records your stepcount?", ["Smartphone e.g. Apple/Android phone", "Worn device e.g. Fitbit", "Pedometer"] , required=true) }}
         {{ form.textarea("device-other", "Other - please specifiy", required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+      {% endcall %}
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

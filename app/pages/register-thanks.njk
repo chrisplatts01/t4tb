@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "register-5.html",
-    next: "/"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,7 +19,7 @@
       <h1>Thank you</h1>
       <p>Thank you for registering.</p>
       <div class="form-actions">
-        <a class="button button--next" href="{{ page.next }}">Continue</a>
+        <a class="button button--next" href="measures-1.njk">Continue</a>
       </div>
     </article>
 

@@ -4,12 +4,6 @@
 {% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
-{% set page = {
-    previous: "exercise-diary-5.html",
-    next: "measures-3.html"
-  }
-%}
-
 {% block content %}
   <section class="panel panel--progress">
 
@@ -25,11 +19,10 @@
     <article>
       <h1>Sitting</h1>
       <p>The last question is about the time you spent sitting on weekdays during the last 7 days. Include time spent at work, at home, while doing course work and during leisure time. This may include time spent sitting at a desk, visiting friends, reading, or sitting or lying down to watch television.</p>
-      <form id="t4tb" method="get" action="{{ page.next }}">
+      {% call form.form("exercise-diary-5.html", "measures-3.html") %}
         {{ form.text2("During the last 7 days, how much time did you spend sitting on a week day?", "sitting-hours", "Hours per day", "text", "", "sitting-minutes", "Minutes per day", "text", "" , required=true) }}
-        {{ form.checkbox( "sitting-unknown", "Don't know/not sure" , required=true) }}
-        {{ form.actions( page.previous, page.next ) }}
-      </form>
+        {{ form.checkboxes("sitting", "", ["Don't know/not sure"], required=true) }}
+      {% endcall %}
       <p><a id="ipaq-open" class="modal-open" href="#ipaq">This question is based on the International Physical Activity Questionnaire (IPAQ) – click here to find out more</a></p>
     </article>
 
