@@ -6,13 +6,14 @@ Form: Basic skeleton for T4TB form with
 ========================================
 #}
 {% macro form(
+    id = "t4tb",
     previous = "#",
     next = "#",
     previous_label = "Go back",
     next_label = "Continue"
   )
 %}
-<form id="t4tb" method="get" action="{{ next }}">
+<form id="{{ id }}" method="get" action="{{ next }}">
   <div id="form-errors" class="form-errors hidden">
     <p>There was a problem with your submission.
     <br>The errors have been highlighted below.</p>

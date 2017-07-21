@@ -19,7 +19,7 @@
 
     <article>
       <h1>Schedule</h1>
-      {% call form.form("session-1-start.html", "session-1-2.html") %}
+      {% call form.form("t4tb", "session-1-start.html", "session-1-2.html") %}
         {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10, required=true) }}
         <hr>
         {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11], required=true, validation="data-parsley-mincheck=2") }}

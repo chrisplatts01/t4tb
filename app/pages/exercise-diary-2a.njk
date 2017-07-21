@@ -18,7 +18,7 @@
 
     <article>
       <h1>Do you have a device that records your step count?</h1>
-      {% call form.form("exercise-diary-2.html", "exercise-diary-3.html") %}
+      {% call form.form("t4tb", "exercise-diary-2.html", "exercise-diary-3.html") %}
         {{ form.yesno("has-device", "", required=true) }}
         {{ form.text("daily-steps", "Over the last 7 days, what is you average daily stepcount?", "number", required=true) }}
         {{ form.checkboxes( "device-type", "What device records your stepcount?", ["Smartphone e.g. Apple/Android phone", "Worn device e.g. Fitbit", "Pedometer"] , required=true) }}

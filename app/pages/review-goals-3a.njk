@@ -21,7 +21,7 @@
       <p>You have achieved your personal goal, well done!</p>
       <p>You will need to choose another personal goal that is important to you.</p>
       <p>Remember, it needs to be something that is achievable within the next 3 weeks and important to you.</p>
-      {% call form.form("review-goals-3.html", "one-more-thing.html") %}
+      {% call form.form("t4tb", "review-goals-3.html", "one-more-thing.html") %}
         {{ form.textarea("personal-goal", "Insert your personal goal", required=true) }}
       {% endcall %}
     </article>

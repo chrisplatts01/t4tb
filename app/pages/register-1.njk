@@ -18,7 +18,7 @@
 
     <article>
       <h1>Please enter your name and email address</h1>
-      {% call form.form("/.html", "register-2.html") %}
+      {% call form.form("t4tb", "/.html", "register-2.html") %}
         {{ form.text2("", "first-name", "First name", "text", "", "last-name", "Last name", "text", "", required=true) }}
         {{ form.text("email", "Email address", "email", required=true) }}
       {% endcall %}

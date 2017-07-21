@@ -18,7 +18,7 @@
 
     <article>
       <h1>Have you had any ill health during the last 7 days?</h1>
-      {% call form.form("exercise-diary-update-7.html", "exercise-diary-update-7b.html") %}
+      {% call form.form("t4tb", "exercise-diary-update-7.html", "exercise-diary-update-7b.html") %}
         {{ form.yesno("ill-health", "", required=true) }}
         {{ form.checkboxes("ill-health-had", "Please tick all that apply:", ["An unplanned emergency hospitalisation", "A fall", "A loss of consciousness", "A fracture", "A torn ligament", "Other"], required=true) }}
       {% endcall %}

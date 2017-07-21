@@ -23,7 +23,7 @@
         </div>
       </div>
       <p>After watching the video, enter how many seconds it takes for you to stand up and sit down from a chair 10 times in a row.</p>
-      {% call form.form("physical-fitness-1a.html", "physical-fitness-2a.html") %}
+      {% call form.form("t4tb", "physical-fitness-1a.html", "physical-fitness-2a.html") %}
         {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number", required=true) }}
       {% endcall %}
       <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>

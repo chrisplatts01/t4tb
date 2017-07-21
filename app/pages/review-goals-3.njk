@@ -21,7 +21,7 @@
       <p>Your second goal was a personal goal.</p>
       <p class="heading">“To be able to complete an hour of gardening without feeling tired”</p>
       <p class="heading">Please rate on the sliding scale how you feel you are progressing with this goal.</p>
-      {% call form.form("review-goals-2a.html", "review-goals-3a.html") %}
+      {% call form.form("t4tb", "review-goals-2a.html", "review-goals-3a.html") %}
         {{ form.slider_1("how-you-feel", "Please rate on the sliding scale how you feel you are progressing with this goal.", ["0%", "25%", "50%", "75%", "100%"], "No confidence", "Complete confidence", required=true) }}
       {% endcall %}
     </article>

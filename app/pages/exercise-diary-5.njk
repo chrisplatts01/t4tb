@@ -19,7 +19,7 @@
     <article>
       <h1>Walking</h1>
       <p>Think about the time you spent walking in the last 7 days. This includes at work and at home, walking to travel from place to place, and any other walking that you have done solely for recreation, sport, exercise, or leisure.</p>
-      {% call form.form("exercise-diary-4.html", "exercise-diary-6.html") %}
+      {% call form.form("t4tb", "exercise-diary-4.html", "exercise-diary-6.html") %}
         {{ form.radios( "walking-days", "During the last 7 days, on how many days did you walk for at least 10 minutes at a time?<br><br>Include any exercise you carry out as part of the Train for the Brain programme." | safe, ["0 days", "1 day", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days"] , required=true) }}
         {{ form.text2("How much time did you usually spend walking on one of those days?", "walking-hours", "Hours per day", "text", "", "walking-minutes", "Minutes per day", "text", "" , required=true) }}
         {{ form.checkboxes("walking", "", ["Don't know/not sure"], required=true) }}

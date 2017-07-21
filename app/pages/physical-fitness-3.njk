@@ -24,7 +24,7 @@
       </div>
       <p>Please note, do not run for this test.</p>
       <p>After watching the video, enter how many times you can step your right leg up in 2 minutes.</p>
-      {% call form.form("physical-fitness-2a.html", "physical-fitness-3a.html") %}
+      {% call form.form("t4tb", "physical-fitness-2a.html", "physical-fitness-3a.html") %}
         {{ form.text("steps-2-minute", "Number of right leg lifts completed in 2 minutes", "number", required=true) }}
       {% endcall %}
     </article>

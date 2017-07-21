@@ -18,7 +18,7 @@
 
     <article>
       <h1>Have you had any ill health during the last 7 days?</h1>
-      {% call form.form("exercise-diary-update-1.html", "exercise-diary-update-7a.html") %}
+      {% call form.form("t4tb", "exercise-diary-update-1.html", "exercise-diary-update-7a.html") %}
         {{ form.yesno("ill-health", "", required=true) }}
       {% endcall %}
       <p><a id="ill-health-open" class="modal-open" href="#ill-health">What do we mean by 'ill-health'?</a></p>
