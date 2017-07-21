@@ -272,8 +272,13 @@ textarea.parsley-error {
   margin-top: $small-spacing * 2.5;
 }
 
+.form-field.form-field--textarea {
+  margin-top: $base-spacing * 1.5;
+}
+
 input[type='checkbox']:checked + label:before {
-  background-color: $brand-primary;
+  // background-color: $brand-primary;
+  background: url('/images/green-tick-icon.svg') center center no-repeat;
   border-color: $brand-primary;
 }
 
