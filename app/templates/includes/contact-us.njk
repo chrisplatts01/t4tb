@@ -1,5 +1,5 @@
-  <div id="why-important" class="modal">
-    <a id="why-important-close" class="modal-close" href="#">Close <img src="/images/white-cross-icon.svg" alt=""></a>
+  <div id="contact-form" class="modal">
+    <a id="contact-form-close" class="modal-close" href="#">Close <img src="/images/white-cross-icon.svg" alt=""></a>
     <div class="modal-content">
       <article>
         <h1>Contact us</h1>
@@ -20,8 +20,45 @@
         <p>0207 848 8183</p>
 
         <h2>Contact form</h2>
-        <form>
+        <form id="t4tb-contact-form" method="put" action="#" novalidate>
+          <div id="contact-form-errors" class="form-errors hidden">
+            <p>There was a problem with your submission.
+            <br>The errors have been highlighted below.</p>
+          </div>
+
+          {{ form.text("contact-first-name", "First name (required)", required=true ) }}
+          {{ form.text("contact-last-name", "Last name (required)", required=true ) }}
+          {{ form.text("contact-email", "Email address (required)", "email", required=true ) }}
+          {{ form.text("contact-telephone", "Telephone" ) }}
+          {{ form.textarea("contact-message", "Your message" ) }}
+
+          <div class="form-actions">
+            <button class="button button--next" type="submit">Send</button>
+          </div>
         </form>
+
+        <script>
+          (function($) {
+
+            // -------------------------------------------------------------------------
+            // Handle form validation
+            // -------------------------------------------------------------------------
+            $('#t4tb-contact-form').parsley()
+              // Toggles .hidden and .disabled classes on error messages
+              // and submit button if field validation has errors
+              .on('field:validated', function() {
+                var hasErrors = $('.parsley-error').length !== 0;
+
+                if (hasErrors) {
+                  $('#contact-form-errors').removeClass('hidden');
+                  $('#t4tb-contact').find('button[type=submit]').prop('disabled', true);
+                } else {
+                  $('#contact-form-errors').addClass('hidden');
+                  $('#t4tb-contact').find('button[type=submit]').prop('disabled', false);
+                }
+              });
+          })(jQuery);
+        </script>
       </article>
     </div>
   </div>

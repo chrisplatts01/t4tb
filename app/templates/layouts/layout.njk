@@ -40,7 +40,6 @@
 
 {% include "includes/page-footer.njk" %}
 
-{% include "includes/my-data.njk" %}
 {% include "includes/why-important.njk" %}
 {% include "includes/why-exercise.njk" %}
 {% include "includes/ill-health.njk" %}
@@ -49,6 +48,7 @@
 {% include "includes/exit-measures.njk" %}
 {% include "includes/exit-dashboard.njk" %}
 {% include "includes/contact-us.njk" %}
+{% include "includes/my-data.njk" %}
 
 <script src="/scripts/main.min.js"></script>
 <script>
@@ -59,22 +59,7 @@
     // -------------------------------------------------------------------------
     // Handle form validation
     // -------------------------------------------------------------------------
-    $("#t4tb").parsley()
-
-      // Check if form has been initialised
-      .on('form:init', function() {
-        console.log('FORM INITIALISED');
-      })
-      .on('form:validate', function() {
-        console.log('FORM TO BE VALIDATED');
-      })
-
-      // Prevent form submission (for development only)
-      // .on('form:submit', function() {
-      //   console.log('SUBMIT BUTTON CLICKED');
-      //   return false;
-      // })
-
+    $('#t4tb').parsley()
       // Toggles .hidden and .disabled classes on error messages
       // and submit button if field validation has errors
       .on('field:validated', function() {

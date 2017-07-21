@@ -7,7 +7,7 @@ Form: Basic skeleton for T4TB form with
 #}
 {% macro form(
     id = "t4tb",
-    previous = "#",
+    previous = "",
     next = "#",
     previous_label = "Go back",
     next_label = "Continue"
@@ -22,7 +22,7 @@ Form: Basic skeleton for T4TB form with
   {{ caller() }}
 
   <div class="form-actions">
-    <a class="button button--back secondary" href="{{ previous }}">{{ previous_label }}</a>
+    {% if previous %}<a class="button button--back secondary" href="{{ previous }}">{{ previous_label }}</a>{% endif %}
     <button class="button button--next" type="submit">{{ next_label }}</button>
   </div>
 </form>

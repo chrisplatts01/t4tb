@@ -249,7 +249,7 @@ textarea.parsley-error {
 
 .form-errors {
   padding: 0 $small-spacing;
-  margin: $small-spacing 0;
+  margin: $small-spacing 0 $base-spacing;
   color: $white;
   background-color: $red;
   border-radius: 3px;

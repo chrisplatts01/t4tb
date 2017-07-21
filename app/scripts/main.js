@@ -133,7 +133,9 @@ jQuery.noConflict();
   });
 
   // Show/hide individual modals
-  // Needs to be replaced by a generic click event if possible
+  // These need to be replaced by a generic click event if possible
+  $('.popup-wrapper').hide();
+  // ---------------------------------------------------------------------------
   $('#my-data-open')
     .on('click', function() {
       $('#my-data').popup('show');
@@ -142,7 +144,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#my-data').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#why-important-open')
     .on('click', function() {
       $('#why-important').popup('show');
@@ -151,7 +153,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#why-important').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#why-exercise-open')
     .on('click', function() {
       $('#why-exercise').popup('show');
@@ -160,7 +162,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#why-exercise').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#ill-health-open')
     .on('click', function() {
       $('#ill-health').popup('show');
@@ -169,7 +171,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#ill-health').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#ipaq-open')
     .on('click', function() {
       $('#ipaq').popup('show');
@@ -178,7 +180,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#ipaq').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#exit-home-open')
     .on('click', function() {
       $('#exit-home').popup('show');
@@ -187,7 +189,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#exit-home').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#exit-measures-open')
     .on('click', function() {
       $('#exit-measures').popup('show');
@@ -196,7 +198,7 @@ jQuery.noConflict();
     .on('click', function() {
       $('#exit-measures').popup('hide');
     });
-
+  // ---------------------------------------------------------------------------
   $('#exit-dashboard-open')
     .on('click', function() {
       $('#exit-dashboard').popup('show');
@@ -204,6 +206,15 @@ jQuery.noConflict();
   $('#exit-dashboard-close, #exit-dashboard-close-button')
     .on('click', function() {
       $('#exit-dashboard').popup('hide');
+    });
+  // ---------------------------------------------------------------------------
+  $('#contact-form-open')
+    .on('click', function() {
+      $('#contact-form').popup('show');
+    });
+  $('#contact-form-close, #exit-dashboard-close-button')
+    .on('click', function() {
+      $('#contact-form').popup('hide');
     });
 
   // ---------------------------------------------------------------------------

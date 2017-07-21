@@ -17,8 +17,11 @@
     }}
 
     <article>
-      <h1>Due to some of the information you have provided we recommend that you visit your GP prior to starting the exercise programme and discuss this with them. <br><br>Please download and print the letter for GPs <a href="#">available here</a>.</h1>
-      {% call form.form("t4tb", "sign-up-7b.html", "sign-up-7c.html", previous_label = "I will return later", next_label = "I will continue") %}
+      <h1>I have understood that there may be risks associated with my health condition and have considered the recommendation to seek medical advice, however I have decided to continue with the study.</h1>
+      {% call form.form("t4tb", "", "sign-up-7d.html", next_label = "Continue") %}
+      <div class="form-field-group">
+        {{ form.checkbox("understood-risks", "I have understood the recommendation", required=true ) }}
+      </div>
       {% endcall %}
     </article>
 

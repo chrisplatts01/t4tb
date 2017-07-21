@@ -1,13 +1,7 @@
 {% extends "layouts/layout.njk" %}
 
-{% set user = {
-    loggedIn: true,
-    name: "John Smith"
-  }
-%}
-
-{# % import "macros/section.njk" as section % #}
-{# % import "macros/form.njk" as form % #}
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
 {# % import "macros/modal.njk" as modal % #}
 
 {% block content %}
@@ -16,21 +10,20 @@
     {{ section.header(
         title = "Sign up to the study",
         info = "<a id=\"my-data-open\" class=\"modal-open\" href=\"#my-data\">What happens to my data?</a>" | safe,
-        duration = 15,
-        step = 1,
-        steps = 9
+        show_progress_bar = false,
+        show_progress_steps = false,
+        duration = 15
       )
     }}
 
     <article>
-      <h1>Important information about you</h1>
-      <p>Before we start your programme it is important that we are aware of certain medical conditions.</p>
-      {% call form.form("t4tb", "/", "sign-up-1a.html") %}
+      <h1>We will save your progress on the programme for 2 weeks.</h1>
+      {% call form.form("t4tb", "", "sign-up-7c.html", next_label = "Complete logout") %}
       {% endcall %}
-      <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
 
   </section>
 {% endblock %}
+

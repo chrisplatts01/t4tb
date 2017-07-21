@@ -168,6 +168,20 @@
     }
   }
 
+  .participant-info {
+    border: 1px solid #ccc2bb;
+    height: 400px;
+    overflow: scroll;
+    margin: 0 24px;
+    padding: 0 24px;
+  }
+
+  .participant-info_inner {
+    width: 100%;
+    max-width: 472px;
+    margin: 0 auto
+  }
+
   &.is-complete {
     .section-title {
       background-color: $brand-primary;

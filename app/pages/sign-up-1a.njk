@@ -1,0 +1,52 @@
+{% extends "layouts/layout.njk" %}
+
+{% set user = {
+    loggedIn: true,
+    name: "John Smith"
+  }
+%}
+
+{# % import "macros/section.njk" as section % #}
+{# % import "macros/form.njk" as form % #}
+{# % import "macros/modal.njk" as modal % #}
+
+{% block content %}
+  <section class="panel panel--progress">
+
+    {{ section.header(
+        title = "Sign up to the study",
+        info = "<a id=\"my-data-open\" class=\"modal-open\" href=\"#my-data\">What happens to my data?</a>" | safe,
+        duration = 15,
+        step = 1,
+        steps = 9
+      )
+    }}
+
+    <article>
+      <h1>Participant information</h1>
+    </article>
+    <div class="wrapper">
+      <div class="participant-info">
+        <div class="participant-info_inner">
+          <p>Train for the Brain is a self-directed online exercise intervention for people over 50</p>
+          <h2>Invitation to take part in a research study</h2>
+          <p>We would like to invite you to take part in our research study. Before you decide, we would like you to understand why the research is being done and what it would involve for you.</p>
+          <p>Please take time to read the following information carefully and discuss it with family or friends if you wish. We recognise that there is a lot of information&hellip;</p>
+          <p>Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+        </div>
+      </div>
+    </div>
+    <article>
+      <p><a href="#">Download participant information as PDF</a></p>
+      {% call form.form("t4tb", "/", "sign-up-2.html") %}
+      <div class="form-field-group">
+        {{ form.checkbox("understood-info", "I have read and understand the participant information", required=true ) }}
+      </div>
+      {% endcall %}
+      <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
+    </article>
+
+    {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}
+
+  </section>
+{% endblock %}
