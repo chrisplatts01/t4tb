@@ -1,0 +1,117 @@
+{% extends "layouts/layout.njk" %}
+
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
+{% block content %}
+  <section class="panel panel--session-start">
+    <div class="wrapper">
+
+      <div class="session-panel">
+        <div class="ribbon-wrapper">
+          <h2 class="ribbon"><span class="ribbon-content"> Certificate of completion</span></h2>
+        </div>
+        <h1 class="centred">Congratulations on completing the course!</h1>
+        <p class="centred">Below are some statistics about your performance and progress.</p>
+      </div>
+
+      <hr>
+
+      <div class="session-panel">
+        <h2 class="centred">Your personal goal</h2>
+        <p class="centred">You made great progress on achieving your goal!</p>
+        <div class="progress-bar">
+          <div class="wrapper">
+            <div class="progress-total"></div>
+            <div class="progress-done" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-panel session-panel--dark">
+        <h3 class="centred">Baseline assessment improvement</h3>
+        <div class="key-statistics">
+          <div class="key-statistic"><span class="stat">+14</span> Extra chair stands</div>
+          <div class="key-statistic"><span class="stat">-22</span> Seconds off the stand test</div>
+          <div class="key-statistic"><span class="stat">+8</span> Extra steps in the step test</div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="session-panel">
+        <h2 class="centred">Sessions completed</h2>
+        <p class="centred">You did really well in completing the sessions!</p>
+        <div class="progress-bar">
+          <div class="wrapper">
+            <div class="progress-total"></div>
+            <div class="progress-done" style="width: 5%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-panel session-panel--dark">
+        <h3 class="centred">Types of session completed</h3>
+        <div class="key-statistics">
+          <div class="key-statistic"><span class="stat">7</span> Pilates</div>
+          <div class="key-statistic"><span class="stat">3</span> Movement and dance</div>
+          <div class="key-statistic"><span class="stat">11</span> Focus on your arms</div>
+          <div class="key-statistic"><span class="stat">8</span> Focus on your legs</div>
+          <div class="key-statistic"><span class="stat">19</span> General fitness</div>
+        </div>
+      </div>
+
+      <div class="session-panel session-panel--dark">
+        <h3 class="centred">Time spent on the course</h3>
+        <div class="key-statistics">
+          <div class="key-statistic"><span class="stat">11:14</span> Hours and minutes spent on the course</div>
+          <div class="key-statistic"><span class="stat">7</span> Average sessions per week</div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="session-panel">
+        <h3 class="centred">Your achievements</h3>
+        <div class="achievements">
+          <div class="achievement is-done">
+            <div class="icon"></div>
+            <h4>Easy as 123</h4>
+            <p>Complete your first 3 training sessions</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Double Diary</h4>
+            <p>Update your exercise diary at the end of Week 2</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Goal Machine</h4>
+            <p>Review your measures and goals for the first time</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Give Me Five</h4>
+            <p>Try each of the 5 exercise types at least once</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Fully Trained</h4>
+            <p>Finish all 18 sessions in the programme</p>
+          </div>
+
+          <div class="achievement">
+            <div class="icon"></div>
+            <h4>Quiz Master</h4>
+            <p>Take our survey at the end of the programme</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}
