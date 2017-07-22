@@ -147,11 +147,11 @@
 }
 
 .key-statistics {
-  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top);
+  @include flexbox($justify-content: center, $flex-wrap: nowrap, $align-items: top);
 }
 
 .key-statistic {
-  width: 33%;
+  // width: 33%;
   font-size: $small-font-size;
   text-align: center;
   border-right: 1px solid $mid-gray;
@@ -175,7 +175,7 @@
 }
 
 .achievement {
-  width: 16.6%;
+  // width: 16.6%;
   font-size: $small-font-size;
   padding: 0 $small-spacing;
   border-right: 1px solid $light-gray;

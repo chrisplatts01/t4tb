@@ -91,7 +91,11 @@ hr {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  margin: 0 0 $small-spacing;
+  margin: 0 $small-spacing $small-spacing;
+
+  &.brand-primary {
+    border-color: $brand-primary;
+  }
 }
 
 img {

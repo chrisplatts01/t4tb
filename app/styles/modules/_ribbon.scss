@@ -10,7 +10,7 @@
   color: $white;
   text-align: center;
   padding: $small-spacing / 2 $base-spacing;
-  margin: $base-spacing auto;
+  margin: $base-spacing auto $base-spacing * 2;
 }
 .ribbon:before, .ribbon:after {
   content: "";
@@ -18,7 +18,7 @@
   position: absolute;
   display: block;
   bottom: -1 * $base-spacing;
-  border: $small-spacing * 1.5 solid shade( $brand-primary, 5% );
+  border: $small-spacing * 1.5 solid shade( $brand-primary, 10% );
   z-index: -1;
 }
 .ribbon:before {
@@ -36,7 +36,7 @@
   position: absolute;
   display: block;
   border-style: solid;
-  border-color: shade( $brand-primary, 20% ) transparent transparent transparent;
+  border-color: shade( $brand-primary, 25% ) transparent transparent transparent;
   bottom: -$base-spacing;
 }
 .ribbon .ribbon-content:before {
