@@ -147,15 +147,16 @@
 }
 
 .key-statistics {
-  @include flexbox($justify-content: center, $flex-wrap: nowrap, $align-items: top);
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top);
 }
 
 .key-statistic {
-  // width: 33%;
+  width: 33%;
   font-size: $small-font-size;
   text-align: center;
   border-right: 1px solid $mid-gray;
-  padding: $base-spacing $small-spacing;
+  margin-top: $small-spacing;
+  padding: 0 $small-spacing;
 
   &:last-child {
     border: none;
@@ -175,7 +176,7 @@
 }
 
 .achievement {
-  // width: 16.6%;
+  width: 16.6%;
   font-size: $small-font-size;
   padding: 0 $small-spacing;
   border-right: 1px solid $light-gray;
@@ -240,5 +241,27 @@
     &::before {
       color: $mid-gray;
     }
+  }
+}
+
+.personal-goal,
+.sessions-completed,
+.your-achievements {
+  position: relative;
+  margin-top: $base-spacing * 3;
+  border-top: 1px solid $brand-primary;
+  padding-top: $base-spacing * 2.5;
+
+  &:before {
+    position: absolute;
+    top: -50px;
+    content: "\00a0";
+    display: block;
+    background: $white url(/images/fitness-icon.svg) 50% 0 no-repeat;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+    padding: 0 $small-spacing;
+    left: calc(50% - ($small-spacing + 50px;)
   }
 }
