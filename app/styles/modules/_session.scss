@@ -7,29 +7,15 @@
   padding: $base-spacing * 2 $base-spacing;
 }
 
-// .session-weeks {
-//   table {
-//     width: 100%;
-//     border-radius: 5px;
-//   }
-
-//   th, td {
-//     width: 16.6%;
-//     font-size: $small-font-size;
-//     font-weight: 400;
-//     background-color: $light-gray;
-//     text-align: left;
-//     padding: 2px 6px;
-//   }
-// }
-
 .session-weeks {
-  @include flexbox($justify-content: stretch, $flex-wrap: nowrap, $align-items: top)
+  @include flexbox($justify-content: left, $flex-wrap: wrap, $align-items: top)
 }
 
 .session-week {
   position: relative;
   width: 16.6%;
+  min-width: 96px;
+  border-bottom: 10px solid $white;
 }
 
 .session-week_heading,
@@ -57,14 +43,6 @@
     color: $white;
     background-color: $brand-primary;
   }
-
-  // .session-week:first-child & {
-  //   border-top-left-radius: 4px;
-  // }
-
-  // .session-week:last-child & {
-  //   border-top-right-radius: 4px;
-  // }
 }
 
 .session-week_status {
@@ -85,28 +63,17 @@
     position: absolute;
     left: 6px;
     background-color: transparent;
-
-    // .is-started & {
-    //   color: $black;
-    // }
   }
-
-  // .session-week:first-child & {
-  //   border-bottom-left-radius: 4px;
-  // }
-
-  // .session-week:last-child & {
-  //   border-bottom-right-radius: 4px;
-  // }
 }
 
 .session-progress {
-  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top)
+  @include flexbox($justify-content: left, $flex-wrap: wrap, $align-items: top)
 }
 
 .session-progress_week {
   @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top)
-  width: 33.3%;
+  width: 16.6%;
+  min-width: 96px;
   border-right: 1px solid $light-gray;
   padding: 0 4px;
 
@@ -128,6 +95,7 @@
   padding: $base-spacing 0;
   border-left: 1px solid $white;
   border-right: 1px solid $white;
+  border-bottom: 10px solid $white;
   background-color: $light-gray;
 
   &.is-next {
@@ -147,16 +115,29 @@
 }
 
 .key-statistics {
-  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top);
+  @include breakpoint(large) {
+    @include flexbox($justify-content: center, $flex-wrap: wrap, $align-items: top);
+  }
 }
 
 .key-statistic {
-  width: 33%;
+  width: 100%;
+  max-width: 472px;
   font-size: $small-font-size;
   text-align: center;
-  border-right: 1px solid $mid-gray;
-  margin-top: $small-spacing;
-  padding: 0 $small-spacing;
+  border-bottom: 1px solid $mid-gray;
+  margin: $small-spacing auto 0;
+  padding: 0 $small-spacing $small-spacing;
+
+  @include breakpoint(large) {
+    border-right: 1px solid $mid-gray;
+    border-bottom: none;
+
+    &.flex-2 { width: 50%; }
+    &.flex-3 { width: 33.3%; }
+    &.flex-4 { width: 25%; }
+    &.flex-5 { width: 20%; }
+  }
 
   &:last-child {
     border: none;
@@ -171,15 +152,27 @@
 }
 
 .achievements {
-  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top);
   text-align: center;
+
+  @include breakpoint(large) {
+    @include flexbox($justify-content: center, $flex-wrap: wrap, $align-items: top);
+  }
 }
 
 .achievement {
-  width: 16.6%;
+  width: 100%;
+  max-width: 472px;
   font-size: $small-font-size;
-  padding: 0 $small-spacing;
-  border-right: 1px solid $light-gray;
+  padding: $small-spacing;
+  margin: 0 auto;
+  border-bottom: 1px solid $light-gray;
+
+  @include breakpoint(large) {
+    width: 16.6%;
+    padding: 0 $small-spacing;
+    border-right: 1px solid $light-gray;
+    border-bottom: none;
+  }
 
   &:last-child {
     border: none;
@@ -262,6 +255,6 @@
     width: 100px;
     height: 100px;
     padding: 0 $small-spacing;
-    left: calc(50% - ($small-spacing + 50px;)
+    left: calc(50% - 62px);
   }
 }
