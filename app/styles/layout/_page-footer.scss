@@ -7,11 +7,6 @@
   padding: $small-spacing 0;
   background-color: $brand-secondary;
   color: $white;
-  height: 2* $page-footer-height;
-
-  @include breakpoint(medium) {
-    height: $page-footer-height;
-  }
 
   .logos {
     @include breakpoint(medium) {
