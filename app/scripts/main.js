@@ -4,38 +4,29 @@ var resizeTimer;
 
 (function($) {
   $(window).bind('load', function() {
-    var $window = $(window);
-    var $document= $(document);
-    var $pageContent = $('#page-content');
-    var $sectionFooter = $('#page-content').find('footer');
-    var $pageFooter = $('#page-footer');
-
     /**
      * Set sticky footer status
      */
     function stickyFooter() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function() {
-        // console.log('WINDOW = ' + $window.height() + 'px');
-        // console.log('DOCUMENT = ' + $document.height() + 'px');
-        // console.log('PAGE_FOOTER = ' + $pageFooter.outerHeight() + 'px');
-        // console.log('SECTION_FOOTER = ' + $sectionFooter.outerHeight() + 'px');
+        var $sectionFooter = $('#page-content').find('footer');
+        var $pageFooter = $('#page-footer');
 
-        if ($window.height() < $document.height()) {
+        if ($(window).height() < $(document).height()) {
           $pageFooter.css({'position': 'static', 'width': 'auto', 'bottom': 'auto'});
           $sectionFooter.css({'position': 'relative', 'width': 'auto', 'bottom': 'auto'});
-          $pageContent.css({'padding-bottom': '0'});
+          $('#page-content').css({'padding-bottom': '0'});
         } else {
           $pageFooter.css({'position': 'fixed', 'width': '100%', 'bottom': '0'});
           $sectionFooter.css({'position': 'fixed', 'width': '100%', 'bottom': $pageFooter.outerHeight() + 'px'});
-          $pageContent.css({'padding-bottom': $pageFooter.outerHeight() + $sectionFooter.outerHeight() + 'px'});
+          $('#page-content').css({'padding-bottom': $pageFooter.outerHeight() + $sectionFooter.outerHeight() + 'px'});
         }
       }, 250);
     }
 
     stickyFooter();
-
-    $window.on('resize', stickyFooter);
+    $(window).on('resize', stickyFooter);
   });
 
   // ---------------------------------------------------------------------------
