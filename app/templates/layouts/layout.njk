@@ -1,5 +1,8 @@
 <!-- layout.nunjucks -->
 
+{% import "macros/section.njk" as section %}
+{% import "macros/form.njk" as form %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,33 +14,26 @@
 
   <link rel="stylesheet" href="/styles/vendor/jquery/jquery-ui.min.css">
   <link rel="stylesheet" href="/styles/main.css">
-<!--
-  <script src="/scripts/vendor/jquery/jquery-3.2.1.js"></script>
-  <script src="/scripts/vendor/jquery/jquery-ui.js"></script>
-  <script src="/scripts/vendor/furf/jquery.ui.touch-punch.js"></script>
-  <script src="/scripts/vendor/vast/jquery.popupoverlay.js"></script>
-  <script src="/scripts/vendor/parsley/parsley.js"></script>
--->
+
   <script src="/scripts/jquery/jquery-3.2.1.js"></script>
   <script src="/scripts/jquery/jquery-ui.js"></script>
   <script src="/scripts/furf/jquery.ui.touch-punch.js"></script>
   <script src="/scripts/vast/jquery.popupoverlay.js"></script>
   <script src="/scripts/parsley/parsley.js"></script>
 </head>
+
 <body>
 
-{% import "macros/section.njk" as section %}
-{% import "macros/form.njk" as form %}
+<div class="page-wrapper">
+  {% include "includes/page-header.njk" %}
 
-{% include "includes/page-header.njk" %}
+  <main id="page-content" role="main">
+    {% block content %}{% endblock %}
+  </main>
 
-{# % include "includes/form-errors.njk" % #}
+  {% include "includes/page-footer.njk" %}
+</div>
 
-<main id="page-content" role="main">
-  {% block content %}{% endblock %}
-</main>
-
-{% include "includes/page-footer.njk" %}
 
 {% include "includes/why-important.njk" %}
 {% include "includes/why-exercise.njk" %}

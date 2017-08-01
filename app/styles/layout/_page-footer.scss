@@ -2,12 +2,16 @@
 
 #page-footer {
   @include clearfix;
+  bottom: 0;
+  width: 100%;
   padding: $small-spacing 0;
   background-color: $brand-secondary;
   color: $white;
 
   .logos {
-    @include flexbox($justify-content: space-between);
+    @include breakpoint(medium) {
+      @include flexbox($justify-content: space-between);
+    }
   }
 
   .sponsor-logos {
@@ -53,4 +57,10 @@
     }
 
   }
+}
+
+.sticky-footer #page-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
