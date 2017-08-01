@@ -1,8 +1,17 @@
 @charset "UTF-8";
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.sticky-footer .page-wrapper {
+  margin-bottom: 240px;
+
+  @include breakpoint(medium) {
+    margin-bottom: 120px;
+  }
 }
 
 .wrapper {

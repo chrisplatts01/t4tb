@@ -1,6 +1,44 @@
 jQuery.noConflict();
 
+var resizeTimer;
+
 (function($) {
+  $(window).bind('load', function() {
+    var $window = $(window);
+    var $document= $(document);
+    var $content = $('#page-content');
+    var $footer = $('#page-footer');
+
+    /**
+     * Set sticky footer status
+     */
+    function stickyFooter() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        var winHeight = $window.height();
+        var docHeight = $document.height();
+        var footerHeight = $footer.outerHeight() + 'px';
+
+        console.log('WIN = ' + winHeight + 'px');
+        console.log('DOC = ' + docHeight + 'px');
+
+        if (winHeight < docHeight) {
+          // $body.removeClass('sticky-footer');
+          $footer.css({'position': 'static', 'width': '100%', 'bottom': '0'});
+          $content.css({'padding-bottom': '0'});
+        } else {
+          // $body.addClass('sticky-footer');
+          $footer.css({'position': 'fixed', 'width': '100%', 'bottom': '0'});
+          $content.css({'padding-bottom': footerHeight});
+        }
+      }, 250);
+    }
+
+    stickyFooter();
+
+    $window.on('resize', stickyFooter);
+  });
+
   // ---------------------------------------------------------------------------
   // Handle JQuery UI Slider as numeric value
   // ---------------------------------------------------------------------------
