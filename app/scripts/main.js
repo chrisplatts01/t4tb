@@ -16,10 +16,10 @@ var resizeTimer;
     function stickyFooter() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function() {
-        console.log('WINDOW = ' + $window.height() + 'px');
-        console.log('DOCUMENT = ' + $document.height() + 'px');
-        console.log('PAGE_FOOTER = ' + $pageFooter.outerHeight() + 'px');
-        console.log('SECTION_FOOTER = ' + $sectionFooter.outerHeight() + 'px');
+        // console.log('WINDOW = ' + $window.height() + 'px');
+        // console.log('DOCUMENT = ' + $document.height() + 'px');
+        // console.log('PAGE_FOOTER = ' + $pageFooter.outerHeight() + 'px');
+        // console.log('SECTION_FOOTER = ' + $sectionFooter.outerHeight() + 'px');
 
         if ($window.height() < $document.height()) {
           $pageFooter.css({'position': 'static', 'width': 'auto', 'bottom': 'auto'});
