@@ -23,6 +23,7 @@ label {
   color: $brand-secondary;
   font-weight: 400;
   font-size: $small-font-size;
+  line-height: $small-line-height;
 }
 
 // Text fields
@@ -321,7 +322,7 @@ form > .form-field {
   @include flexbox($justify-content: space-around);
   margin: $small-spacing 0;
 
-  @include breakpoint(small) {
+  @include breakpoint(medium) {
     @include flexbox($justify-content: space-between);
 
     &.centred {
@@ -339,6 +340,7 @@ form > .form-field {
 .form-field-summary {
   label {
     font-size: $small-font-size;
+    line-height: $small-line-height;
   }
 
   input {
@@ -352,7 +354,8 @@ p ~ .duration {
   margin-top: -32px;
   text-align: right;
   font-size: $small-font-size;
-  color: $heading-font-color;
+  line-height: $small-line-height;
+  color: $alt-font-color;
   background-color: transparent;
 
   &:after {
@@ -406,6 +409,7 @@ p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
     .credentials {
       color: $brand-secondary;
       font-size: $small-font-size;
+      line-height: $small-line-height;
       border-bottom: 1px solid $mid-gray;
     }
 
@@ -416,6 +420,7 @@ p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
 
     p {
       font-size: $small-font-size;
+      line-height: $small-line-height;
       padding: 0 $small-spacing 0 0;
       width: 100%;
 

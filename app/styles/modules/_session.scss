@@ -22,6 +22,7 @@
 .session-week_status {
   width: 100%;
   font-size: $small-font-size;
+  line-height: $small-line-height;
   font-weight: 400;
   background-color: $light-gray;
   text-align: left;
@@ -90,6 +91,7 @@
 .session-progress_task {
   width: 33.3%;
   font-size: $small-font-size;
+  line-height: $small-line-height;
   margin: 0;
   text-align: center;
   padding: $base-spacing 0;
@@ -124,6 +126,7 @@
   width: 100%;
   max-width: 472px;
   font-size: $small-font-size;
+  line-height: $small-line-height;
   text-align: center;
   border-bottom: 1px solid $mid-gray;
   margin: $small-spacing auto 0;
@@ -163,6 +166,7 @@
   width: 100%;
   max-width: 472px;
   font-size: $small-font-size;
+  line-height: $small-line-height;
   padding: $small-spacing;
   margin: 0 auto;
   border-bottom: 1px solid $light-gray;
@@ -202,7 +206,7 @@
   &.is-done h4,
   &.is-started p,
   &.is-done p {
-    color: $heading-font-color;
+    color: $alt-font-color;
   }
 }
 

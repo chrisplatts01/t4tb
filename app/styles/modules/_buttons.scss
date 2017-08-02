@@ -15,9 +15,9 @@ input[type='button'] {
   font-family: $base-font-family;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
-  font-weight: 500;
-  line-height: 1;
-  padding: $small-spacing $base-spacing;
+  font-weight: $base-font-weight;
+  line-height: 18px;
+  padding: 0 $small-spacing;
   margin: $small-spacing 0;
   text-align: center;
   text-decoration: none;
@@ -25,13 +25,9 @@ input[type='button'] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  border-bottom: 2px solid shade($action-color, 30%);
-  border-right: 2px solid shade($action-color, 30%);
-  width: 272px;
-
-  @include breakpoint(small) {
-    width: auto;
-  }
+  border-bottom: 4px solid shade($action-color, 30%);
+  width: 224px;
+  height: 44px;
 
   &:hover,
   &:focus {
@@ -45,8 +41,7 @@ input[type='button'] {
     cursor: not-allowed;
     background-color: $light-gray;
     color: $mid-gray !important;
-    border-bottom: 2px solid shade($light-gray, 20%);
-    border-right: 2px solid  shade($light-gray, 20%);
+    border-bottom: 4px solid shade($light-gray, 20%);
 
     &:hover,
     &:focus {
@@ -57,8 +52,7 @@ input[type='button'] {
   &.secondary {
     background-color: $mid-gray;
     color: $dark-gray !important;
-    border-bottom: 2px solid  shade($mid-gray, 20%);
-    border-right: 2px solid  shade($mid-gray, 20%);
+    border-bottom: 4px solid  shade($mid-gray, 20%);
 
     &:hover,
     &:focus {
@@ -69,8 +63,7 @@ input[type='button'] {
   &.warning {
     background-color: $red;
     color: $white !important;
-    border-bottom: 2px solid  shade($red, 20%);
-    border-right: 2px solid  shade($red, 20%);
+    border-bottom: 4px solid  shade($red, 20%);
 
     &:hover,
     &:focus {

@@ -43,7 +43,7 @@
         height: 1px;
         background-color: $mid-gray;
         border:none;
-        margin: 0 $small-spacing;
+        margin: 0 $base-spacing;
         padding: 0;
         line-height: 0;
       }
@@ -169,7 +169,7 @@
   }
 
   .participant-info {
-    border: 1px solid #ccc2bb;
+    border: 1px solid $mid-gray;
     height: 400px;
     overflow: scroll;
     margin: 0 24px;
@@ -190,7 +190,7 @@
         color: $white;
 
         .steps {
-          color: $dark-gray;
+          color: $dark-text-color;
 
           em {
             color: $white;

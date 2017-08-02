@@ -15,6 +15,7 @@ ul {
 
   li {
     font-size: $small-font-size;
+    line-height: $small-line-height;
     color: $base-font-color;
     margin-left: 0;
     padding-left: 0;
@@ -30,7 +31,7 @@ ul {
     display: block;
     margin-left: -3em;
     margin-right: 0.5em;
-    border-bottom: 1px solid $mid-gray;
+    border-bottom: $horizontal-rule-border;
     padding-bottom: $small-spacing;
   }
 }
@@ -42,6 +43,7 @@ ol {
 
   li {
     font-size: $small-font-size;
+    line-height: $small-line-height;
     color: $base-font-color;
     margin-left: 0;
     padding-left: 0;
@@ -90,7 +92,7 @@ a {
 
 
 hr {
-  border-bottom: $base-border;
+  border-bottom: $horizontal-rule-border;
   border-left: 0;
   border-right: 0;
   border-top: 0;

@@ -27,6 +27,7 @@
     width: 0;
     overflow: visible;
     font-size: $small-font-size;
+    line-height: $small-line-height;
     color: $brand-secondary;
 
     &:last-child {
@@ -41,5 +42,6 @@
 
   span {
     font-size: $small-font-size;
+    line-height: $small-line-height;
   }
 }

@@ -42,26 +42,28 @@
       position: relative;
     }
 
-    h1 {
+    h1.logo {
       font-size: 48px;
       font-weight: 700;
       line-height: 1;
       text-transform: uppercase;
       letter-spacing: -1px;
+      text-align: center;
+      max-width: 100%;
 
       @include breakpoint(medium) {
         font-size: 80px;
+        max-width: 472px;
+        margin: 0 auto;
       }
-    }
-
-    h2 {
-      font-weight: 300;
-      font-size: 32px;
     }
 
     p {
       font-weight: 400;
       font-size: 20px;
+      text-align: center;
+      max-width: 472px;
+      margin: 0 auto;
     }
 
     .button {
