@@ -3,31 +3,22 @@
 #page-header {
   // position: relative;
   background-color: $brand-primary;
-  height: 80px;
-  padding: 0 $base-spacing;
 
   .wrapper {
+    padding: 0 $base-spacing;
+
     @include breakpoint(large) {
       @include flexbox($justify-content: space-between);
-      padding: 0 $base-spacing;
     }
   }
 
-  h1 {
-    color: $white;
-    font-size: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 16px 0 0;
-
-    @include breakpoint(small) {
-      padding: 8px 0 0 0;
-      font-size: 32px;
-    }
+  .t4tb-logo {
+    width: 100%;
+    max-width: 340px;
+    padding: 18px 0 4px;
 
     @include breakpoint(large) {
-      padding: 20px 0 0 0;
+      padding: 22px 0 26px;
     }
   }
 
@@ -35,9 +26,10 @@
     color: $white;
     font-size: $small-font-size;
     line-height: $small-line-height;
+    padding: 0 0 12px;
 
     @include breakpoint(large) {
-      padding-top: 24px;
+      padding-top: 18px;
     }
   }
 

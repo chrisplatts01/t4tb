@@ -319,14 +319,26 @@ form > .form-field {
 }
 
 .form-actions {
-  @include flexbox($justify-content: space-around);
-  margin: $small-spacing 0;
+  margin: $base-spacing 0 $small-spacing;
 
   @include breakpoint(medium) {
     @include flexbox($justify-content: space-between);
 
     &.centred {
       @include flexbox($justify-content: space-around);
+    }
+  }
+
+  .button,
+  button,
+  input[type='submit'],
+  input[type='reset'],
+  input[type='button'] {
+    display: block;
+    margin: $small-spacing auto;
+
+    @include breakpoint(medium) {
+      margin: $small-spacing 0;
     }
   }
 }

@@ -17,7 +17,7 @@ input[type='button'] {
   -webkit-font-smoothing: antialiased;
   font-weight: $base-font-weight;
   line-height: 18px;
-  padding: 0 $small-spacing;
+  padding: $small-spacing;
   margin: $small-spacing 0;
   text-align: center;
   text-decoration: none;
@@ -73,23 +73,18 @@ input[type='button'] {
 
   &.button--back {
     position: relative;
-    padding: $small-spacing $base-spacing * 2;
+    padding: $small-spacing $base-spacing;
 
     &:before {
-      position: absolute;
-      left: $base-spacing;
-      content: "\2039";
+      position: relative;
+      content: url('/images/left-arrow-grey.svg');
+      left: -12px;
+      top: -1px;
     }
-  }
 
-  &.button--next {
-    position: relative;
-    padding: $small-spacing $base-spacing * 2;
-
-    &:before {
-      position: absolute;
-      right: $base-spacing;
-      content: "\203a";
+    &:after {
+      content: '';
+      padding-left: 24px;
     }
   }
 }

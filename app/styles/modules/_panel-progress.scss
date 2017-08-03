@@ -48,19 +48,24 @@
         line-height: 0;
       }
 
+      .wrapper {
+        @include breakpoint(large) {
+          @include flexbox($justify-content: space-between);
+        }
+      }
+
       .progress-duration,
       .progress-complete {
-        margin: $small-spacing 0;
-        padding: 0 $base-spacing;
+        margin: 14px 0 6px;
+        padding: 0 0 0 $base-spacing;
 
         @include breakpoint(large) {
-          width: 45%;
-          float: left;
+          margin: $base-spacing 0;
         }
 
         img {
           vertical-align: middle;
-          margin-right: $small-spacing;
+          margin-right: 8px;
         }
       }
 
@@ -69,19 +74,24 @@
       }
 
       .progress-info {
-        margin: $small-spacing 0;
-        padding: 0 $base-spacing;
+        font-size: $small-font-size;
+        margin: 0 0 6px;
+        padding: 0 0 0 $base-spacing;
 
         @include breakpoint(large) {
-          width: 45%;
-          float: right;
           text-align: right;
+          margin: 0 0 $base-spacing 0;
+          padding: 26px $base-spacing 0 0;
         }
       }
     }
 
     .progress-bar {
       margin: $base-spacing 0;
+
+      @include breakpoint(large) {
+        margin: $base-spacing 0 $base-spacing * 2;
+      }
 
       .wrapper {
         padding: 0 $base-spacing;
@@ -106,10 +116,20 @@
     }
 
     .progress-steps {
-      font-size: 2em;
+      font-size: $h1-font-size-mobile;
+      line-height: $h1-line-height-mobile;
       font-weight: 300;
       color: $mid-gray;
-      margin-bottom: -25px;
+      margin-bottom: -24px;
+
+      @include breakpoint(medium) {
+        font-size: $h1-font-size;
+        line-height: $h1-line-height;
+      }
+
+      @include breakpoint(large) {
+        margin-bottom: -72px;
+      }
 
       .wrapper {
         padding-left: $base-spacing;
@@ -118,10 +138,6 @@
       em {
         color: $brand-primary;
         font-style: normal;
-      }
-
-      @include breakpoint(large) {
-        margin-bottom: -75px;
       }
     }
   }

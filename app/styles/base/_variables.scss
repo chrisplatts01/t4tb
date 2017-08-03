@@ -26,8 +26,10 @@ $h1-font-weight: 300;
 // Other Sizes
 $base-border-radius: 4px;
 $base-spacing: 24px;
-$small-spacing: $base-spacing / 2;
-$large-spacing: $base-spacing * 2;
+$tiny-spacing: $base-spacing / 3;       // 8px
+$small-spacing: $base-spacing / 2;      // 12px
+$medium-spacing: $base-spacing / 1.5;   // 16px
+$large-spacing: $base-spacing * 1.33;   // 32px
 $base-z-index: 0;
 $page-footer-height: 120px;
 $page-footer-height-mobile: 240px;
