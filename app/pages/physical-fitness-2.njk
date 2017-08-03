@@ -25,7 +25,7 @@
       {% call form.form("t4tb", "physical-fitness-1a.html", "physical-fitness-2a.html") %}
         {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number", required=true) }}
       {% endcall %}
-      <p><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
+      <p class="small"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}
