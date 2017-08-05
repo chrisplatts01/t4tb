@@ -57,7 +57,7 @@
       .progress-duration,
       .progress-complete {
         margin: 14px 0 6px;
-        padding: 0 0 0 $base-spacing;
+        padding: 0 $base-spacing;
 
         @include breakpoint(large) {
           margin: $base-spacing 0;
@@ -76,12 +76,12 @@
       .progress-info {
         font-size: $small-font-size;
         margin: 0 0 6px;
-        padding: 0 0 0 $base-spacing;
+        padding: 0 $base-spacing;
 
         @include breakpoint(large) {
           text-align: right;
           margin: 0 0 $base-spacing 0;
-          padding: 26px $base-spacing 0 0;
+          padding: 26px $base-spacing 0;
         }
       }
     }

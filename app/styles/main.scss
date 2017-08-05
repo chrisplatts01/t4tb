@@ -81,6 +81,10 @@
   }
 }
 
+.ui-widget {
+  font-family: $base-font-family;
+}
+
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight {
   border-color: $dark-gray;

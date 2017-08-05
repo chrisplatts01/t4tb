@@ -88,7 +88,10 @@ input[type='radio'] {
 
 input[type='radio'] + label {
   position: relative;
-  padding: 0 0 0 $base-spacing * 2;
+  padding: 0 0 0 41px;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $base-font-color;
 }
 
 input[type='radio'] + label:before {
@@ -96,13 +99,14 @@ input[type='radio'] + label:before {
   display: block;
   position: absolute;
   left: 0;
-  top: -4px;
-  height: 24px;
-  width: 24px;
+  top: -2px;
+  height: 30px;
+  width: 30px;
   background-color: $white;
-  border: 2px solid $mid-gray;
-  box-shadow: inset 0px 0px 0px 4px white;
-  border-radius: 14px;
+  border: 1px solid $mid-gray;
+  // box-shadow: inset 0px 0px 0px 4px white;
+  box-shadow: inset 0 2px 3px -1px #ccc, inset 0px 0px 0px 7px $white;
+  border-radius: 50%;
 }
 
 input[type='radio']:checked + label:before {
@@ -118,7 +122,10 @@ input[type='checkbox'] {
 
 input[type='checkbox'] + label {
   position: relative;
-  padding: 0 0 0 $base-spacing * 2;
+  padding: 0 0 0 41px;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $base-font-color;
 }
 
 input[type='checkbox'] + label:before {
@@ -126,159 +133,17 @@ input[type='checkbox'] + label:before {
   display: block;
   position: absolute;
   left: 0;
-  top: -4px;
-  height: 24px;
-  width: 24px;
+  top: -2px;
+  height: 30px;
+  width: 30px;
   background-color: $white;
-  border: 2px solid $mid-gray;
-  box-shadow: inset 0px 0px 0px 4px #fff;
+  border: 1px solid $mid-gray;
+  // box-shadow: inset 0px 0px 0px 4px white;
+  box-shadow: inset 0 2px 3px -1px #ccc, inset 0px 0px 0px 4px $white;
   border-radius: $base-border-radius;
 }
 
-.form-field.parsley-error {
-  input[type='checkbox'] + label:before {
-    border-color: red;
-  }
-
-  input[type='radio'] + label:before {
-    border-color: red;
-  }
-
-  & ~ .form-field {
-    input[type='checkbox'] + label:before {
-      border-color: red;
-    }
-
-    input[type='radio'] + label:before {
-      border-color: red;
-    }
-  }
-}
-
-input.parsley-success,
-select.parsley-success,
-textarea.parsley-success {
-   border: 1px solid $brand-primary !important;
-}
-
-input.parsley-error,
-select.parsley-error,
-textarea.parsley-error {
-  border: 1px solid $red !important;
-}
-
-.parsley-errors-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: -22px;
-  left: 0;
-  right: 0;
-  opacity: 0;
-
-  &:after {
-    position: absolute;
-    left: 8px;
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid $red;
-  }
-
-  li {
-    color: $white;
-    background-color: $red;
-    padding: 0 3px;
-    border-radius: 3px;
-    font-size: 14px;
-  }
-}
-
-.form-field--checkbox,
-.form-field--radio {
-  .parsley-errors-list:after {
-    left: 8px;
-    right: auto;
-  }
-}
-
-.consent-item {
-  .form-field--checkbox,
-  .form-field--radio {
-    .parsley-errors-list:after {
-      right: auto;
-      left: 8px;
-    }
-  }
-}
-
-.form-field-group,
-.form-field-inline-group {
-  .parsley-errors-list {
-    top: -22px;
-    right: 0;
-    left: 0;
-  }
-}
-
-.form-field-row {
-  .parsley-errors-list {
-    top: -22px;
-  }
-}
-
-.form-field-row.consent-item {
-  .parsley-errors-list {
-    top: -22px;
-
-    &:after {
-      right: 8px;
-      left: auto;
-    }
-  }
-}
-
-.form-field--slider,
-.form-field--slider-1 {
-  .parsley-errors-list {
-    top: -32px;
-  }
-}
-
-.form-errors {
-  padding: 0 $small-spacing;
-  margin: $small-spacing 0 $base-spacing;
-  color: $white;
-  background-color: $red;
-  border-radius: 3px;
-  font-size: 14px;
-}
-
-.form-field-row,
-.form-field-group,
-.form-field-inline-group {
-}
-
-.form-field-row,
-.form-field-group,
-.form-field-inline-group,
-.form-field--text,
-.form-field--textarea,
-.form-field--select,
-.form-field--slider {
-  position: relative;
-  margin-top: $small-spacing * 2.5;
-}
-
-.form-field.form-field--textarea {
-  margin-top: $base-spacing * 1.5;
-}
-
 input[type='checkbox']:checked + label:before {
-  // background-color: $brand-primary;
   background: url('/images/green-tick-icon.svg') center center no-repeat;
   border-color: $brand-primary;
 }
@@ -300,12 +165,39 @@ input[type='checkbox']:checked + label:before {
   }
 }
 
-form > .form-field {
-  margin: $small-spacing 0;
+.form-field-row {
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap);
+  margin: $base-spacing 0;
+  border-bottom: 1px solid $mid-gray;
 }
 
-.form-field {
-  padding: 0;
+
+// -------------------------------------
+// Form field types
+// -------------------------------------
+.form-field--slider,
+.form-field--slider-1 {
+  padding-bottom: 100px;
+}
+
+.form-field-row,
+.form-field-group,
+.form-field-inline-group {
+}
+
+.form-field-row,
+.form-field-group,
+.form-field-inline-group,
+.form-field--text,
+.form-field--textarea,
+.form-field--select,
+.form-field--slider {
+  position: relative;
+  margin-top: $small-spacing * 2.5;
+}
+
+.form-field--textarea {
+  margin-top: $base-spacing * 1.5;
 }
 
 .form-field--radio,
@@ -343,12 +235,125 @@ form > .form-field {
   }
 }
 
-.form-field-row {
-  @include flexbox($justify-content: space-between, $flex-wrap: nowrap);
-  margin: $base-spacing 0;
-  border-bottom: 1px solid $mid-gray;
+// -------------------------------------
+// Form validation errors
+// @todo: Refactoring required
+// -------------------------------------
+.form-errors {
+  padding: 0 $small-spacing;
+  margin: $small-spacing 0 $base-spacing;
+  color: $white;
+  background-color: $red;
+  border-radius: 3px;
+  font-size: 14px;
 }
 
+.parsley-errors-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -22px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+
+  &:after {
+    position: absolute;
+    left: 8px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $red;
+  }
+
+  li {
+    color: $white;
+    background-color: $red;
+    padding: 0 3px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+   border: 1px solid $brand-primary !important;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  border: 1px solid $red !important;
+}
+
+.form-field-group,
+.form-field-inline-group {
+  .parsley-errors-list {
+    top: -22px;
+    right: 0;
+    left: 0;
+  }
+}
+
+.form-field-row {
+  .parsley-errors-list {
+    top: -22px;
+  }
+}
+
+.form-field-row.consent-item {
+  .parsley-errors-list {
+    top: -22px;
+
+    &:after {
+      right: 8px;
+      left: auto;
+    }
+  }
+}
+
+.form-field.parsley-error {
+  input[type='checkbox'] + label:before {
+    border-color: red;
+  }
+
+  input[type='radio'] + label:before {
+    border-color: red;
+  }
+
+  & ~ .form-field {
+    input[type='checkbox'] + label:before {
+      border-color: red;
+    }
+
+    input[type='radio'] + label:before {
+      border-color: red;
+    }
+  }
+}
+
+.form-field--checkbox,
+.form-field--radio {
+  .parsley-errors-list:after {
+    left: 8px;
+    right: auto;
+  }
+}
+
+.form-field--slider,
+.form-field--slider-1 {
+  .parsley-errors-list {
+    top: -32px;
+  }
+}
+
+// -------------------------------------
+// Styles for sign-up form summary page
+// -------------------------------------
 .form-field-summary {
   label {
     font-size: $small-font-size;
@@ -360,7 +365,10 @@ form > .form-field {
   }
 }
 
-// These might not belong here
+// -------------------------------------
+// Fields with associated duration icons
+// Probably needs to done more logically
+// -------------------------------------
 input ~ .duration,
 p ~ .duration {
   margin-top: -32px;
@@ -413,8 +421,10 @@ p ~ .duration--30:after { content: url('/images/time-icon-30.svg'); }
 p ~ .duration--40:after { content: url('/images/time-icon-40.svg'); }
 p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
 
-
-// These rules dont belong here!
+// -------------------------------------
+// Not sure if these rules belong here!
+// Maybe in a 'consent-items' module
+// -------------------------------------
 .consent-items {
   counter-reset: consent-item;
 
@@ -449,6 +459,14 @@ p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
     &:last-of-type {
       border-bottom: none;
       margin-bottom: 0;
+    }
+
+    .form-field--checkbox,
+    .form-field--radio {
+      .parsley-errors-list:after {
+        right: auto;
+        left: 8px;
+      }
     }
   }
 

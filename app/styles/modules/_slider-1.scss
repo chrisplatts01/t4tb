@@ -1,7 +1,8 @@
 .slider-1 {
+  @include clearfix;
   position: relative;
   width: 90%;
-  margin: $base-spacing * 1.5 auto $base-spacing * 2;
+  margin: $base-spacing * 1.5 auto $base-spacing * 3;
   background-color: $light-gray;
   box-shadow: 0 1px 3px $mid-gray inset;
 
