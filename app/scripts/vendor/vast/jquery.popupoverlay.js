@@ -156,7 +156,7 @@
             if (options.type == 'overlay') {
                 $el.css({
                     textAlign: 'left',
-                    position: 'relative',
+                    // position: 'relative',
                     verticalAlign: 'middle'
                 });
 

@@ -21,7 +21,7 @@
       )
     }}
 
-    <article>
+    <article class="top">
       <h1>Participant information</h1>
     </article>
     <div class="wrapper">
@@ -35,14 +35,14 @@
         </div>
       </div>
     </div>
-    <article>
+    <article class="bottom">
       <p><a href="#">Download participant information as PDF</a></p>
       {% call form.form("t4tb", "/", "sign-up-2.html") %}
       <div class="form-field-group">
         {{ form.checkbox("understood-info", "I have read and understand the participant information", required=true ) }}
       </div>
       {% endcall %}
-      <p class="small"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
+      <p class="why-important"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

@@ -1,0 +1,16 @@
+{#
+========================================
+Video: Embed video
+========================================
+#}
+{% macro video(
+  video_url = "https://player.vimeo.com/video/214155348",
+  video_thumb_url = ""
+) %}
+<div class="video">
+  <div class="video-wrapper">
+    <iframe id="video-frame" src="{{ video_url }}" width="900" height="540" frameborder="0"></iframe>
+    <div class="video-start"></div>
+</div>
+</div>
+{% endmacro %}

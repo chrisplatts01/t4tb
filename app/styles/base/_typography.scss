@@ -19,7 +19,7 @@ h1, .h1 {
   font-size: $h1-font-size-mobile;
   line-height: $h1-line-height-mobile;
   font-weight: $h1-font-weight;
-  margin: 0 0 $base-spacing * 2;
+  margin: 0 0 48px;
 
   @include breakpoint(medium) {
     font-size: $h1-font-size;
@@ -28,20 +28,28 @@ h1, .h1 {
 }
 
 h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h3, .h3, {
   color: $heading-font-color;
   font-family: $heading-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
   font-weight: $base-font-weight;
-  margin: 0 0 $base-spacing;
+  margin: 0 0 16px;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: $heading-font-color;
+  font-family: $heading-font-family;
+  font-size: $small-font-size;
+  line-height: $small-line-height;
+  font-weight: $small-font-weight;
+  margin: 0;
 }
 
 p {
-  margin: 0 0 $small-spacing;
+  margin: 0 0 16px;
 
   &.heading {
     color: $alt-font-color;

@@ -115,13 +115,13 @@
       <div class="session-panel">
         <h3 class="centred">My achievements</h3>
         <div class="achievements">
-          <div class="achievement is-started">
+          <div class="achievement is-done">
             <div class="icon"></div>
             <h4>Easy as 123</h4>
             <p>Complete your first 3 training sessions</p>
           </div>
 
-          <div class="achievement">
+          <div class="achievement is-started">
             <div class="icon"></div>
             <h4>Double Diary</h4>
             <p>Update your exercise diary at the end of Week 2</p>
@@ -152,7 +152,9 @@
           </div>
         </div>
       </div>
-
     </div>
+
+    {{ section.footer( info = "<a class=\"replay-tutorial\" href=\"tutorial-1.html\"><img src=\"/images/restart-icon.svg\"> Replay dashboard tutorial</a>" | safe ) }}
+
   </section>
 {% endblock %}

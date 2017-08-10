@@ -20,7 +20,7 @@
       {% call form.form("t4tb", "sign-up-2.html", "sign-up-4.html") %}
         {{ form.checkboxes("cardio", "", ["A myocardial infarction or ‘heart attack’?", "A stroke?", "Any blackouts?"], required=true) }}
       {% endcall %}
-      <p class="small"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
+      <p class="why-important"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a id=\"exit-home-open\" class=\"modal-open\" href=\"#exit-home\">Cancel and return to home page</a>" | safe ) }}

@@ -120,7 +120,7 @@
       line-height: $h1-line-height-mobile;
       font-weight: 300;
       color: $mid-gray;
-      margin-bottom: -24px;
+      margin-bottom: -8px;
 
       @include breakpoint(medium) {
         font-size: $h1-font-size;
@@ -145,8 +145,22 @@
   article {
     width: 100%;
     max-width: 520px;
-    padding: $base-spacing;
+    padding: $base-spacing $base-spacing 40px;
     margin: 0 auto;
+
+    &.top {
+      padding-bottom: 0;
+    }
+
+    &.bottom {
+      padding-top: $base-spacing;
+    }
+
+    &.no-progress-header {
+      @include breakpoint(medium) {
+        padding-top: 160px;
+      }
+    }
   }
 
   footer {
@@ -174,11 +188,9 @@
 
         &:after {
           position: absolute;
-          top: 12px;
+          top: 0;
           right: $base-spacing;
-          font-size: 40px;
-          content: '\00a0\2297';
-          line-height: 0;
+          content: url('/images/grey-cross-icon.svg');
         }
       }
     }
@@ -195,7 +207,14 @@
   .participant-info_inner {
     width: 100%;
     max-width: 472px;
-    margin: 0 auto
+    margin: 0 auto;
+    padding: 24px 0;
+  }
+
+  .why-important {
+    font-size: $small-font-size;
+    line-height: Ssmall-line-height;
+    margin: 24px 0;
   }
 
   &.is-complete {

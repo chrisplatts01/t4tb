@@ -3,6 +3,9 @@ jQuery.noConflict();
 var resizeTimer;
 
 (function($) {
+  // ---------------------------------------------------------------------------
+  // Handle sticky footer
+  // ---------------------------------------------------------------------------
   $(window).bind('load', function() {
     /**
      * Set sticky footer status
@@ -28,6 +31,37 @@ var resizeTimer;
     stickyFooter();
     $(window).on('resize', stickyFooter);
   });
+
+  // ---------------------------------------------------------------------------
+  // Handle video loading
+  // ---------------------------------------------------------------------------
+  // $('.video_thumb').smartVimeoEmbed({
+  //   width: 900,
+  //   onComplete: function() {
+  //     $('.play-icon').hide();
+  //     $('vimeo-wrapper').find('iframe').removeAttr('width').removeAttr('height');
+  //   }
+  // });
+
+  // $('.owl-carousel').owlCarousel({
+  //       items:1,
+  //       merge:true,
+  //       loop:true,
+  //       margin:10,
+  //       video:true,
+  //       lazyLoad:true,
+  //       center:true,
+  //       responsive:{
+  //           480:{
+  //               items:2
+  //           },
+  //           600:{
+  //               items:4
+  //           }
+  //       }
+  //   })
+
+  // $('.video').fitvids();
 
   // ---------------------------------------------------------------------------
   // Handle JQuery UI Slider as numeric value
@@ -155,7 +189,7 @@ var resizeTimer;
     color: '#022553',
     opacity: 0.9,
     horizontal: 'center',
-    vertical: 'top',
+    vertical: 'center',
     escape: true,
     blur: false,
   });
@@ -180,6 +214,15 @@ var resizeTimer;
   $('#why-important-close')
     .on('click', function() {
       $('#why-important').popup('hide');
+    });
+  // ---------------------------------------------------------------------------
+  $('#what-is-dementia-open')
+    .on('click', function() {
+      $('#what-is-dementia').popup('show');
+    });
+  $('#what-is-dementia-close')
+    .on('click', function() {
+      $('#what-is-dementia').popup('hide');
     });
   // ---------------------------------------------------------------------------
   $('#why-exercise-open')

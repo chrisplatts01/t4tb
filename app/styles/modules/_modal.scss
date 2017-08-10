@@ -1,6 +1,7 @@
 .modal {
-  padding: $base-spacing * 4 $base-spacing $base-spacing;
+  // @include flexbox($flex-direction: column, $justify-content: center)
   width: 100%;
+  padding: $base-spacing * 4 $base-spacing $base-spacing;
 
   .modal-close {
     color: $white;
@@ -13,14 +14,14 @@
     width: 100%;
     max-width: 720px;
     margin: 0 auto;
-    padding: $base-spacing;
+    padding: $base-spacing * 2 $base-spacing $base-spacing * 2;
     color: $base-font-color;
     background-color: $white;
     border-radius: 3px;
   }
 
   article {
-    max-width: 520px;
+    max-width: 472px;
     margin: 0 auto;
   }
 }

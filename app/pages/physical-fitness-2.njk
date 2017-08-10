@@ -14,18 +14,20 @@
       )
     }}
 
-    <article>
+    <article class="top">
       <h1>Timed chair stand test</h1>
-      <div class="video">
-        <div class="video-wrapper">
-          <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
-        </div>
+    </article>
+    <div class="video">
+      <div class="video-wrapper">
+        <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
+    <article class="bottom">
       <p>After watching the video, enter how many seconds it takes for you to stand up and sit down from a chair 10 times in a row.</p>
       {% call form.form("t4tb", "physical-fitness-1a.html", "physical-fitness-2a.html") %}
         {{ form.text("chair-stands-time", "Number of seconds needed to complete 10 chair stands", "number", required=true) }}
       {% endcall %}
-      <p class="small"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
+      <p class="why-important"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>
 
     {{ section.footer( info = "<a id=\"exit-measures-open\" class=\"modal-open\" href=\"#exit-measures\">Cancel and return to measures and goals</a>" | safe ) }}

@@ -11,35 +11,36 @@
 ul {
   list-style: url("/images/grey-bullet.svg");
   margin: $small-spacing 0;
-  padding-left: 1.5em;
+  padding-left: 18px;
 
   li {
     font-size: $small-font-size;
     line-height: $small-line-height;
     color: $base-font-color;
     margin-left: 0;
-    padding-left: 0;
+    padding-left: 12px;
     padding-bottom: $small-spacing;
   }
 
-  &.special li {
-    padding-left: $base-spacing;
-  }
-
-  &.special li:after {
+  li:after {
     content: "";
     display: block;
-    margin-left: -3em;
-    margin-right: 0.5em;
+    margin-left: -34px;
     border-bottom: $horizontal-rule-border;
     padding-bottom: $small-spacing;
+  }
+
+  li:last-child:after {
+    border: none;
+    padding-bottom: 0;
   }
 }
 
 ol {
-  list-style: decimal;
+  list-style: none;
+  counter-reset: ol-counter;
   margin: $base-spacing 0;
-  padding: 0 0 0 2em;
+  padding: 0 0 0 26px;
 
   li {
     font-size: $small-font-size;
@@ -50,17 +51,26 @@ ol {
     padding-bottom: $small-spacing;
   }
 
-  &.special li {
-    padding-left: $base-spacing * 2;
+  li:before {
+    counter-increment: ol-counter;
+    content: counter(ol-counter);
+    float: left;
+    width: 28px;
+    margin-left: -28px;
   }
 
-  &.special li:after {
+  li:after {
     content: "";
     display: block;
-    margin-left: -5em;
-    margin-right: 0.5em;
+    margin-left: -28px;
+    margin-right: 0;
     border-bottom: 1px solid $mid-gray;
     padding-bottom: $small-spacing;
+  }
+
+  li:last-child:after {
+    border: none;
+    padding-bottom: 0;
   }
 }
 
@@ -96,7 +106,7 @@ hr {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  margin: 0 $small-spacing $small-spacing;
+  margin: $small-spacing 0;
 
   &.brand-primary {
     border-color: $brand-primary;

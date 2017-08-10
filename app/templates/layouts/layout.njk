@@ -1,5 +1,3 @@
-<!-- layout.nunjucks -->
-
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
 
@@ -21,6 +19,7 @@
   <script src="/scripts/furf/jquery.ui.touch-punch.js"></script>
   <script src="/scripts/vast/jquery.popupoverlay.js"></script>
   <script src="/scripts/parsley/parsley.js"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
 
 <body>
@@ -38,6 +37,7 @@
 
 {% include "includes/why-important.njk" %}
 {% include "includes/why-exercise.njk" %}
+{% include "includes/what-is-dementia.njk" %}
 {% include "includes/ill-health.njk" %}
 {% include "includes/ipaq.njk" %}
 {% include "includes/exit-home.njk" %}
@@ -45,12 +45,52 @@
 {% include "includes/exit-dashboard.njk" %}
 {% include "includes/contact-us.njk" %}
 {% include "includes/my-data.njk" %}
-
 <script src="/scripts/main.min.js"></script>
 <script>
   jQuery.noConflict();
 
   (function($) {
+    // -------------------------------------------------------------------------
+    // Handle responsive video
+    // -------------------------------------------------------------------------
+    var $videoFrames = $('#video-frame');
+
+    $videoFrames.each(function(i) {
+      var $videoFrame = $(this);
+      var $wrapper;
+      var url = $videoFrame.attr('src');
+      var players = /www.youtube.com|player.vimeo.com/;
+      var videoRatio;
+
+      if (url.search(players) > 0) {
+        videoRatio = ($videoFrame.attr('height') / $videoFrame.attr('width')) * 100;
+
+        $videoFrame
+          .css({
+            'position': 'absolute',
+            'top': '0',
+            'left': '0'
+          })
+          .attr('width', '100%')
+          .attr('height', '100%');
+
+        $videoFrame
+          .parent('.video-wrapper')
+          .css({
+            'width': '100%',
+            'position': 'relative',
+            'padding-top': videoRatio + '%'
+          });
+      }
+    });
+
+    $('.video-start').click(function(){
+      var $videoFrame = $('#video-frame');
+
+      $videoFrame.attr('src', $videoFrame.attr('src')+'?autoplay=1');
+      $(this).hide();
+    });
+
     // -------------------------------------------------------------------------
     // Handle form validation
     // -------------------------------------------------------------------------

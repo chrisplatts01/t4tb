@@ -51,8 +51,8 @@ select {
   box-sizing: border-box;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  margin-bottom: $small-spacing;
-  padding: $base-spacing / 3;
+  line-height: $base-line-height;
+  padding: 10px;
   transition: border-color $base-duration $base-timing;
   width: 100%;
 
@@ -76,6 +76,7 @@ select {
 }
 
 textarea {
+  height: 216px;
   resize: vertical;
 }
 
@@ -99,7 +100,7 @@ input[type='radio'] + label:before {
   display: block;
   position: absolute;
   left: 0;
-  top: -2px;
+  top: 0;
   height: 30px;
   width: 30px;
   background-color: $white;
@@ -133,7 +134,7 @@ input[type='checkbox'] + label:before {
   display: block;
   position: absolute;
   left: 0;
-  top: -2px;
+  top: 0;
   height: 30px;
   width: 30px;
   background-color: $white;
@@ -153,6 +154,10 @@ input[type='checkbox']:checked + label:before {
   label + .form-field-inline-group {
     margin-top: $small-spacing;
   }
+}
+
+.form-field-group > label {
+  padding: 0 0 $small-spacing 0;
 }
 
 .form-field-inline-group {
@@ -177,32 +182,39 @@ input[type='checkbox']:checked + label:before {
 // -------------------------------------
 .form-field--slider,
 .form-field--slider-1 {
-  padding-bottom: 100px;
+  padding-bottom: 48px;
+}
+
+.form-field--slider1 {
+  label {
+    margin: $small-spacing -1 * $base-spacing 0;
+  }
+}
+
+.form-field-inline-group > .form-field--checkbox:first-child,
+.form-field-inline-group > .form-field--radio:first-child {
+  @include breakpoint(medium) {
+    margin-top: 16px;
+  }
 }
 
 .form-field-row,
 .form-field-group,
 .form-field-inline-group {
-}
-
-.form-field-row,
-.form-field-group,
-.form-field-inline-group,
-.form-field--text,
-.form-field--textarea,
-.form-field--select,
-.form-field--slider {
   position: relative;
-  margin-top: $small-spacing * 2.5;
+  margin-top: 16px;
 }
 
-.form-field--textarea {
-  margin-top: $base-spacing * 1.5;
+.form-field--checkbox,
+.form-field--radio {
+  height: 32px;
 }
 
-.form-field--radio,
-.form-field--checkbox {
-  padding: $small-spacing 0;
+.form-field--radio + .form-field--radio,
+.form-field--checkbox + .form-field--checkbox,
+.parsley-errors-list + .form-field--radio,
+.parsley-errors-list + .form-field--checkbox {
+  margin-top: 16px;
 }
 
 .form-field--slider {

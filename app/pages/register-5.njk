@@ -18,7 +18,7 @@
     <article>
       <h1>Please enter your sex</h1>
       {% call form.form("t4tb", "register-4.html", "register-thanks.html") %}
-        {{ form.radios("sex", "", ["Male", "Femail", "Intersex"], inline=true, required=true) }}
+        {{ form.radios("sex", "", ["Male", "Female", "Intersex"], inline=true, required=true) }}
       {% endcall %}
     </article>
 

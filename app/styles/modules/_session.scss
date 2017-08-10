@@ -1,21 +1,53 @@
+.panel--session-start {
+  footer {
+    background-color: $light-gray;
+    padding: $small-spacing $base-spacing;
+    margin-top: 64px;
+
+    .footer-info {
+      font-size: $small-font-size;
+      line-height: $small-line-height;
+
+      a {
+        &:link,
+        &:active,
+        &:visited {
+          display: block;
+          text-align: left;
+        }
+      }
+
+      img {
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
 .session-panel {
-  margin: 0 $base-spacing $base-spacing;
+  margin: $base-spacing;
+
+  h3 {
+    margin: 0 0 24px;
+  }
 }
 
 .session-panel--dark {
   background-color: $light-gray;
-  padding: $base-spacing * 2 $base-spacing;
+  padding: $base-spacing $base-spacing $base-spacing * 2;
+  margin-top :$base-spacing * 2
 }
 
 .session-weeks {
-  @include flexbox($justify-content: left, $flex-wrap: wrap, $align-items: top)
+  @include flexbox($justify-content: centre, $flex-wrap: wrap, $align-items: center);
+  margin: 16px 0;
 }
 
 .session-week {
   position: relative;
   width: 16.6%;
-  min-width: 96px;
-  border-bottom: 10px solid $white;
+  min-width: 120px;
+  margin-bottom: 4px;
 }
 
 .session-week_heading,
@@ -26,8 +58,9 @@
   font-weight: 400;
   background-color: $light-gray;
   text-align: left;
-  padding: 2px 6px;
-  border: 1px solid $white;
+  padding: 0 8px;
+  border-bottom: 1px solid $white;
+  border-right: 1px solid $white;
 
   &:before {
     content: '\2009';
@@ -68,40 +101,44 @@
 }
 
 .session-progress {
-  @include flexbox($justify-content: left, $flex-wrap: wrap, $align-items: top)
+  @include flexbox($justify-content: centre, $flex-wrap: wrap, $align-items: center)
 }
 
 .session-progress_week {
-  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: top)
+  @include flexbox($justify-content: space-between, $flex-wrap: nowrap, $align-items: center)
   width: 16.6%;
-  min-width: 96px;
+  min-width: 120px;
+  padding: 0 11px 0 11px;
   border-right: 1px solid $light-gray;
-  padding: 0 4px;
-
-  &:first-child {
-    padding-left: none;
-  }
 
   &:last-child {
-    border: none;
-    padding-right: none;
+    border-right: none;
   }
 }
 
 .session-progress_task {
   width: 33.3%;
+  height: 96px;
   font-size: $small-font-size;
   line-height: $small-line-height;
-  margin: 0;
   text-align: center;
-  padding: $base-spacing 0;
+  padding-top: 36px;
   border-left: 1px solid $white;
   border-right: 1px solid $white;
-  border-bottom: 10px solid $white;
   background-color: $light-gray;
+  margin-bottom: 4px;
+
+  &:first-child {
+    border-top-left-radius: $base-border-radius;
+    border-bottom-left-radius: $base-border-radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+  }
 
   &.is-next {
-    // color: $black;
     background-color: $mid-gray;
   }
 
@@ -129,8 +166,8 @@
   line-height: $small-line-height;
   text-align: center;
   border-bottom: 1px solid $mid-gray;
-  margin: $small-spacing auto 0;
-  padding: 0 $small-spacing $small-spacing;
+  margin: 0 auto;
+  padding: 0 $small-spacing;
 
   @include breakpoint(large) {
     border-right: 1px solid $mid-gray;
@@ -148,8 +185,9 @@
 
   .stat {
     display: block;
-    font-size: 36px;
-    font-weight: 300;
+    font-size: $h1-font-size;
+    line-height: $h1-line-height;
+    font-weight: $h1-font-weight;
     color: $brand-primary;
   }
 }
@@ -182,41 +220,68 @@
     border: none;
   }
 
-  .icon:after {
-    content: url('/images/1-2-3-bg.png');
-    text-align: center;
+  .icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 8px;
+    background: url('/images/1-2-3-bg.png') center center no-repeat;
+    background-size: cover;
   }
 
-  &.is-started .icon:after {
-    content: url('/images/1-2-3-grey.png');
-    text-align: center;
-  }
-
-  &.is-done .icon:after {
-    content: url('/images/1-2-3-color.png');
-    text-align: center;
-  }
-
-  h4, p {
-    font-weight: 400;
+  h4 {
     color: $base-font-color;
+    margin-bottom: 0;
   }
 
-  &.is-started h4,
-  &.is-done h4,
-  &.is-started p,
-  &.is-done p {
-    color: $alt-font-color;
+  p {
+    color: $mid-gray;
+    margin-bottom: 0;
+  }
+
+  &.is-started {
+    .icon {
+      background-image: url('/images/1-2-3-grey.png');
+    }
+
+    h4 {
+      color: $alt-font-color;
+    }
+
+    p {
+      color: $base-font-color;
+    }
+  }
+
+  &.is-done {
+    .icon {
+      background-image: url('/images/1-2-3-color.png');
+    }
+
+    h4 {
+      color: $brand-primary;
+    }
+
+    p {
+      color: $alt-font-color;
+    }
   }
 }
 
+
 .button--session-start {
   width: 100%;
+  height: 120px;
   background-color: $brand-tertiary;
   border-right-color:  shade($brand-tertiary, 20%);
   border-bottom-color:  shade($brand-tertiary, 20%);
   font-size: 32px;
   font-weight: 400;
+  margin: 0;
+
+  @include breakpoint(medium) {
+    height: 120px;
+    font-size: 40px;
+  }
 
   &:hover,
   &:focus {
@@ -229,6 +294,7 @@
     text-align: center;
     font-size: 20px;
     color: $mid-gray;
+    padding: 12px 0 18px;
   }
 
   &.disabled {
@@ -254,11 +320,23 @@
     top: -50px;
     content: "\00a0";
     display: block;
-    background: $white url(/images/fitness-icon.svg) 50% 0 no-repeat;
+    background: $white url(/images/personal-goal-icon.svg) 50% 0 no-repeat;
     background-size: 100px;
     width: 100px;
     height: 100px;
     padding: 0 $small-spacing;
     left: calc(50% - 62px);
+  }
+}
+
+.sessions-completed {
+  &:before {
+    background-image: url('/images/sessions-completed-icon.svg');
+  }
+}
+
+.your-achievements {
+  &:before {
+    background-image: url('/images/achievements-icon.svg');
   }
 }

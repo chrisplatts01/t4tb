@@ -14,13 +14,15 @@
       )
     }}
 
-    <article>
+    <article class="top">
       <h1>2 minute step test</h1>
-      <div class="video">
-        <div class="video-wrapper">
-          <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
-        </div>
+    </article>
+    <div class="video">
+      <div class="video-wrapper">
+        <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
+    <article class="bottom">
       <p>Please note, do not run for this test.</p>
       <p>After watching the video, enter how many times you can step your right leg up in 2 minutes.</p>
       {% call form.form("t4tb", "physical-fitness-2a.html", "physical-fitness-3a.html") %}
