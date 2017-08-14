@@ -22,20 +22,35 @@
       <p>If you do not currently do the activity, try and imagine yourself in the situation.</p>
       {% call form.form("t4tb", "physical-fitness-4.html", "measures-2.html") %}
         {{ form.slider("walk-around-house", "Walk around inside your house or apartment?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-up-down-stairs", "Walk up or down stairs?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("pick-up-slipper", "Bend over and pick up a slipper from the floor?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("reach-for-can", "Reach for a small can off a shelf at eye level?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("reach-above-head", "Stand on tip toes and reach for something above your head?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("reach-on-chair", "Stand on a chair and reach for something?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("sweep-floor", "Sweep the floor?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-to-car", "Walk outside to a car parked nearby?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("get-in-out-car", "Get into or out of a car?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-across-car-park", "Walk across a car park to a shopping centre?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-up-down-slope", "Walk up or down a slope?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-in-crowd", "Walk in a crowded shopping centre where people rapidly walk past you?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-bumped-into", "Are bumped into by people?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("step-on-off-escalator-holding-railing", "Step on or off an escalator while holding on to a railing?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("step-on-off-escalator-holdong-parcel", "Step on or off an escalator while holding parcels such that you cannot hold on to the railing?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
+        <hr>
         {{ form.slider("walk-on-slippery-surface", "Walk outside on slippery (wet or icy) pavement?", 0, 100, 25, "%", "No confidence", "Complete confidence", required=true) }}
       {% endcall %}
     </article>

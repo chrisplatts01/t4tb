@@ -12,6 +12,7 @@
     "gulp-cache": "^0.4.6",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-data": "^1.2.1",
     "gulp-eslint": "^4.0.0",
     "gulp-exec": "^2.1.3",
     "gulp-htmlmin": "^3.0.0",
@@ -51,6 +52,7 @@
     "html5-form-validation": "^1.5.3",
     "jquery-form-validator": "^2.3.73",
     "kendo-ui-core": "^2017.2.621",
+    "nunjucks-includeData": "^0.0.9",
     "parsleyjs": "^2.7.2"
   }
 }

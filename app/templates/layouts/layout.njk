@@ -1,5 +1,6 @@
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{% import "macros/timer.njk" as timer %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,13 +14,16 @@
   <link rel="stylesheet" href="/styles/vendor/jquery/jquery-ui.min.css">
   <link rel="stylesheet" href="/scripts/vendor/pupunzi/dist/css/jquery.mb.YTPlayer.min.css">
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/vendor/jquerysvg/jquery.svg.css">
 
   <script src="/scripts/jquery/jquery-3.2.1.js"></script>
   <script src="/scripts/jquery/jquery-ui.js"></script>
   <script src="/scripts/furf/jquery.ui.touch-punch.js"></script>
   <script src="/scripts/vast/jquery.popupoverlay.js"></script>
   <script src="/scripts/parsley/parsley.js"></script>
+  <script src="/scripts/svgdotjs/svg.js"></script>
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="/scripts/jquerysvg/jquery.svg.js"></script>
 </head>
 
 <body>
@@ -50,6 +54,49 @@
   jQuery.noConflict();
 
   (function($) {
+    // -------------------------------------------------------------------------
+    // Calculate total session times
+    // -------------------------------------------------------------------------
+    var sessionTime = function() {
+      var totalDuration = 0;
+
+      $('div[data-duration]').each(function() {
+        $(this).siblings(':checked').each(function() {
+          totalDuration = totalDuration + parseInt($(this).siblings('div[data-duration]').attr('data-duration'));
+        });
+      });
+
+      $('#total-duration').text(totalDuration +' mins');
+
+      return totalDuration;
+    };
+
+    sessionTime();
+
+    $('.duration').siblings('input[type=checkbox]').on('change', function() {
+      if ($(this).prop('checked')) {
+        $(this).siblings('.duration').find('.timer-icon').find('circle').attr('stroke', "#1aab98");
+        $(this).siblings('.duration').find('.timer-icon').find('path').attr('stroke', "#1aab98").attr('fill', '#1aab98');
+        sessionTime();
+      } else {
+        $(this).siblings('.duration').find('.timer-icon').find('circle').attr('stroke', "#ccc2ba");
+        $(this).siblings('.duration').find('.timer-icon').find('path').attr('stroke', "#ccc2ba").attr('fill', '#ccc2ba');
+        sessionTime();
+      }
+    });
+
+
+    // -------------------------------------------------------------------------
+    // Draw timer icon
+    // -------------------------------------------------------------------------
+    function drawIntro(svg) {
+      svg.circle(17, 17, 16, {fill: 'none', stroke: '#1aab98', strokeWidth: 2});
+      // var g = svg.group({stroke: 'black', strokeWidth: 2});
+      // svg.line(g, 15, 75, 135, 75);
+      // svg.line(g, 75, 15, 75, 135);
+    }
+    $('#jq-timer').svg({onLoad: drawIntro});
+
     // -------------------------------------------------------------------------
     // Handle responsive video
     // -------------------------------------------------------------------------

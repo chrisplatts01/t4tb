@@ -9,6 +9,12 @@
 {# % import "macros/section.njk" as section % #}
 {# % import "macros/form.njk" as form % #}
 
+{% set timeData = {
+    x: [10, 20, 30 ,40],
+    y: [5, 10, 15, 20]
+  }
+%}
+
 {% block content %}
   <section class="panel panel--progress">
 
@@ -41,6 +47,7 @@
       <div class="form-field-group">
         {{ form.checkbox("understood-info", "I have read and understand the participant information", required=true ) }}
       </div>
+      <br>
       {% endcall %}
       <p class="why-important"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>

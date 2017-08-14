@@ -15,6 +15,12 @@
     background-color: $brand-primary;
     transition: width .5s ease-in-out;
   }
+
+  input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .slider_labels {

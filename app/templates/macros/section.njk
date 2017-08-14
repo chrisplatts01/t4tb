@@ -1,3 +1,5 @@
+{% import "macros/timer.njk" as timer %}
+
 {% macro header(
     title = "SECTION_TITLE",
     show_progress_header = true,
@@ -24,7 +26,7 @@
     {% endif %}
     <div class="wrapper">
       {% if duration or info %}
-        {% if duration %}<div class="progress-duration"><img src="/images/time-icon-{{ duration }}.svg" >Takes about {{ duration }} minutes</div>{% endif %}
+        {% if duration %}<div class="progress-duration">{{ timer.timer(duration) }}Takes about {{ duration }} minutes</div>{% endif %}
         {% if info %}<div class="progress-info">{{ info }}</div>{% endif %}
       {% endif %}
     </div>
