@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{% import "macros/video.njk" as video %}
 
 {% block content %}
   <section class="panel panel--progress">
@@ -18,11 +19,11 @@
     <article class="top">
       <h1>Measuring your progress</h1>
     </article>
-    <div class="video">
-      <div class="video-wrapper">
-        <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
-      </div>
+
+    <div class="wrapper">
+      {{ video.video() }}
     </div>
+
     <article class="bottom">
       <div class="form-actions">
         <a class="button button--next" href="{{ page.next }}">Continue</a>

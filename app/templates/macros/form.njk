@@ -134,7 +134,7 @@ Field: Checkbox with optional time icon
     <input id="{{ name }}" name="{{ name }}" type="checkbox" value="{{ value }}" {{ checked }} {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}">{{ label }}</label>
     {% if duration %}
-      <div class="duration" data-duration="{{ duration }}">{{ duration }} mins {{ timer.timer(duration, "#ccc2ba") }}</div>
+      <div class="duration">{{ duration }} mins {{ timer.timer(duration, "#ccc2ba") }}</div>
     {% endif %}
   </div>
 </div>
@@ -164,7 +164,7 @@ Field group: Checkboxes with optional
     <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="checkbox" value="{{ value }}" {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
     {% if durations[loop.index0] %}
-      <div class="duration" data-duration="{{ durations[loop.index0] }}">{{ durations[loop.index0] }} mins {{ timer.timer(durations[loop.index0], "#ccc2ba") }}</div>
+      <div class="duration">{{ durations[loop.index0] }} mins {{ timer.timer(durations[loop.index0], "#ccc2ba") }}</div>
     {% endif %}
   </div>
   {% endfor %}
@@ -192,7 +192,7 @@ Field: Radio button with optional time
     <input id="{{ name }}" name="{{ name }}" type="radio" value="{{ value }}" {{ checked }} {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}">{{ label }}</label>
     {% if duration %}
-      <div class="duration" data-duration="{{ duration }}">{{ duration }} mins {{ timer.timer(duration, "#1aab98") }}</div>
+      <div class="duration">{{ duration }} mins {{ timer.timer(duration, "#1aab98") }}</div>
     {% endif %}
   </div>
 </div>
@@ -222,7 +222,7 @@ Field group: Radio buttons with optional
     <input id="{{ name }}-{{ value | lower | replace(" ", "-") }}" name="{{ name }}" type="radio" value="{{ value }}"  {% if required %}required{% endif %} {{ validation }}>
     <label for="{{ name }}-{{ value | lower | replace(" ", "-") }}">{{ value }}</label>
     {% if durations[loop.index0] %}
-      <div class="duration" data-duration="{{ durations[loop.index0] }}">{{ durations[loop.index0] }} mins {{ timer.timer(durations[loop.index0], "#1aab98") }}</div>
+      <div class="duration">{{ durations[loop.index0] }} mins {{ timer.timer(durations[loop.index0], "#1aab98") }}</div>
     {% endif %}
   </div>
   {% endfor %}

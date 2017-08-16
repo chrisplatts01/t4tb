@@ -23,7 +23,7 @@
   <script src="/scripts/parsley/parsley.js"></script>
   <script src="/scripts/svgdotjs/svg.js"></script>
   <script src="https://player.vimeo.com/api/player.js"></script>
-  <script src="/scripts/jquerysvg/jquery.svg.js"></script>
+  <script src="https://cdn.anychart.com/js/latest/graphics.min.js"></script>
 </head>
 
 <body>
@@ -49,94 +49,140 @@
 {% include "includes/exit-dashboard.njk" %}
 {% include "includes/contact-us.njk" %}
 {% include "includes/my-data.njk" %}
+
 <script src="/scripts/main.min.js"></script>
 <script>
   jQuery.noConflict();
 
   (function($) {
-    // -------------------------------------------------------------------------
-    // Calculate total session times
-    // -------------------------------------------------------------------------
-    var sessionTime = function() {
-      var totalDuration = 0;
+    // // -------------------------------------------------------------------------
+    // // Initialise timer icons
+    // // -------------------------------------------------------------------------
+    // var initTimerIcons = function(selector) {
+    //   var icons = selector || '.timer-icon';
 
-      $('div[data-duration]').each(function() {
-        $(this).siblings(':checked').each(function() {
-          totalDuration = totalDuration + parseInt($(this).siblings('div[data-duration]').attr('data-duration'));
-        });
-      });
+    //   $(icons).each(function(i) {
+    //     $(this).attr('id', "timer-icon-" + i);
+    //   });
+    // }
 
-      $('#total-duration').text(totalDuration +' mins');
+    // // -------------------------------------------------------------------------
+    // // Draw timer icons
+    // // -------------------------------------------------------------------------
+    // var drawTimerIcons = function(selector) {
+    //   var icons = selector || '.timer-icon';
 
-      return totalDuration;
-    };
+    //   $(icons).each(function() {
+    //     var stageID = $(this).attr('id');
+    //     var minutes = $(this).attr('data-duration') || 0;
+    //     var stage = acgraph.create(stageID);
+    //     var color = $(this).attr('data-color') || '#ccc1ba';
+    //     var strokeWidth = 2
 
-    sessionTime();
+    //     console.log('Minutes = ' + minutes + ', Color = ' + color);
 
-    $('.duration').siblings('input[type=checkbox]').on('change', function() {
-      if ($(this).prop('checked')) {
-        $(this).siblings('.duration').find('.timer-icon').find('circle').attr('stroke', "#1aab98");
-        $(this).siblings('.duration').find('.timer-icon').find('path').attr('stroke', "#1aab98").attr('fill', '#1aab98');
-        sessionTime();
-      } else {
-        $(this).siblings('.duration').find('.timer-icon').find('circle').attr('stroke', "#ccc2ba");
-        $(this).siblings('.duration').find('.timer-icon').find('path').attr('stroke', "#ccc2ba").attr('fill', '#ccc2ba');
-        sessionTime();
-      }
-    });
+    //     var cr = 15;
+    //     var cx = 18;
+    //     var cy = 18;
 
+    //     var pr = 11.5;
+    //     var pa = minutes * 6;
+    //     var px = cx;
+    //     var py = cy;
 
-    // -------------------------------------------------------------------------
-    // Draw timer icon
-    // -------------------------------------------------------------------------
-    function drawIntro(svg) {
-      svg.circle(17, 17, 16, {fill: 'none', stroke: '#1aab98', strokeWidth: 2});
-      // var g = svg.group({stroke: 'black', strokeWidth: 2});
-      // svg.line(g, 15, 75, 135, 75);
-      // svg.line(g, 75, 15, 75, 135);
-    }
-    $('#jq-timer').svg({onLoad: drawIntro});
+    //     stage.circle(cx, cy, cr).stroke({color: color, thickness: strokeWidth});
+    //     stage.path().moveTo(px, py).lineTo(px, py - pr).arcTo(pr, pr, 270, pa).lineTo(px, py).close().stroke({color: color, thickness: 1}).fill(color);
+    //   });
+    // }
 
-    // -------------------------------------------------------------------------
-    // Handle responsive video
-    // -------------------------------------------------------------------------
-    var $videoFrames = $('#video-frame');
+    // // -------------------------------------------------------------------------
+    // // Calculate total session times
+    // // -------------------------------------------------------------------------
+    // var sessionTotal = function() {
+    //   var total = 0;
 
-    $videoFrames.each(function(i) {
-      var $videoFrame = $(this);
-      var $wrapper;
-      var url = $videoFrame.attr('src');
-      var players = /www.youtube.com|player.vimeo.com/;
-      var videoRatio;
+    //   $('#session-select').find('input:checked').each(function() {
+    //     total = total + parseInt($(this).parent('.form-field').find('.timer-icon').attr('data-duration'));
+    //   });
 
-      if (url.search(players) > 0) {
-        videoRatio = ($videoFrame.attr('height') / $videoFrame.attr('width')) * 100;
+    //   return total;
+    // };
 
-        $videoFrame
-          .css({
-            'position': 'absolute',
-            'top': '0',
-            'left': '0'
-          })
-          .attr('width', '100%')
-          .attr('height', '100%');
+    // // -------------------------------------------------------------------------
+    // // Calculate initial session total and draw timer icons
+    // // -------------------------------------------------------------------------
+    // var $sessionTotal = $('#session-total');
+    // var id = $sessionTotal.find('.timer-icon').attr('id');
+    // var total = sessionTotal();
+    // initTimerIcons('.timer-icon');
+    // $sessionTotal.html(total +' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
+    // drawTimerIcons('.timer-icon');
 
-        $videoFrame
-          .parent('.video-wrapper')
-          .css({
-            'width': '100%',
-            'position': 'relative',
-            'padding-top': videoRatio + '%'
-          });
-      }
-    });
+    // // -------------------------------------------------------------------------
+    // // Update icons and session total on change
+    // // -------------------------------------------------------------------------
+    // $('#session-select').find('input[type=checkbox]').on('change', function() {
+    //   var $this = $(this);
+    //   var $timer = $(this).parent('.form-field').find('.timer-icon');
+    //   var $circle = $timer.find('circle');
+    //   var $path = $timer.find('path');
+    //   var $sessionTotal = $('#session-total');
+    //   var id = $sessionTotal.find('.timer-icon').attr('id');
+    //   var total;
 
-    $('.video-start').click(function(){
-      var $videoFrame = $('#video-frame');
+    //   if ($this.prop('checked')) {
+    //     $circle.attr('stroke', '#1aab98');
+    //     $path.attr('stroke', '#1aab98').attr('fill', '#1aab98');
+    //   } else {
+    //     $circle.attr('stroke', '#ccc2ba');
+    //     $path.attr('stroke', '#ccc2ba').attr('fill', '#ccc2ba');
+    //   }
 
-      $videoFrame.attr('src', $videoFrame.attr('src')+'?autoplay=1');
-      $(this).hide();
-    });
+    //   total = sessionTotal();
+    //   $sessionTotal.html(total +' mins <span id="' + id + '" class="timer-icon" data-duration="' + total + '" data-color=' + '"#1aab98"></span>');
+    //   drawTimerIcons('#session-total .timer-icon');
+    // });
+
+    // // -------------------------------------------------------------------------
+    // // Handle responsive video
+    // // -------------------------------------------------------------------------
+    // var $videoFrames = $('#video-frame');
+
+    // $videoFrames.each(function(i) {
+    //   var $videoFrame = $(this);
+    //   var $wrapper;
+    //   var url = $videoFrame.attr('src');
+    //   var players = /www.youtube.com|player.vimeo.com/;
+    //   var videoRatio;
+
+    //   if (url.search(players) > 0) {
+    //     videoRatio = ($videoFrame.attr('height') / $videoFrame.attr('width')) * 100;
+
+    //     $videoFrame
+    //       .css({
+    //         'position': 'absolute',
+    //         'top': '0',
+    //         'left': '0'
+    //       })
+    //       .attr('width', '100%')
+    //       .attr('height', '100%');
+
+    //     $videoFrame
+    //       .parent('.video-wrapper')
+    //       .css({
+    //         'width': '100%',
+    //         'position': 'relative',
+    //         'padding-top': videoRatio + '%'
+    //       });
+    //   }
+    // });
+
+    // $('.video-start').click(function(){
+    //   var $videoFrame = $('#video-frame');
+
+    //   $videoFrame.attr('src', $videoFrame.attr('src')+'?autoplay=1');
+    //   $(this).hide();
+    // });
 
     // -------------------------------------------------------------------------
     // Handle form validation

@@ -183,9 +183,7 @@ input[type='checkbox']:checked + label:before {
 .form-field--slider,
 .form-field--slider-1 {
   padding-bottom: 32px;
-}
 
-.form-field--slider1 {
   label {
     margin: $small-spacing -1 * $base-spacing 0;
   }

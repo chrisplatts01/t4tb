@@ -2,17 +2,18 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{% import "macros/video.njk" as video %}
 
 {% block content %}
   <section class="panel panel--progress">
     <article class="no-progress-header top">
       <h1>Welcome to Train for the Brain!</h1>
     </article>
-    <div class="video">
-      <div class="video-wrapper">
-        <iframe src="http://www.youtube.com/embed/8ItNE_DX6Cc?showinfo=0&iv_load_policy=3&controls=0" frameborder="0" allowfullscreen></iframe>
-      </div>
+
+    <div class="wrapper">
+      {{ video.video() }}
     </div>
+
     <article class="bottom">
       <p>This video provides a brief overview of the Train for the Brain programme.</p>
       <div class="form-actions">

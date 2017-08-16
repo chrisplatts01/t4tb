@@ -1,4 +1,4 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/layout-test.njk" %}
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
@@ -13,17 +13,11 @@
     <h2>Form macro</h2>
     <div>
       {% call form.form("t4tb", "NEXT.html", "PREVIOUS.html") %}
-      {{ form.text(required=true) }}
+      {{ form.text('test-field-required', 'Test required field', required=true) }}
+      {{ form.text('test-field-optional', 'Test optional field') }}
+      {{ form.yesno('test-yn', 'Testing yes/no fields', required=true) }}
       {% endcall %}
     </div>
-
-    <h2>SVG timer</h2>
-    <div>
-      {{ timer.timer(50, '#456789') }}
-    </div>
-
-    <h2>JQuery timer icon</h2>
-    <div id="jq-timer" style="width: 35px; height: 35px;"></div>
   </article>
 </section>
 {% endblock %}

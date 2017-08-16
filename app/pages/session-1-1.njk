@@ -2,6 +2,7 @@
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
+{% import "macros/timer.njk" as timer %}
 
 {% block content %}
   <section class="panel panel--progress">
@@ -9,7 +10,7 @@
     {{ section.header(
         title = "Session 1",
         info = "<a id=\"why-exercise-open\" class=\"modal-open\" href=\"#why-exercise\">Why is exercise important?</a>" | safe,
-        duration = 40,
+        duration = 20,
         step = 1,
         steps = 6,
         bg_color = "blue"
@@ -19,14 +20,16 @@
     <article>
       <h1>Schedule</h1>
       {% call form.form("t4tb", "session-1-start.html", "session-1-2.html") %}
-        {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10, required=true) }}
-        <hr>
-        {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 11], required=true, validation="data-parsley-mincheck=2 data-parsley-maxcheck=2") }}
-        <hr>
-        {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10, required=true) }}
-        <hr>
+        <div id="session-select">
+          {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10, required=true) }}
+          <hr>
+          {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 15], required=true, validation="data-parsley-mincheck=2 data-parsley-maxcheck=2") }}
+          <hr>
+          {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10, required=true) }}
+          <hr>
+        </div>
         <p>Total session time</p>
-        <div id="total-duration" class="duration">40 mins</div>
+        <div id="session-total" class="duration">20 mins {{ timer.timer(minutes = 20, color = "#1aab98") }}</div>
         <hr>
       {% endcall %}
     </article>
