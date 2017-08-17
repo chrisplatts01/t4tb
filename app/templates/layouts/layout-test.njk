@@ -9,7 +9,14 @@
   <title>Train for the Brain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700" rel="stylesheet">
+  <script src="/scripts/google/webfontloader/webfontloader.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Rubik:300,400,400i,500,700:latin']
+      }
+    });
+  </script>
 
   <link rel="stylesheet" href="/styles/vendor/jquery/jquery-ui.min.css">
   <link rel="stylesheet" href="/scripts/vendor/pupunzi/dist/css/jquery.mb.YTPlayer.min.css">
@@ -58,22 +65,24 @@
     // -------------------------------------------------------------------------
     // Handle form validation
     // -------------------------------------------------------------------------
-    // $('#t4tb').parsley()
-    //   // Toggles .hidden and .disabled classes on error messages
-    //   // and submit button if field validation has errors
-    //   .on('field:validated', function() {
-    //     var hasErrors = $('.parsley-error').length !== 0;
+    $('#t4tb').parsley().on('field:validated', function() {
+      var hasErrors = $('.parsley-error').length !== 0;
 
-    //     if (hasErrors) {
-    //       $('#form-errors').removeClass('hidden');
-    //       $('#t4tb').find('button[type=submit]').prop('disabled', true);
-    //     } else {
-    //       $('#form-errors').addClass('hidden');
-    //       $('#t4tb').find('button[type=submit]').prop('disabled', false);
-    //     }
-    //   });
+      if (hasErrors) {
+        // $('#form-errors').removeClass('hidden');
+        $('#t4tb').find('button[type=submit]').prop('disabled', true);
+      } else {
+        // $('#form-errors').addClass('hidden');
+        $('#t4tb').find('button[type=submit]').prop('disabled', false);
+      }
+    });
 
     $('#t4tb').find('button[type=submit]').prop('disabled', true);
+
+    $('.form-field').find('input, textarea, select').on('change', function() {
+      console.log('CHANGED');
+      $('#t4tb').parsley().validate();
+    });
 
   })(jQuery);
 </script>

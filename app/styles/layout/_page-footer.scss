@@ -4,7 +4,7 @@
   @include clearfix;
   bottom: 0;
   width: 100%;
-  padding: $small-spacing 0;
+  padding: 0 0 $small-spacing ;
   background-color: $brand-secondary;
   color: $white;
 
@@ -12,7 +12,7 @@
     padding: 0 $base-spacing;
 
     @include breakpoint(medium) {
-      @include flexbox($justify-content: space-between);
+      @include flexbox($justify-content: space-between, $align-items: center);
     }
   }
 

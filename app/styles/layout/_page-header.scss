@@ -8,7 +8,7 @@
     padding: 0 $base-spacing;
 
     @include breakpoint(large) {
-      @include flexbox($justify-content: space-between);
+      @include flexbox($justify-content: space-between, $align-items: center);
     }
   }
 
@@ -26,7 +26,7 @@
     color: $white;
     font-size: $small-font-size;
     line-height: $small-line-height;
-    padding: 0 0 12px;
+    padding: 0 0 16px;
 
     @include breakpoint(large) {
       padding-top: 18px;

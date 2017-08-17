@@ -53,6 +53,7 @@
     "jquery-form-validator": "^2.3.73",
     "kendo-ui-core": "^2017.2.621",
     "nunjucks-includeData": "^0.0.9",
-    "parsleyjs": "^2.7.2"
+    "parsleyjs": "^2.7.2",
+    "webfontloader": "^1.6.28"
   }
 }

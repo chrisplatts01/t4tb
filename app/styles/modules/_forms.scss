@@ -278,6 +278,11 @@ input[type='checkbox']:checked + label:before {
     border-top: 6px solid $red;
   }
 
+  &.filled {
+    display: none;
+    opacity: 1;
+  }
+
   li {
     color: $white;
     background-color: $red;
@@ -287,16 +292,17 @@ input[type='checkbox']:checked + label:before {
   }
 }
 
+
 input.parsley-success,
 select.parsley-success,
 textarea.parsley-success {
-   border: 1px solid $brand-primary !important;
+   // border: 1px solid $brand-primary !important;
 }
 
 input.parsley-error,
 select.parsley-error,
 textarea.parsley-error {
-  border: 1px solid $red !important;
+  // border: 1px solid $red !important;
 }
 
 .form-field-group,
@@ -327,20 +333,20 @@ textarea.parsley-error {
 
 .form-field.parsley-error {
   input[type='checkbox'] + label:before {
-    border-color: red;
+    // border-color: $red;
   }
 
   input[type='radio'] + label:before {
-    border-color: red;
+    // border-color: $red;
   }
 
   & ~ .form-field {
     input[type='checkbox'] + label:before {
-      border-color: red;
+      // border-color: $red;
     }
 
     input[type='radio'] + label:before {
-      border-color: red;
+      // border-color: $red;
     }
   }
 }
