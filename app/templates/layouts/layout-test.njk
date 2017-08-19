@@ -63,27 +63,34 @@
 
   (function($) {
     // -------------------------------------------------------------------------
-    // Handle form validation
+    // Handle form validation - submit button disabled until all fields valid
     // -------------------------------------------------------------------------
-    $('#t4tb').parsley().on('field:validated', function() {
-      var hasErrors = $('.parsley-error').length !== 0;
+    var $form = $('#t4tb');
 
-      if (hasErrors) {
-        // $('#form-errors').removeClass('hidden');
-        $('#t4tb').find('button[type=submit]').prop('disabled', true);
+    var errors = function() {
+      var errors = $form.find('.parsley-error').length;
+      console.log(errors + " errors found");
+      return errors;
+    };
+
+    $form.parsley().validate();
+    if (errors()) {
+      $form.find('button[type=submit]').prop('disabled', true);
+    } else {
+      $form.find('button[type=submit]').prop('disabled', false);
+    }
+
+    $form.parsley().on('field:validated', function() {
+      if (errors()) {
+        $form.find('button[type=submit]').prop('disabled', true);
       } else {
-        // $('#form-errors').addClass('hidden');
-        $('#t4tb').find('button[type=submit]').prop('disabled', false);
+        $form.find('button[type=submit]').prop('disabled', false);
       }
     });
 
-    $('#t4tb').find('button[type=submit]').prop('disabled', true);
-
     $('.form-field').find('input, textarea, select').on('change', function() {
-      console.log('CHANGED');
-      $('#t4tb').parsley().validate();
+      $form.parsley().validate();
     });
-
   })(jQuery);
 </script>
 </body>

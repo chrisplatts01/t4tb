@@ -280,9 +280,9 @@ jQuery.noConflict();
     var icons = selector || '.timer-icon';
 
     $(icons).each(function(i) {
-      $(this).attr('id', "timer-icon-" + i);
+      $(this).attr('id', 'timer-icon-' + i);
     });
-  }
+  };
 
   // -------------------------------------------------------------------------
   // Draw timer icons
@@ -295,7 +295,7 @@ jQuery.noConflict();
       var minutes = $(this).attr('data-duration') || 0;
       var stage = acgraph.create(stageID);
       var color = $(this).attr('data-color') || '#ccc1ba';
-      var strokeWidth = 2
+      var strokeWidth = 2;
 
       console.log('Minutes = ' + minutes + ', Color = ' + color);
 
@@ -311,7 +311,7 @@ jQuery.noConflict();
       stage.circle(cx, cy, cr).stroke({color: color, thickness: strokeWidth});
       stage.path().moveTo(px, py).lineTo(px, py - pr).arcTo(pr, pr, 270, pa).lineTo(px, py).close().stroke({color: color, thickness: 1}).fill(color);
     });
-  }
+  };
 
   // -------------------------------------------------------------------------
   // Calculate total session times
@@ -327,7 +327,7 @@ jQuery.noConflict();
   };
 
   // -------------------------------------------------------------------------
-  // Calculate initial session total and draw timer icons
+  // Calculate initial session total and call fn to init/draw timer icons
   // -------------------------------------------------------------------------
   var $sessionTotal = $('#session-total');
   var id = $sessionTotal.find('.timer-icon').attr('id');
@@ -368,7 +368,6 @@ jQuery.noConflict();
 
   $videoFrames.each(function(i) {
     var $videoFrame = $(this);
-    var $wrapper;
     var url = $videoFrame.attr('src');
     var players = /www.youtube.com|player.vimeo.com/;
     var videoRatio;
@@ -380,7 +379,7 @@ jQuery.noConflict();
         .css({
           'position': 'absolute',
           'top': '0',
-          'left': '0'
+          'left': '0',
         })
         .attr('width', '100%')
         .attr('height', '100%');
@@ -390,16 +389,15 @@ jQuery.noConflict();
         .css({
           'width': '100%',
           'position': 'relative',
-          'padding-top': videoRatio + '%'
+          'padding-top': videoRatio + '%',
         });
     }
   });
 
-  $('.video-start').click(function(){
+  $('.video-start').click(function() {
     var $videoFrame = $('#video-frame');
 
     $videoFrame.attr('src', $videoFrame.attr('src')+'?autoplay=1');
     $(this).hide();
   });
-
 })(jQuery);
