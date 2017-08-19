@@ -7,7 +7,14 @@
   <title>Train for the Brain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700" rel="stylesheet">
+  <script src="/scripts/google/webfontloader/webfontloader.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Rubik:300,400,400i,500,700:latin']
+      }
+    });
+  </script>
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/styles/main.css">
@@ -25,102 +32,35 @@
   jQuery.noConflict();
 
   (function($) {
+    // -------------------------------------------------------------------------
+    // Handle form validation - submit button disabled until all fields valid
+    // -------------------------------------------------------------------------
+    var $form = $('#t4tb');
 
-    // Handle JQuery UI Slider as numeric value
-    $('.slider').slider({
-      create: function(event, ui) {
-        var $this = $(this);
-        var $input = $this.find('input');
-        var min = $input.data('min');
-        var max = $input.data('max');
-        var step = $input.data('step');
+    var errors = function() {
+      var errors = $form.find('.parsley-error').length;
+      console.log(errors + " errors found");
+      return errors;
+    };
 
-        $this.slider('option', 'min', min);
-        $this.slider('option', 'max', max);
-        $this.slider('option', 'step', step);
-        $this.slider('option', 'range', false);
-        $this.slider('option', 'animate', 500);
-      },
-      slide: function(event, ui) {
-        var $this  = $(this);
-        var $input = $this.find('input');
-        var $fill  = $this.find('.slider_fill');
+    $form.parsley().validate();
+    if (errors()) {
+      $form.find('button[type=submit]').prop('disabled', true);
+    } else {
+      $form.find('button[type=submit]').prop('disabled', false);
+    }
 
-        var min    = $this.slider('option', 'min');
-        var max    = $this.slider('option', 'max');
-        var value  = ui.value;
-        var fill   = (value / (max - min) * 100) + '%';
-
-        $input.val(value);
-        $fill.width(fill);
+    $form.parsley().on('field:validated', function() {
+      if (errors()) {
+        $form.find('button[type=submit]').prop('disabled', true);
+      } else {
+        $form.find('button[type=submit]').prop('disabled', false);
       }
     });
 
-    // Handle JQuery UI Slider as option list
-    var $slider = $('.slider-1').slider({
-      create: function(event, ui) {
-        var $this   = $(this);
-        var $select = $this.find('select');
-        var $fill   = $this.find('.slider_fill');
-
-        var values  = $select.data('values').split('|');
-        var max     = values.length - 1;
-
-        var width   = 100 / (max + 1) + "%";
-        var margin  = -0.5 * 100 / (max + 1) + "%";
-
-        $this.slider('option', 'min', 0);
-        $this.slider('option', 'max', max);
-        $this.slider('option', 'step', 1);
-        $this.slider('option', 'value', parseInt(max / 2));
-        $this.slider('option', 'range', false);
-        $this.slider('option', 'animate', 500);
-
-        $this.find('.slider-1_values, .slider-1_labels').css({marginLeft: margin, marginRight: margin});
-        $this.find('.slider-1_value').width(width);
-      },
-      slide: function(event, ui) {
-        var $this   = $(this);
-        var $select = $this.find('select');
-        var $fill   = $this.find('.slider_fill');
-
-        var max     = $this.slider('option', 'max');
-        var value   = ui.value;
-        var values  = $select.data('values').split('|');
-        var fill    = (value / max * 100) + '%';
-
-        $select.selectedIndex = value;
-        $select.val(values[value]);
-        $this.find('.slider-1_fill').width(fill);
-      }
+    $('.form-field').find('input, textarea, select').on('change', function() {
+      $form.parsley().validate();
     });
-
-    $(".slider-1").find('select').on("change", function() {
-      $slider.slider("value", this.selectedIndex);
-    });
-
-    // Handle JQuery UI date widget
-    $("input[type=date]").datepicker({
-      maxDate: 0,
-      dateFormat: "dd/mm/yy",
-      changeMonth: true,
-      changeYear: true,
-      yearRange: "1900:+0"
-    });
-
-    // Handle user-status overlay display
-    $("#page-header").find(".user-info_name, .user-info_profile").on( "click", function() {
-      console.log("Show?");
-      $("#user-status").show();
-      // return false;
-    });
-
-    $("#user-status").find(".user-status_close").on( "click", function() {
-      console.log("Hide?");
-      $("#user-status").hide();
-      // return false;
-    });
-
   })(jQuery);
 </script>
 

@@ -12,7 +12,7 @@
 
     <h2>Form macro</h2>
     <div>
-      {% call form.form("t4tb", "NEXT.html", "PREVIOUS.html") %}
+      {% call form.form("t4tb", "#", "#") %}
       {{ form.text('test-field-required', 'Test required field', required=true) }}
       {{ form.text('test-field-optional', 'Test optional field') }}
       {{ form.yesno('test-yn', 'Testing yes/no fields', required=true) }}

@@ -272,8 +272,7 @@
   width: 100%;
   height: 120px;
   background-color: $brand-tertiary;
-  border-right-color:  shade($brand-tertiary, 20%);
-  border-bottom-color:  shade($brand-tertiary, 20%);
+  border-bottom: 8px solid shade($brand-tertiary, 20%);
   font-size: 32px;
   font-weight: 400;
   margin: 0;

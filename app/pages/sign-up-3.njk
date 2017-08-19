@@ -18,7 +18,7 @@
     <article>
       <h1>In the last 3 months have you had:</h1>
       {% call form.form("t4tb", "sign-up-2.html", "sign-up-4.html") %}
-        {{ form.checkboxes("cardio", "", ["A myocardial infarction or ‘heart attack’?", "A stroke?", "Any blackouts?"], required=true) }}
+        {{ form.checkboxes("cardio", "", ["A myocardial infarction or ‘heart attack’?", "A stroke?", "Any blackouts?"]) }}
       {% endcall %}
       <p class="why-important"><a id="why-important-open" class="modal-open" href="#why-important">Why is this important?</a></p>
     </article>

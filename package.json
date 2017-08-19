@@ -41,7 +41,12 @@
   "eslintConfig": {
     "extends": "google",
     "rules": {
-      "no-var": 1
+      "no-var": 1,
+      "max-len": [
+        1,
+        80,
+        2
+      ]
     }
   },
   "dependencies": {
@@ -51,8 +56,10 @@
     "foundation-sites": "^6.4.1",
     "html5-form-validation": "^1.5.3",
     "jquery-form-validator": "^2.3.73",
+    "jquery-validation": "^1.17.0",
     "kendo-ui-core": "^2017.2.621",
     "nunjucks-includeData": "^0.0.9",
-    "parsleyjs": "^2.7.2"
+    "parsleyjs": "^2.7.2",
+    "webfontloader": "^1.6.28"
   }
 }

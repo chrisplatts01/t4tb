@@ -19,10 +19,7 @@
       <h1>I have spoken to my GP and discussed my medical concerns.</h1>
       {% call form.form("t4tb", "", "sign-up-8.html", next_label = "Continue") %}
       <div class="form-field-group">
-        {{ form.checkbox("continue-participation", "I confirm my GP has approved my participation and can continue to with the study", required=true ) }}
-      </div>
-      <div class="form-field-group">
-        {{ form.checkbox("cancel-participation", "Due to health concerns I am not going to participate with the study at this time", required=true ) }}
+        {{ form.checkboxes("continue-participation", "", ["I confirm my GP has approved my participation and can continue to with the study", "Due to health concerns I am not going to participate with the study at this time"], required=true, validation="data-parsley-mincheck=1 data-parsley-maxcheck=1") }}
       </div>
       {% endcall %}
     </article>
