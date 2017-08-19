@@ -63,23 +63,6 @@
 
   (function($) {
     // -------------------------------------------------------------------------
-    // Custom validators
-    // -------------------------------------------------------------------------
-    window.Parsley.addValidator('requireOneOf', {
-      validate: function(value, requirement, instance) {
-        console.log(instance);
-        instance.$element.children($('.field-validationp-group')).each(function() {
-          console.log($(this));
-          if (instance.parent.isValid({group: $(this), force: true})) {
-            return true;
-          }
-        });
-        return false;
-      },
-      requirement: 'integer',
-    });
-
-    // -------------------------------------------------------------------------
     // Handle form validation - submit button disabled until all fields valid
     // -------------------------------------------------------------------------
     var $form = $('#t4tb');
@@ -103,10 +86,6 @@
       } else {
         $form.find('button[type=submit]').prop('disabled', false);
       }
-    });
-
-    $form.parsley({
-      inputs: Parsley.options.inputs + ', [data-parsley-require-one-of]'
     });
 
     $('.form-field').find('input, textarea, select').on('change', function() {
