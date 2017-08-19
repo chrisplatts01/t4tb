@@ -296,7 +296,7 @@ input[type='checkbox']:checked + label:before {
 input.parsley-success,
 select.parsley-success,
 textarea.parsley-success {
-   // border: 1px solid $brand-primary !important;
+   border: 1px solid $brand-primary !important;
 }
 
 input.parsley-error,
