@@ -20,14 +20,8 @@
       <p>Think about all the vigorous activities that you did in the last 7 days. Vigorous physical activities refer to activities that take hard physical effort and make you breathe much harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</p>
       {% call form.form("t4tb", "exercise-diary-2a.html", "exercise-diary-4.html") %}
         {{ form.radios( "vigorous-activity-days", "During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, aerobics, or fast bicycling?<br><br>Include any exercise you carry out as part of the Train for the Brain programme." | safe, ["0 days", "1 day", "2 days", "3 days", "4 days", "5 days", "6 days", "7 days"], required=true) }}
-        <div data-parsley-require-one-of="2" data-parsley-validate-if-empty>
-          <div id="field-validation-group-1" class="field-validation-group">
-            {{ form.text2("How much time did you usually spend doing vigorous physical activities on one of those days?", "vigorous-activity-hours", "Hours per day", "text", "", "vigorous-activity-minutes", "Minutes per day", "text", "", required=true, validation="data-parsley-group=field-validation-group-1") }}
-          </div>
-          <div id="field-validation-group-2" class="field-validation-group">
-            {{ form.checkboxes("vigorous-activity", "", ["Don't know/not sure"], required=true, validation="data-parsley-group=field-validation-group-1") }}
-          </div>
-        </div>
+        {{ form.text2("How much time did you usually spend doing vigorous physical activities on one of those days?", "vigorous-activity-hours", "Hours per day", "text", "", "vigorous-activity-minutes", "Minutes per day", "text", "") }}
+        {{ form.checkboxes("vigorous-activity", "", ["Don't know/not sure"]) }}
       {% endcall %}
       <p><a id="ipaq-open" class="modal-open" href="#ipaq">This question is based on the International Physical Activity Questionnaire (IPAQ) – click here to find out more</a></p>
     </article>

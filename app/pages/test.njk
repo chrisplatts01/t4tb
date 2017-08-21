@@ -1,4 +1,4 @@
-{% extends "layouts/layout-test.njk" %}
+{% extends "layouts/layout.njk" %}
 
 {% import "macros/section.njk" as section %}
 {% import "macros/form.njk" as form %}
@@ -13,9 +13,10 @@
     <h2>Form macro</h2>
     <div>
       {% call form.form("t4tb", "#", "#") %}
-      {{ form.text('test-field-required', 'Test required field', required=true) }}
-      {{ form.text('test-field-optional', 'Test optional field') }}
-      {{ form.yesno('test-yn', 'Testing yes/no fields', required=true) }}
+        {{ form.text('test-field-required', 'Test required field', required=true) }}
+        {{ form.text('test-field-optional', 'Test optional field') }}
+        {{ form.yesno('test-yn', 'Testing yes/no fields', required=true) }}
+        {{ form.checkboxes('test-values', 'Test values', ['Value 1', 'Value 2', 'Value 3', 'Value 4', 'Value 5', 'Value 6'], required=true, validation="data-rule-mincheck=2 data-rule-maxcheck=2") }}
       {% endcall %}
     </div>
   </article>

@@ -209,9 +209,7 @@ input[type='checkbox']:checked + label:before {
 }
 
 .form-field--radio + .form-field--radio,
-.form-field--checkbox + .form-field--checkbox,
-.parsley-errors-list + .form-field--radio,
-.parsley-errors-list + .form-field--checkbox {
+.form-field--checkbox + .form-field--checkbox {
   margin-top: 16px;
 }
 
@@ -257,114 +255,14 @@ input[type='checkbox']:checked + label:before {
   font-size: 14px;
 }
 
-.parsley-errors-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: -22px;
-  left: 0;
-  right: 0;
-  opacity: 0;
-
-  &:after {
-    position: absolute;
-    left: 8px;
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid $red;
-  }
-
-  &.filled {
-    display: none;
-    opacity: 1;
-  }
-
-  li {
-    color: $white;
-    background-color: $red;
-    padding: 0 3px;
-    border-radius: 3px;
-    font-size: 14px;
-  }
+div.error {
+  display: none !important;
+  color: $red;
+  font-weight: 300;
+  text-align: right;
+  font-size: $small-font-size;
 }
 
-
-input.parsley-success,
-select.parsley-success,
-textarea.parsley-success {
-   border: 1px solid $brand-primary !important;
-}
-
-input.parsley-error,
-select.parsley-error,
-textarea.parsley-error {
-  // border: 1px solid $red !important;
-}
-
-.form-field-group,
-.form-field-inline-group {
-  .parsley-errors-list {
-    top: -22px;
-    right: 0;
-    left: 0;
-  }
-}
-
-.form-field-row {
-  .parsley-errors-list {
-    top: -22px;
-  }
-}
-
-.form-field-row.consent-item {
-  .parsley-errors-list {
-    top: -22px;
-
-    &:after {
-      right: 8px;
-      left: auto;
-    }
-  }
-}
-
-.form-field.parsley-error {
-  input[type='checkbox'] + label:before {
-    // border-color: $red;
-  }
-
-  input[type='radio'] + label:before {
-    // border-color: $red;
-  }
-
-  & ~ .form-field {
-    input[type='checkbox'] + label:before {
-      // border-color: $red;
-    }
-
-    input[type='radio'] + label:before {
-      // border-color: $red;
-    }
-  }
-}
-
-.form-field--checkbox,
-.form-field--radio {
-  .parsley-errors-list:after {
-    left: 8px;
-    right: auto;
-  }
-}
-
-.form-field--slider,
-.form-field--slider-1 {
-  .parsley-errors-list {
-    top: -32px;
-  }
-}
 
 // -------------------------------------
 // Styles for sign-up form summary page
@@ -452,14 +350,6 @@ p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
     &:last-of-type {
       border-bottom: none;
       margin-bottom: 0;
-    }
-
-    .form-field--checkbox,
-    .form-field--radio {
-      .parsley-errors-list:after {
-        right: auto;
-        left: 8px;
-      }
     }
   }
 
