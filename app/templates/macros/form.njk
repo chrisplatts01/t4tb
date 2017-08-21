@@ -16,11 +16,12 @@ Form: Basic skeleton for T4TB form with
   )
 %}
 <form id="{{ id }}" method="get" action="{{ next }}" novalidate="novalidate">
+{#
   <div id="form-errors" class="form-errors hidden">
     <p>There was a problem with your submission.
     <br>The errors have been highlighted below.</p>
   </div>
-
+#}
   {{ caller() }}
 
   <div class="form-actions">
@@ -49,7 +50,7 @@ Field: Text input - note if type="date"
 %}
 <div class="form-field-group form-field-group--text">
   <div class="form-field form-field--text">
-    <label for="{{ name }}">{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>
+    <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     {% if type == "date" %}
     <input id="{{ name }}" name="{{ name }}" type="text" value="{{ value }}" placeholder="dd/mm/yyyy" pattern="\d{2}\/\d{2}\/\d{4}" data-type="date" data-change-month="{{ changeMonth }}" data-change-year="{{ changeYear }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     {% else %}
@@ -82,11 +83,11 @@ Field group: Inline text input
   {% if label %}<label>{{ label }}</label>{% endif %}
   <div class="form-field-inline-group">
     <div class="form-field form-field--text">
-      <label for="{{ name1 }}">{{ label1 }}{% if required %} <em>(Required)</em>{% endif %}</label>
+      <label for="{{ name1 }}">{{ label1 }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
       <input id="{{ name1 }}" name="{{ name1 }}" type="{{ type1 }}" value="{{ value1 }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     </div>
     <div class="form-field form-field--text">
-      <label for="{{ name2 }}">{{ label2 }}{% if required %} <em>(Required)</em>{% endif %}</label>
+      <label for="{{ name2 }}">{{ label2 }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
       <input id="{{ name2 }}" name="{{ name2 }}" type="{{ type2 }}" value="{{ value2 }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     </div>
   </div>
@@ -108,7 +109,7 @@ Field: Text area
 %}
 <div class="form-field-group form-field-group--textarea">
   <div class="form-field form-field--textarea">
-    <label for="{{ name }}">{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>
+    <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <textarea id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}"{% if required %} required{% endif %} {{ validation }}></textarea>
   </div>
 </div>
@@ -157,7 +158,7 @@ Field group: Checkboxes with optional
   )
 %}
 <div class="form-field{% if inline %}-inline{% endif %}-group form-field-group--checkbox">
-  {% if label %}<label>{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>{% endif %}
+  {% if label %}<label>{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>{% endif %}
 
   {% for value in values %}
   <div class="form-field form-field--checkbox">
@@ -215,7 +216,7 @@ Field group: Radio buttons with optional
   )
 %}
 <div class="form-field{% if inline %}-inline{% endif %}-group form-field-group--radio">
-  {% if label %}<label>{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>{% endif %}
+  {% if label %}<label>{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>{% endif %}
 
   {% for value in values %}
   <div class="form-field form-field--radio">
@@ -244,7 +245,7 @@ Field: Select field
 %}
 <div class="form-field-group form-field-group--select">
   <div class="form-field form-field--select">
-    <label for="{{ name }}">{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>
+    <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <select id="{{ name }}" name="{{ name }}" data-values="{{ values | join('|') }}"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
       <option disabled selected>Please choose&hellip;</option>
       {% for value in values %}
@@ -268,7 +269,7 @@ Field group: Yes/No radio buttons
   )
 %}
 <div class="form-field-group form-field-group--radio">
-  {% if label %}<label>{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>{% endif %}
+  {% if label %}<label>{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>{% endif %}
   <div class="form-field form-field--radio">
     <input id="{{ name }}-yes" name="{{ name }}" type="radio" value="yes"{% if required %} required{% endif %}{% if validation %} {{ validation }}{% endif %}>
     <label for="{{ name }}-yes">Yes</label>
@@ -301,7 +302,7 @@ Field: Input field as JQuery UI Slider
 %}
 <div class="form-field-group form-field-group--slider">
   <div class="form-field form-field--slider">
-    <label for="{{ name }}">{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>
+    <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <div class="slider">
       <div class="slider_fill"></div>
       <div class="slider_labels">
@@ -339,7 +340,7 @@ Field: Input field as JQuery UI Slider
 %}
 <div class="form-field-group form-field-group--slider-1">
   <div class="form-field form-field--slider-1">
-    <label for="{{ name }}">{{ label }}{% if required %} <em>(Required)</em>{% endif %}</label>
+    <label for="{{ name }}">{{ label }}{# % if required %} <em>(Required)</em>{% endif % #}</label>
     <div class="slider-1">
       <div class="slider-1_fill"></div>
 

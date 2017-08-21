@@ -23,7 +23,7 @@
         <div id="session-select">
           {{ form.radio("warm-up", "Warm up", value = "Warm up", checked = "checked", duration = 10, required=true) }}
           <hr>
-          {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 15], required=true, validation="data-parsley-mincheck=2 data-parsley-maxcheck=2") }}
+          {{ form.checkboxes("exercise", "Select your exercise preference (choose two)", ["Pilates", "Movement and dance", "Focus on your arms", "Focus on your legs", "General fitness"], [12, 15, 8, 11, 15], required=true, validation="data-rule-mincheck=2 data-rule-maxcheck=2") }}
           <hr>
           {{ form.radio("cool-down", "Cool down", value = "Cool down", checked = "checked", duration = 10, required=true) }}
           <hr>

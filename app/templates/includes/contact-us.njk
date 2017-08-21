@@ -43,20 +43,20 @@
             // -------------------------------------------------------------------------
             // Handle form validation
             // -------------------------------------------------------------------------
-            $('#t4tb-contact-form').parsley()
-              // Toggles .hidden and .disabled classes on error messages
-              // and submit button if field validation has errors
-              .on('field:validated', function() {
-                var hasErrors = $('.parsley-error').length !== 0;
+            // $('#t4tb-contact-form').parsley()
+            //   // Toggles .hidden and .disabled classes on error messages
+            //   // and submit button if field validation has errors
+            //   .on('field:validated', function() {
+            //     var hasErrors = $('.parsley-error').length !== 0;
 
-                if (hasErrors) {
-                  $('#contact-form-errors').removeClass('hidden');
-                  $('#t4tb-contact').find('button[type=submit]').prop('disabled', true);
-                } else {
-                  $('#contact-form-errors').addClass('hidden');
-                  $('#t4tb-contact').find('button[type=submit]').prop('disabled', false);
-                }
-              });
+            //     if (hasErrors) {
+            //       $('#contact-form-errors').removeClass('hidden');
+            //       $('#t4tb-contact').find('button[type=submit]').prop('disabled', true);
+            //     } else {
+            //       $('#contact-form-errors').addClass('hidden');
+            //       $('#t4tb-contact').find('button[type=submit]').prop('disabled', false);
+            //     }
+            //   });
           })(jQuery);
         </script>
       </article>

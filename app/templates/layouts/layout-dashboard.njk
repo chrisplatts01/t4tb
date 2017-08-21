@@ -21,48 +21,12 @@
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-  <script src="/scripts/main.js"></script>
 </head>
 <body>
 
 {% block content %}
 {% endblock %}
 
-<script>
-  jQuery.noConflict();
-
-  (function($) {
-    // -------------------------------------------------------------------------
-    // Handle form validation - submit button disabled until all fields valid
-    // -------------------------------------------------------------------------
-    var $form = $('#t4tb');
-
-    var errors = function() {
-      var errors = $form.find('.parsley-error').length;
-      console.log(errors + " errors found");
-      return errors;
-    };
-
-    $form.parsley().validate();
-    if (errors()) {
-      $form.find('button[type=submit]').prop('disabled', true);
-    } else {
-      $form.find('button[type=submit]').prop('disabled', false);
-    }
-
-    $form.parsley().on('field:validated', function() {
-      if (errors()) {
-        $form.find('button[type=submit]').prop('disabled', true);
-      } else {
-        $form.find('button[type=submit]').prop('disabled', false);
-      }
-    });
-
-    $('.form-field').find('input, textarea, select').on('change', function() {
-      $form.parsley().validate();
-    });
-  })(jQuery);
-</script>
-
+  <script src="/scripts/main.js"></script>
 </body>
 </html>

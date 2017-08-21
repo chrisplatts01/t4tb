@@ -58,40 +58,5 @@
 {% include "includes/my-data.njk" %}
 
 <script src="/scripts/main.min.js"></script>
-<script>
-  jQuery.noConflict();
-
-  (function($) {
-    // -------------------------------------------------------------------------
-    // Handle form validation - submit button disabled until all fields valid
-    // -------------------------------------------------------------------------
-    var $form = $('#t4tb');
-
-    var errors = function() {
-      var errors = $form.find('.parsley-error').length;
-      console.log(errors + " errors found");
-      return errors;
-    };
-
-    $form.parsley().validate();
-    if (errors()) {
-      $form.find('button[type=submit]').prop('disabled', true);
-    } else {
-      $form.find('button[type=submit]').prop('disabled', false);
-    }
-
-    $form.parsley().on('field:validated', function() {
-      if (errors()) {
-        $form.find('button[type=submit]').prop('disabled', true);
-      } else {
-        $form.find('button[type=submit]').prop('disabled', false);
-      }
-    });
-
-    $('.form-field').find('input, textarea, select').on('change', function() {
-      $form.parsley().validate();
-    });
-  })(jQuery);
-</script>
 </body>
 </html>

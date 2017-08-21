@@ -2,6 +2,67 @@ jQuery.noConflict();
 
 
 (function($) {
+    // -------------------------------------------------------------------------
+    // Custom validation methods
+    // -------------------------------------------------------------------------
+    // $.validator.addMethod("mincheck", function(value, element, params) {
+    //   var name = $(element).attr('name');
+    //   var selector = '[name="' + name + '"]:checked';
+    //   var elementsChecked = $(selector).length;
+
+    //   return elementsChecked >= params;
+    // }, "At least {0} boxes must be checked");
+
+    // $.validator.addMethod("maxcheck", function(value, element, params) {
+    //   var name = $(element).attr('name');
+    //   var selector = '[name="' + name + '"]:checked';
+    //   var elementsChecked = $(selector).length;
+
+    //   return elementsChecked <= params;
+    // }, "At least {0} boxes must be checked");
+
+    // -------------------------------------------------------------------------
+    // Handle form validation - submit button disabled until all fields valid
+    // -------------------------------------------------------------------------
+    var checkIfValid = function() {
+      var $t4tbForm = $('#t4tb');
+      var $submitButton;
+      var isValid = true;
+
+      if ($t4tbForm.length) {
+        $submitButton = $t4tbForm.find('.button--next');
+        isValid = $t4tbForm.valid();
+
+        if (isValid) {
+          $submitButton.removeClass('disabled');
+        } else {
+          $submitButton.addClass('disabled');
+        }
+      }
+    };
+
+    var validator = $('#t4tb').validate({
+      errorPlacement: function(error, element) {
+        error.appendTo(element.parent('.form-field'));
+      },
+      errorElement: 'div',
+      onfocusout: function(el, ev) {
+        checkIfValid();
+      },
+      onkeyup: function(el, ev) {
+        checkIfValid();
+      },
+      onclick: function(el, ev) {
+        checkIfValid();
+      },
+      onsubmit: function(el, ev) {
+        checkIfValid();
+        form.submit();
+      },
+      rules: {},
+    });
+    checkIfValid();
+
   // ---------------------------------------------------------------------------
   // Handle sticky footer
   // ---------------------------------------------------------------------------
@@ -61,8 +122,10 @@ jQuery.noConflict();
       var fill = (value / (max - min) * 100) + '%';
 
       $input.val(value);
-      $input.parsley().validate();
       $fill.width(fill);
+
+      // Force form validation
+      checkIfValid();
     },
   });
 
@@ -105,8 +168,10 @@ jQuery.noConflict();
 
       $select.selectedIndex = value;
       $select.val(values[value]);
-      $select.parsley().validate();
       $this.find('.slider-1_fill').width(fill);
+
+      // Force form validation
+      checkIfValid();
     },
   });
 
@@ -131,9 +196,11 @@ jQuery.noConflict();
     onSelect: function(date) {
       console.log('This is: ' + $(this).attr('name'));
       $(this).change();
-      $(this).parsley().validate();
       $(this).attr('placeholder', '');
-    },
+
+      // Force form validation
+      checkIfValid();
+   },
   });
 
 
