@@ -5,21 +5,21 @@ jQuery.noConflict();
     // -------------------------------------------------------------------------
     // Custom validation methods
     // -------------------------------------------------------------------------
-    // $.validator.addMethod("mincheck", function(value, element, params) {
-    //   var name = $(element).attr('name');
-    //   var selector = '[name="' + name + '"]:checked';
-    //   var elementsChecked = $(selector).length;
+    $.validator.addMethod("mincheck", function(value, element, params) {
+      var name = $(element).attr('name');
+      var selector = '[name="' + name + '"]:checked';
+      var elementsChecked = $(selector).length;
 
-    //   return elementsChecked >= params;
-    // }, "At least {0} boxes must be checked");
+      return elementsChecked >= params;
+    }, "At least {0} boxes must be checked");
 
-    // $.validator.addMethod("maxcheck", function(value, element, params) {
-    //   var name = $(element).attr('name');
-    //   var selector = '[name="' + name + '"]:checked';
-    //   var elementsChecked = $(selector).length;
+    $.validator.addMethod("maxcheck", function(value, element, params) {
+      var name = $(element).attr('name');
+      var selector = '[name="' + name + '"]:checked';
+      var elementsChecked = $(selector).length;
 
-    //   return elementsChecked <= params;
-    // }, "At least {0} boxes must be checked");
+      return elementsChecked <= params;
+    }, "At least {0} boxes must be checked");
 
     // -------------------------------------------------------------------------
     // Handle form validation - submit button disabled until all fields valid
