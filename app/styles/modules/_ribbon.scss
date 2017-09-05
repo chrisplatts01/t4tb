@@ -12,7 +12,7 @@
   padding: $small-spacing / 2 $base-spacing;
   margin: $base-spacing auto $base-spacing * 2;
 }
-.ribbon:before, .ribbon:after {
+.ribbon::before, .ribbon::after {
   content: "";
   width: 2 * $base-spacing;
   position: absolute;
@@ -21,17 +21,17 @@
   border: $small-spacing * 1.5 solid shade( $brand-primary, 10% );
   z-index: -1;
 }
-.ribbon:before {
+.ribbon::before {
   left: -2.75 * $base-spacing;
   border-right-width: $base-spacing;
   border-left-color: transparent;
 }
-.ribbon:after {
+.ribbon::after {
   right: -2.75 * $base-spacing;
   border-left-width: $base-spacing;
   border-right-color: transparent;
 }
-.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+.ribbon .ribbon-content::before, .ribbon .ribbon-content::after {
   content: "";
   position: absolute;
   display: block;
@@ -39,11 +39,11 @@
   border-color: shade( $brand-primary, 25% ) transparent transparent transparent;
   bottom: -$base-spacing;
 }
-.ribbon .ribbon-content:before {
+.ribbon .ribbon-content::before {
   left: 0;
   border-width: $base-spacing 0 0 $base-spacing;
 }
-.ribbon .ribbon-content:after {
+.ribbon .ribbon-content::after {
   right: 0;
   border-width: $base-spacing $base-spacing 0 0;
 }

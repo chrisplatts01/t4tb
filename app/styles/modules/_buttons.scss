@@ -72,16 +72,14 @@ input[type='button'] {
   }
 
   &.button--back {
-    position: relative;
     padding: 12px 24px 12px 12px;
 
-    &:before {
-      position: relative;
+    &::before {
+      display: inline-block;
+      width: 22px;
       content: url('/images/left-arrow-grey.svg');
-      left: -12px;
-      top: -1px;
-      width: 12px;
-      overflow: visible;
+      margin-left: -12px;
+      margin-right: 12px;
     }
   }
 }

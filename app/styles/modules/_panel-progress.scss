@@ -186,7 +186,7 @@
           }
         }
 
-        &:after {
+        &::after {
           position: absolute;
           top: 0;
           right: $base-spacing;

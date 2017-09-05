@@ -22,7 +22,7 @@ ul {
     padding-bottom: $small-spacing;
   }
 
-  li:after {
+  li::after {
     content: "";
     display: block;
     margin-left: -34px;
@@ -30,7 +30,7 @@ ul {
     padding-bottom: $small-spacing;
   }
 
-  li:last-child:after {
+  li:last-child::after {
     border: none;
     padding-bottom: 0;
   }
@@ -51,7 +51,7 @@ ol {
     padding-bottom: $small-spacing;
   }
 
-  li:before {
+  li::before {
     counter-increment: ol-counter;
     content: counter(ol-counter);
     float: left;
@@ -59,7 +59,7 @@ ol {
     margin-left: -28px;
   }
 
-  li:after {
+  li::after {
     content: "";
     display: block;
     margin-left: -28px;
@@ -68,7 +68,7 @@ ol {
     padding-bottom: $small-spacing;
   }
 
-  li:last-child:after {
+  li:last-child::after {
     border: none;
     padding-bottom: 0;
   }

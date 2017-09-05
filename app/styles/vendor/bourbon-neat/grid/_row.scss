@@ -19,12 +19,12 @@
 ///    display: block;
 ///  }
 ///
-/// .element:before, .element:after {
+/// .element::before, .element::after {
 ///   content: " ";
 ///   display: table;
 /// }
 ///
-/// .element:after {
+/// .element::after {
 ///   clear: both;
 /// }
 

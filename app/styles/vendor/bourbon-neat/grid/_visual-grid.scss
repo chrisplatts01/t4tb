@@ -9,7 +9,7 @@
 }
 
 @if $visual-grid == true or $visual-grid == yes {
-  body:before {
+  body::before {
     @include grid-column-gradient(gradient-stops($grid-columns));
     content: "";
     display: inline-block;

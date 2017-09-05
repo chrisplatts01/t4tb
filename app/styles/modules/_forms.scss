@@ -95,7 +95,7 @@ input[type='radio'] + label {
   color: $base-font-color;
 }
 
-input[type='radio'] + label:before {
+input[type='radio'] + label::before {
   content: '';
   display: block;
   position: absolute;
@@ -110,7 +110,7 @@ input[type='radio'] + label:before {
   border-radius: 50%;
 }
 
-input[type='radio']:checked + label:before {
+input[type='radio']:checked + label::before {
   background-color: $brand-primary;
   border-color: $brand-primary;
 }
@@ -129,7 +129,7 @@ input[type='checkbox'] + label {
   color: $base-font-color;
 }
 
-input[type='checkbox'] + label:before {
+input[type='checkbox'] + label::before {
   content: '';
   display: block;
   position: absolute;
@@ -144,7 +144,7 @@ input[type='checkbox'] + label:before {
   border-radius: $base-border-radius;
 }
 
-input[type='checkbox']:checked + label:before {
+input[type='checkbox']:checked + label::before {
   background: url('/images/green-tick-icon.svg') center center no-repeat;
   border-color: $brand-primary;
 }
@@ -291,7 +291,7 @@ p ~ .duration {
   color: $alt-font-color;
   background-color: transparent;
 
-  &:after {
+  &::after {
     display: inline-block;
     // content: url('/images/time-icon-5-grey.svg');
     // vertical-align: middle;
@@ -301,16 +301,16 @@ p ~ .duration {
 
 p ~ .duration { margin-top: -44px; }
 
-p ~ .duration--5:after  { content: url('/images/time-icon-5.svg'); }
-p ~ .duration--8:after  { content: url('/images/time-icon-8.svg'); }
-p ~ .duration--10:after { content: url('/images/time-icon-10.svg'); }
-p ~ .duration--11:after { content: url('/images/time-icon-11.svg'); }
-p ~ .duration--12:after { content: url('/images/time-icon-12.svg'); }
-p ~ .duration--15:after { content: url('/images/time-icon-15.svg'); }
-p ~ .duration--20:after { content: url('/images/time-icon-20.svg'); }
-p ~ .duration--30:after { content: url('/images/time-icon-30.svg'); }
-p ~ .duration--40:after { content: url('/images/time-icon-40.svg'); }
-p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
+p ~ .duration--5::after  { content: url('/images/time-icon-5.svg'); }
+p ~ .duration--8::after  { content: url('/images/time-icon-8.svg'); }
+p ~ .duration--10::after { content: url('/images/time-icon-10.svg'); }
+p ~ .duration--11::after { content: url('/images/time-icon-11.svg'); }
+p ~ .duration--12::after { content: url('/images/time-icon-12.svg'); }
+p ~ .duration--15::after { content: url('/images/time-icon-15.svg'); }
+p ~ .duration--20::after { content: url('/images/time-icon-20.svg'); }
+p ~ .duration--30::after { content: url('/images/time-icon-30.svg'); }
+p ~ .duration--40::after { content: url('/images/time-icon-40.svg'); }
+p ~ .duration--50::after { content: url('/images/time-icon-50.svg'); }
 
 // -------------------------------------
 // Not sure if these rules belong here!
@@ -354,7 +354,7 @@ p ~ .duration--50:after { content: url('/images/time-icon-50.svg'); }
   }
 
   .consent-item--with-counter {
-    &:before {
+    &::before {
       content: counter(consent-item);
       counter-increment: consent-item;
       vertical-align: top;
