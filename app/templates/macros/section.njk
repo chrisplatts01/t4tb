@@ -52,14 +52,13 @@
 </header>
 {% endmacro %}
 
-{% macro footer(
+{% macro exit_link(
     info = ""
   )
 %}
-<footer>
-  <div class="footer-info wrapper">{{ info }}</div>
-</footer>
+<div id="exit-link" class="exit-link">
+  <div class="wrapper">
+    {{ info | safe }}
+  </div>
+</div>
 {% endmacro %}
-
-{# macro XXXX() %}
-{% endmacro #}
