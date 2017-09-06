@@ -75,17 +75,19 @@ jQuery.noConflict();
     function stickyFooter() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function() {
-        var $sectionFooter = $('#page-content').find('footer');
+        var $sectionFooter = $('#exit-link');
         var $pageFooter = $('#page-footer');
+
+        $sectionFooter.detach().prependTo($pageFooter);
 
         if ($(window).height() < $(document).height()) {
           $pageFooter.css({'position': 'static', 'width': 'auto', 'bottom': 'auto'});
-          $sectionFooter.css({'position': 'relative', 'width': 'auto', 'bottom': 'auto'});
-          $('#page-content').css({'padding-bottom': '0'});
+          // $sectionFooter.css({'position': 'relative', 'width': 'auto', 'bottom': 'auto'});
+          // $('#page-content').css({'padding-bottom': '0'});
         } else {
           $pageFooter.css({'position': 'fixed', 'width': '100%', 'bottom': '0'});
-          $sectionFooter.css({'position': 'fixed', 'width': '100%', 'bottom': $pageFooter.outerHeight() + 'px'});
-          $('#page-content').css({'padding-bottom': $pageFooter.outerHeight() + $sectionFooter.outerHeight() + 'px'});
+          // $sectionFooter.css({'position': 'fixed', 'width': '100%', 'bottom': $pageFooter.outerHeight() + 'px'});
+          // $('#page-content').css({'padding-bottom': $pageFooter.outerHeight() + $sectionFooter.outerHeight() + 'px'});
         }
       }, 250);
     }

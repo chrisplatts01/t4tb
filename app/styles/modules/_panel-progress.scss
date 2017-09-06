@@ -163,39 +163,6 @@
     }
   }
 
-  footer {
-    position: relative;
-    background-color: $mid-gray;
-    padding: $small-spacing 0;
-
-    .footer-info {
-      position: relative;
-
-      a {
-        &:link,
-        &:active,
-        &:visited {
-          display: block;
-          color: $dark-gray;
-          text-align: left;
-          padding-left: $base-spacing;
-          padding-right: $base-spacing * 2.5;
-
-          @include breakpoint(medium) {
-            text-align: right;
-          }
-        }
-
-        &::after {
-          position: absolute;
-          top: 0;
-          right: $base-spacing;
-          content: url('/images/grey-cross-icon.svg');
-        }
-      }
-    }
-  }
-
   .participant-info {
     border: 1px solid $mid-gray;
     height: 400px;
@@ -254,6 +221,39 @@
 
     article{
       display: none;
+    }
+  }
+}
+
+#exit-link {
+  position: relative;
+  background-color: $mid-gray;
+  padding: $small-spacing 0;
+
+  .wrapper {
+    position: relative;
+
+    a {
+      &:link,
+      &:active,
+      &:visited {
+        display: block;
+        color: $dark-gray;
+        text-align: left;
+        padding-left: $base-spacing;
+        padding-right: $base-spacing * 2.5;
+
+        @include breakpoint(medium) {
+          text-align: right;
+        }
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: $base-spacing;
+        content: url('/images/grey-cross-icon.svg');
+      }
     }
   }
 }
